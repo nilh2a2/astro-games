@@ -6,7 +6,7 @@ import Footer from "@/components/Footer.astro";
 import { SITE } from "@/config";
 import { getUiText } from "@/utils/getUiText";
 
-const backUrl = SITE.showBackButton ? `${Astro.url.pathname}` : "/";
+const backUrl = Astro.url.pathname;
 
 // Compute UI text values for script
 const devWarning = getUiText("pages.search.devWarning");

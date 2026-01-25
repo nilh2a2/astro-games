@@ -1,24 +1,19 @@
 ---
 import IconChevronLeft from "@/assets/icons/IconChevronLeft.svg";
 import LinkButton from "./LinkButton.astro";
-import { SITE } from "@/config";
 import { getUiText } from "@/utils/getUiText";
 ---
 
-{
-  SITE.showBackButton && (
-    <div class="app-layout flex items-center justify-start">
-      <LinkButton
-        id="back-button"
-        href="/"
-        class="focus-outline -ms-2 mt-8 mb-2 hover:text-foreground/75"
-      >
-        <IconChevronLeft class="inline-block size-6 rtl:rotate-180" />
-        <span>{getUiText("buttons.goBack")}</span>
-      </LinkButton>
-    </div>
-  )
-}
+<div class="app-layout flex items-center justify-start">
+  <LinkButton
+    id="back-button"
+    href="/"
+    class="focus-outline -ms-2 mt-8 mb-2 hover:text-foreground/75"
+  >
+    <IconChevronLeft class="inline-block size-6 rtl:rotate-180" />
+    <span>{getUiText("buttons.goBack")}</span>
+  </LinkButton>
+</div>
 
 <script>
   /* Update Search Praam */

@@ -7,23 +7,16 @@ import LinkButton from "@/components/LinkButton.astro";
 import FeaturedCarousel from "@/components/FeaturedCarousel.astro";
 import GameGrid from "@/components/GameGrid.astro";
 import RecentlyAdded from "@/components/RecentlyAdded.astro";
-import Card from "@/components/Card.astro";
-import getSortedPosts from "@/utils/getSortedPosts";
 import getSortedGames from "@/utils/getSortedGames";
 import getGamesByCategory from "@/utils/getGamesByCategory";
 import IconArrowRight from "@/assets/icons/IconArrowRight.svg";
-import { SITE } from "@/config";
 
 const games = await getCollection("games");
-const posts = await getCollection("blog");
 
 const sortedGames = getSortedGames(games);
 const featuredGames = sortedGames.filter(({ data }) => data.featured);
 const popularGames = sortedGames.filter(({ data }) => data.popular);
 const actionGames = getGamesByCategory(sortedGames, "action").slice(0, 4);
-
-const sortedPosts = getSortedPosts(posts);
-const recentPosts = sortedPosts.filter(({ data }) => !data.featured).slice(0, SITE.postPerIndex);
 ---
 
 <Layout>
@@ -101,28 +94,6 @@ const recentPosts = sortedPosts.filter(({ data }) => !data.featured).slice(0, SI
         <section id="popular" class="py-12">
           <h2 class="mb-6 text-3xl font-bold">Popular Games</h2>
           <GameGrid games={popularGames.slice(0, 8)} />
-        </section>
-      )
-    }
-
-    <hr class="my-8 border-dashed" />
-
-    <!-- Recent Blog Posts (if any) -->
-    {
-      recentPosts.length > 0 && (
-        <section id="recent-posts" class="py-12">
-          <div class="mb-6 flex items-center justify-between">
-            <h2 class="text-3xl font-bold">Latest Blog Posts</h2>
-            <LinkButton href="/posts/">
-              View All
-              <IconArrowRight class="inline-block rtl:-rotate-180" />
-            </LinkButton>
-          </div>
-          <ul>
-            {recentPosts.map(data => (
-              <Card variant="h3" {...data} />
-            ))}
-          </ul>
         </section>
       )
     }

@@ -7,7 +7,7 @@ import BackButton from "@/components/BackButton.astro";
 import BackToTopButton from "@/components/BackToTopButton.astro";
 import GameMetadata from "@/components/GameMetadata.astro";
 import RelatedGames from "@/components/RelatedGames.astro";
-import getGamePath, { getCategoryPath } from "@/utils/getGamePath";
+import { getCategoryPath } from "@/utils/getGamePath";
 import getRelatedGames from "@/utils/getRelatedGames";
 import { slugifyStr } from "@/utils/slugify";
 import { SITE } from "@/config";
@@ -45,10 +45,6 @@ if (typeof initOgImage === "string") {
   ogImageUrl = initOgImage.src;
 }
 
-if (!ogImageUrl && SITE.dynamicOgImage) {
-  ogImageUrl = `${getGamePath(game)}/index.png`;
-}
-
 const ogImage = ogImageUrl
   ? new URL(ogImageUrl, Astro.url.origin).href
   : undefined;
@@ -69,10 +65,7 @@ const relatedGamesList = getRelatedGames(games, game, 6);
 <Layout {...layoutProps}>
   <Header />
   <BackButton />
-  <main
-    id="main-content"
-    class:list={["app-layout pb-12", { "mt-8": !SITE.showBackButton }]}
-  >
+  <main id="main-content" class="app-layout pb-12 mt-8">
     <!-- Breadcrumb -->
     <nav class="mb-6 flex items-center gap-2 text-sm">
       <a href="/" class="text-skin-accent hover:underline">Home</a>
