@@ -9,7 +9,7 @@ type Props = {
 
 const { variant: Heading = "h2", data } = Astro.props;
 
-const { title, description, thumbnail, category, rating, playCount, featured, popular, new: isNew } = data;
+const { title, description, thumbnail, category, rating, featured, popular, new: isNew } = data;
 const gamePath = getGamePath(Astro.props);
 ---
 
@@ -64,9 +64,6 @@ const gamePath = getGamePath(Astro.props);
               </svg>
               {rating.toFixed(1)}
             </span>
-          )}
-          {playCount > 0 && (
-            <span>{playCount.toLocaleString()} plays</span>
           )}
         </div>
       </div>
