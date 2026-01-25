@@ -8,6 +8,7 @@ import GameGrid from "@/components/GameGrid.astro";
 import getGamesByCategory from "@/utils/getGamesByCategory";
 import getSortedGames from "@/utils/getSortedGames";
 import getUniqueCategories from "@/utils/getUniqueCategories";
+import { getUiText } from "@/utils/getUiText";
 
 export async function getStaticPaths() {
   const games = await getCollection("games");
@@ -25,7 +26,7 @@ const categoryGames = getGamesByCategory(sortedGames, category);
 const allCategories = getUniqueCategories(games);
 
 const categoryTitle = category.charAt(0).toUpperCase() + category.slice(1);
-const pageTitle = `${categoryTitle} Games | Astro Games`;
+const pageTitle = `${categoryTitle} Games | ${getUiText("site.title")}`;
 const pageDesc = `Browse all ${categoryTitle.toLowerCase()} games. Play free ${categoryTitle.toLowerCase()} games online.`;
 ---
 
@@ -53,7 +54,7 @@ const pageDesc = `Browse all ${categoryTitle.toLowerCase()} games. Play free ${c
       <GameGrid games={categoryGames} />
     ) : (
       <div class="text-center py-12">
-        <p class="text-lg text-skin-base/60">No games found in this category yet. Check back soon!</p>
+        <p class="text-lg text-skin-base/60">{getUiText("pages.categories.noGames")}</p>
       </div>
     )}
   </Main>

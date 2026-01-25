@@ -1,4 +1,6 @@
 ---
+import { getUiText } from "@/utils/getUiText";
+
 type Props = {
   content: string;
 };
@@ -9,7 +11,7 @@ const { content } = Astro.props;
 <div class="rounded-lg border-2 border-skin-line bg-skin-card p-6">
   <details class="group">
     <summary class="flex cursor-pointer items-center gap-2 text-xl font-bold hover:text-skin-accent">
-      How to Play
+      {getUiText("game.howToPlay")}
       <svg
         class="h-5 w-5 transition-transform group-open:rotate-180"
         fill="none"

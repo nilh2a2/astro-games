@@ -11,6 +11,7 @@ import GameCardCompact from "@/components/GameCardCompact.astro";
 import { getCategoryPath } from "@/utils/getGamePath";
 import getRelatedGames from "@/utils/getRelatedGames";
 import { slugifyStr } from "@/utils/slugify";
+import { getUiText } from "@/utils/getUiText";
 import { SITE } from "@/config";
 
 type Props = {
@@ -70,12 +71,12 @@ const bottomGames = relatedGamesList.slice(5);
   <main id="main-content" class="app-layout pb-12 mt-8">
     <!-- Breadcrumb -->
     <nav class="mb-6 flex items-center gap-2 text-sm">
-      <a href="/" class="text-skin-accent hover:underline">Home</a>
-      <span class="text-skin-base/60">/</span>
+      <a href="/" class="text-skin-accent hover:underline">{getUiText("breadcrumb.home")}</a>
+      <span class="text-skin-base/60">{getUiText("breadcrumb.separator")}</span>
       <a href={getCategoryPath(category)} class="text-skin-accent hover:underline capitalize">
         {category}
       </a>
-      <span class="text-skin-base/60">/</span>
+      <span class="text-skin-base/60">{getUiText("breadcrumb.separator")}</span>
       <span class="text-skin-base">{title}</span>
     </nav>
 
@@ -127,7 +128,7 @@ const bottomGames = relatedGamesList.slice(5);
     <!-- Related Games -->
     {relatedGamesList.length > 0 && (
       <div class="mb-12">
-        <h2 class="mb-6 text-2xl font-bold">Related Games</h2>
+        <h2 class="mb-6 text-2xl font-bold">{getUiText("game.relatedGames")}</h2>
         <!-- Mobile: Show all games (sidebar hidden on mobile) -->
         <div class="lg:hidden">
           <RelatedGames games={relatedGamesList} />

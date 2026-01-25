@@ -7,6 +7,7 @@ import Footer from "@/components/Footer.astro";
 import getUniqueCategories from "@/utils/getUniqueCategories";
 import getGamesByCategory from "@/utils/getGamesByCategory";
 import getSortedGames from "@/utils/getSortedGames";
+import { getUiText } from "@/utils/getUiText";
 
 const games = await getCollection("games");
 const sortedGames = getSortedGames(games);
@@ -17,13 +18,13 @@ const categoriesWithCount = categories.map(category => ({
   count: getGamesByCategory(sortedGames, category).length,
 }));
 
-const pageTitle = "Browse Games by Category | Astro Games";
-const pageDesc = "Browse all game categories. Find your favorite type of games to play online.";
+const pageTitle = `${getUiText("pages.categories.title")} | ${getUiText("site.title")}`;
+const pageDesc = getUiText("pages.categories.description");
 ---
 
 <Layout title={pageTitle} description={pageDesc}>
   <Header />
-  <Main pageTitle="Browse by Category" pageDesc={pageDesc}>
+  <Main pageTitle={getUiText("pages.categories.title")} pageDesc={pageDesc}>
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
       {categoriesWithCount.map(({ name, count }) => (
         <a

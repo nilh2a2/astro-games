@@ -19,15 +19,15 @@ const { noMarginTop = false, class: className, ...attrs } = Astro.props;
   <div class="py-6 sm:py-4 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm">
     <!-- Left: Navigation Links -->
     <nav class="flex flex-wrap items-center justify-center sm:justify-start gap-x-2">
-      <a href="/about" class="hover:text-accent">About</a>
+      <a href="/about" class="hover:text-accent">{getUiText("nav.navLinks.about")}</a>
       <span class="text-border">|</span>
-      <a href="/help" class="hover:text-accent">Help</a>
+      <a href="/help" class="hover:text-accent">{getUiText("nav.navLinks.help")}</a>
       <span class="text-border">|</span>
-      <a href="/privacy" class="hover:text-accent">Privacy</a>
+      <a href="/privacy" class="hover:text-accent">{getUiText("nav.navLinks.privacy")}</a>
       <span class="text-border">|</span>
-      <a href="/terms" class="hover:text-accent">Terms</a>
+      <a href="/terms" class="hover:text-accent">{getUiText("nav.navLinks.terms")}</a>
       <span class="text-border">|</span>
-      <a href="/contact" class="hover:text-accent">Contact</a>
+      <a href="/contact" class="hover:text-accent">{getUiText("nav.navLinks.contact")}</a>
     </nav>
 
     <!-- Center: Social Icons -->

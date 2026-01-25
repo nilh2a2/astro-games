@@ -1,4 +1,16 @@
 {
+  "site": {
+    "title": "Astro Games",
+    "description": "Play free games online. No download required. Hundreds of fun games to play instantly.",
+    "website": "https://astro-games.pages.dev/",
+    "author": "Sat Naing",
+    "profile": "https://satnaing.dev/",
+    "ogImage": "astrogames-og.jpg",
+    "lightAndDarkMode": true,
+    "dir": "ltr",
+    "lang": "en",
+    "timezone": "Asia/Bangkok"
+  },
   "nav": {
     "skipToContent": "Skip to content",
     "posts": "Posts",
@@ -8,9 +20,17 @@
     "search": "Search",
     "games": "Games",
     "categories": "Categories",
+    "all": "All",
     "openMenu": "Open Menu",
     "closeMenu": "Close Menu",
-    "toggleTheme": "Toggles light & dark"
+    "toggleTheme": "Toggles light & dark",
+    "navLinks": {
+      "about": "About",
+      "help": "Help",
+      "privacy": "Privacy",
+      "terms": "Terms",
+      "contact": "Contact"
+    }
   },
   "footer": {
     "copyright": "Copyright ©",
@@ -28,7 +48,12 @@
     "backToTop": "Back To Top",
     "copy": "Copy",
     "copied": "Copied",
-    "playNow": "Play Now"
+    "playNow": "Play Now",
+    "viewAll": "View All"
+  },
+  "badges": {
+    "new": "New",
+    "popular": "Popular"
   },
   "share": {
     "shareThisPost": "Share this post on:"
@@ -49,11 +74,20 @@
   },
   "breadcrumb": {
     "home": "Home",
-    "separator": "»"
+    "separator": "/"
+  },
+  "gameCategories": {
+    "action": "Action Games",
+    "racing": "Racing Games",
+    "sports": "Sports Games",
+    "puzzle": "Puzzle Games",
+    "adventure": "Adventure Games",
+    "strategy": "Strategy Games"
   },
   "pages": {
     "home": {
       "greeting": "Mingalaba",
+      "heroText": "Unblocked Games: Play online games. No downloads. Best collection of unlocked games for school in 2026. All featured games.",
       "description": "Astro Games is a minimal, responsive, accessible and SEO-friendly Astro blog theme. This theme follows best practices and provides accessibility out of the box. Light and dark mode are supported by default. Moreover, additional color schemes can also be configured.",
       "readMore": "Read the blog posts or check",
       "readmeLink": "README",
@@ -65,6 +99,7 @@
       "featuredGames": "Featured Games",
       "recentlyAdded": "Recently Added",
       "popularGames": "Popular Games",
+      "newGames": "New Games",
       "allGames": "All Games",
       "browseGames": "Browse Games"
     },
@@ -97,14 +132,9 @@
       "tagDescription": "All the articles with the tag"
     },
     "categories": {
-      "title": "Categories",
+      "title": "Browse by Category",
       "description": "Browse games by category",
-      "action": "Action Games",
-      "racing": "Racing Games",
-      "sports": "Sports Games",
-      "puzzle": "Puzzle Games",
-      "adventure": "Adventure Games",
-      "strategy": "Strategy Games"
+      "noGames": "No games found in this category yet. Check back soon!"
     },
     "search": {
       "title": "Search",
@@ -120,5 +150,61 @@
       "goHome": "Go back home",
       "shrug": "¯\\_(ツ)_/¯"
     }
+  },
+  "social": {
+    "links": [
+      {
+        "name": "GitHub",
+        "href": "https://github.com/satnaing/astro-games",
+        "linkTitle": "on GitHub"
+      },
+      {
+        "name": "X",
+        "href": "https://x.com/username",
+        "linkTitle": "on X"
+      },
+      {
+        "name": "LinkedIn",
+        "href": "https://www.linkedin.com/in/username/",
+        "linkTitle": "on LinkedIn"
+      },
+      {
+        "name": "Mail",
+        "href": "mailto:yourmail@gmail.com",
+        "linkTitle": "Send an email to"
+      }
+    ],
+    "share": [
+      {
+        "name": "WhatsApp",
+        "href": "https://wa.me/?text=",
+        "linkTitle": "Share this post via WhatsApp"
+      },
+      {
+        "name": "Facebook",
+        "href": "https://www.facebook.com/sharer.php?u=",
+        "linkTitle": "Share this post on Facebook"
+      },
+      {
+        "name": "X",
+        "href": "https://x.com/intent/post?url=",
+        "linkTitle": "Share this post on X"
+      },
+      {
+        "name": "Telegram",
+        "href": "https://t.me/share/url?url=",
+        "linkTitle": "Share this post via Telegram"
+      },
+      {
+        "name": "Pinterest",
+        "href": "https://pinterest.com/pin/create/button/?url=",
+        "linkTitle": "Share this post on Pinterest"
+      },
+      {
+        "name": "Mail",
+        "href": "mailto:?subject=See%20this%20post&body=",
+        "linkTitle": "Share this post via email"
+      }
+    ]
   }
 }
