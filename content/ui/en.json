@@ -33,8 +33,7 @@
   "post": {
     "previousPost": "Previous Post",
     "nextPost": "Next Post",
-    "updated": "Updated:",
-    "editPage": "Edit page"
+    "updated": "Updated:"
   },
   "breadcrumb": {
     "home": "Home",
@@ -50,8 +49,7 @@
       "socialLinks": "Social Links:",
       "featured": "Featured",
       "recentPosts": "Recent Posts",
-      "allPosts": "All Posts",
-      "rssTitle": "RSS Feed"
+      "allPosts": "All Posts"
     },
     "posts": {
       "title": "Posts",
