@@ -1,0 +1,13 @@
+:root {
+    --custom-primary-base: #90F;
+}
+
+iframe {
+    min-width: 800px;
+    min-height: 600px;
+}
+
+.game-description {
+    max-width: 800px;
+    margin-top: 3rem;
+}
