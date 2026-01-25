@@ -11,8 +11,6 @@ const games = defineCollection({
       slug: z.string(),
       category: z.enum(["action", "racing", "sports", "puzzle", "adventure", "strategy"]),
       description: z.string(),
-      fullDescription: z.string().optional(),
-      howToPlay: z.string().optional(),
       gameUrl: z.string().url(),
       thumbnail: image().optional(),
       coverImage: image().optional(),

@@ -4,7 +4,6 @@ import Layout from "@/layouts/Layout.astro";
 import Header from "@/components/Header.astro";
 import Footer from "@/components/Footer.astro";
 import LinkButton from "@/components/LinkButton.astro";
-import FeaturedCarousel from "@/components/FeaturedCarousel.astro";
 import GameGrid from "@/components/GameGrid.astro";
 import RecentlyAdded from "@/components/RecentlyAdded.astro";
 import getSortedGames from "@/utils/getSortedGames";
@@ -14,7 +13,6 @@ import IconArrowRight from "@/assets/icons/IconArrowRight.svg";
 const games = await getCollection("games");
 
 const sortedGames = getSortedGames(games);
-const featuredGames = sortedGames.filter(({ data }) => data.featured);
 const popularGames = sortedGames.filter(({ data }) => data.popular);
 const actionGames = getGamesByCategory(sortedGames, "action").slice(0, 4);
 ---
@@ -37,18 +35,6 @@ const actionGames = getGamesByCategory(sortedGames, "action").slice(0, 4);
         </LinkButton>
       </div>
     </section>
-
-    <hr class="my-8 border-dashed" />
-
-    <!-- Featured Carousel -->
-    {
-      featuredGames.length > 0 && (
-        <section id="featured-carousel" class="py-12">
-          <h2 class="mb-6 text-3xl font-bold">Featured Games</h2>
-          <FeaturedCarousel games={featuredGames} />
-        </section>
-      )
-    }
 
     <hr class="my-8 border-dashed" />
 

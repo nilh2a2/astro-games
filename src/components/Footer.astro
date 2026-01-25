@@ -16,23 +16,19 @@ const { noMarginTop = false, class: className, ...attrs } = Astro.props;
   class:list={["app-layout", { "mt-auto": !noMarginTop }, className]}
   {...attrs}
 >
-  <!-- Navigation Section -->
-  <nav class="grid grid-cols-2 gap-8 mb-6 py-6 border-t border-border sm:grid-cols-4">
-    <div>
-      <h3 class="font-semibold mb-2">Product</h3>
-      <ul class="space-y-1">
-        <li><a href="/about" class="hover:text-accent">About</a></li>
-        <li><a href="/help" class="hover:text-accent">Help</a></li>
-      </ul>
-    </div>
-    <div>
-      <h3 class="font-semibold mb-2">Support</h3>
-      <ul class="space-y-1">
-        <li><a href="/privacy" class="hover:text-accent">Privacy Policy</a></li>
-        <li><a href="/terms" class="hover:text-accent">Terms of Service</a></li>
-        <li><a href="/contact" class="hover:text-accent">Contact</a></li>
-      </ul>
-    </div>
+  <!-- Navigation Links -->
+  <nav class="py-4 border-t border-border">
+    <ul class="flex flex-wrap items-center justify-center gap-x-2 text-sm">
+      <li><a href="/about" class="hover:text-accent">About</a></li>
+      <li class="text-border">|</li>
+      <li><a href="/help" class="hover:text-accent">Help</a></li>
+      <li class="text-border">|</li>
+      <li><a href="/privacy" class="hover:text-accent">Privacy</a></li>
+      <li class="text-border">|</li>
+      <li><a href="/terms" class="hover:text-accent">Terms</a></li>
+      <li class="text-border">|</li>
+      <li><a href="/contact" class="hover:text-accent">Contact</a></li>
+    </ul>
   </nav>
 
   <div

@@ -8,7 +8,7 @@ type Props = {
 };
 
 export async function getStaticPaths() {
-  const games = await getCollection("games", ({ data }) => !data.draft);
+  const games = await getCollection("games");
   const gameResult = games.map(game => ({
     params: { slug: game.data.slug },
     props: { game },

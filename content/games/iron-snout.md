@@ -3,7 +3,6 @@ title: "Iron Snout"
 slug: "iron-snout"
 category: "action"
 description: "Action game where players follow in-game instructions to complete fighting challenges."
-howToPlay: "Complete action-packed missions. Use keyboard controls to move and shoot."
 gameUrl: "https://kdata1.com/2016/10/iron-snout/"
 thumbnail: "./iron-snout.avif"
 popular: false
@@ -15,3 +14,7 @@ pubDatetime: 2026-01-25T00:00:00Z
 # Iron Snout
 
 Action game where players follow in-game instructions to complete fighting challenges.
+
+## How to Play
+
+Complete action-packed missions. Use keyboard controls to move and shoot.

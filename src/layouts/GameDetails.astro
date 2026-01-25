@@ -1,5 +1,5 @@
 ---
-import { type CollectionEntry } from "astro:content";
+import { type CollectionEntry, render } from "astro:content";
 import Layout from "@/layouts/Layout.astro";
 import Header from "@/components/Header.astro";
 import Footer from "@/components/Footer.astro";
@@ -23,8 +23,6 @@ const { game, games } = Astro.props;
 const {
   title,
   description,
-  fullDescription,
-  howToPlay,
   gameUrl,
   coverImage,
   thumbnail,
@@ -34,6 +32,8 @@ const {
   modDatetime,
   category,
 } = game.data;
+
+const { Content } = await render(game);
 
 const coverImg = coverImage || thumbnail;
 
@@ -113,48 +113,10 @@ const relatedGamesList = getRelatedGames(games, game, 6);
       </div>
     </div>
 
-    <!-- Description -->
-    {(description || fullDescription) && (
-      <div class="mb-12">
-        <h2 class="mb-4 text-2xl font-bold">About {title}</h2>
-        <div class="app-prose">
-          {fullDescription ? (
-            <p>{fullDescription}</p>
-          ) : (
-            <p>{description}</p>
-          )}
-        </div>
-      </div>
-    )}
-
-    <!-- How to Play -->
-    {howToPlay && (
-      <div class="mb-12">
-        <details class="group rounded-lg border-2 border-skin-line bg-skin-card p-6">
-          <summary class="flex cursor-pointer items-center gap-2 text-xl font-bold hover:text-skin-accent">
-            How to Play
-            <svg
-              class="h-5 w-5 transition-transform group-open:rotate-180"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M19 14l-7 7m0 0l-7-7m7 7V3"
-              />
-            </svg>
-          </summary>
-          <div class="app-prose mt-4">
-            {howToPlay.split('\n').map((line: string) => (
-              <p>{line}</p>
-            ))}
-          </div>
-        </details>
-      </div>
-    )}
+    <!-- Game Content -->
+    <div class="mb-12 app-prose">
+      <Content />
+    </div>
 
     <hr class="my-8 border-dashed" />
 

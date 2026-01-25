@@ -2,7 +2,7 @@ import type { CollectionEntry } from "astro:content";
 
 const gameFilter = ({ data }: CollectionEntry<"games">) => {
   const isPublishTimePassed = Date.now() > new Date(data.pubDatetime).getTime();
-  return !data.draft && (import.meta.env.DEV || isPublishTimePassed);
+  return import.meta.env.DEV || isPublishTimePassed;
 };
 
 export default gameFilter;
