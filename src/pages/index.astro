@@ -5,81 +5,152 @@ import Header from "@/components/Header.astro";
 import Footer from "@/components/Footer.astro";
 import LinkButton from "@/components/LinkButton.astro";
 import GameGrid from "@/components/GameGrid.astro";
-import RecentlyAdded from "@/components/RecentlyAdded.astro";
 import getSortedGames from "@/utils/getSortedGames";
 import getGamesByCategory from "@/utils/getGamesByCategory";
 import IconArrowRight from "@/assets/icons/IconArrowRight.svg";
 
 const games = await getCollection("games");
-
 const sortedGames = getSortedGames(games);
+
+// Get games by type
 const popularGames = sortedGames.filter(({ data }) => data.popular);
-const actionGames = getGamesByCategory(sortedGames, "action").slice(0, 4);
+const newGames = sortedGames.filter(({ data }) => data.new);
+
+// Get games by category
+const actionGames = getGamesByCategory(sortedGames, "action");
+const racingGames = getGamesByCategory(sortedGames, "racing");
+const sportsGames = getGamesByCategory(sortedGames, "sports");
+const puzzleGames = getGamesByCategory(sortedGames, "puzzle");
+const adventureGames = getGamesByCategory(sortedGames, "adventure");
+const strategyGames = getGamesByCategory(sortedGames, "strategy");
 ---
 
 <Layout>
   <Header />
   <main id="main-content" data-layout="index" class="app-layout">
     <!-- Hero Section -->
-    <section id="hero" class:list={["py-12"]}>
-      <h1 class="my-4 inline-block text-4xl font-bold sm:my-8 sm:text-5xl">
-        Play Free Games Online
-      </h1>
+    <section id="hero" class:list={["py-6"]}>
       <p class="text-lg text-skin-base/90">
-        Discover and play hundreds of fun, free games directly in your browser. No download required.
+        Unblocked Games: Play online games. No downloads. Best collection of unlocked games for school in 2026. All featured games.
       </p>
-      <div class="mt-6 flex flex-wrap gap-4">
-        <LinkButton href="/category/action/">
-          Browse Games
-          <IconArrowRight class="inline-block rtl:-rotate-180" />
-        </LinkButton>
-      </div>
     </section>
 
-    <hr class="my-8 border-dashed" />
+    <!-- Popular Games -->
+    {
+      popularGames.length > 0 && (
+        <section id="popular" class="py-8">
+          <div class="mb-6 flex items-center justify-between">
+            <h2 class="text-2xl font-bold">Popular Games</h2>
+          </div>
+          <GameGrid games={popularGames.slice(0, 12)} />
+        </section>
+      )
+    }
 
-    <!-- Category Preview: Action Games -->
+    <!-- New Games -->
+    {
+      newGames.length > 0 && (
+        <section id="new" class="py-8">
+          <div class="mb-6 flex items-center justify-between">
+            <h2 class="text-2xl font-bold">New Games</h2>
+          </div>
+          <GameGrid games={newGames.slice(0, 12)} />
+        </section>
+      )
+    }
+
+    <!-- Action Games -->
     {
       actionGames.length > 0 && (
-        <section id="action-preview" class="py-12">
+        <section id="action" class="py-8">
           <div class="mb-6 flex items-center justify-between">
-            <h2 class="text-3xl font-bold">Action Games</h2>
+            <h2 class="text-2xl font-bold">Action Games</h2>
             <LinkButton href="/category/action/">
               View All
               <IconArrowRight class="inline-block rtl:-rotate-180" />
             </LinkButton>
           </div>
-          <GameGrid games={actionGames} />
+          <GameGrid games={actionGames.slice(0, 6)} />
         </section>
       )
     }
 
-    <hr class="my-8 border-dashed" />
-
-    <!-- Recently Added Games -->
+    <!-- Racing Games -->
     {
-      sortedGames.length > 0 && (
-        <section id="recently-added" class="py-12">
+      racingGames.length > 0 && (
+        <section id="racing" class="py-8">
           <div class="mb-6 flex items-center justify-between">
-            <h2 class="text-3xl font-bold">Recently Added</h2>
-            <LinkButton href="/category/action/">
-              Browse All
+            <h2 class="text-2xl font-bold">Racing Games</h2>
+            <LinkButton href="/category/racing/">
+              View All
               <IconArrowRight class="inline-block rtl:-rotate-180" />
             </LinkButton>
           </div>
-          <RecentlyAdded games={sortedGames} limit={8} />
+          <GameGrid games={racingGames.slice(0, 6)} />
         </section>
       )
     }
 
-    <hr class="my-8 border-dashed" />
-
-    <!-- Popular Games -->
+    <!-- Sports Games -->
     {
-      popularGames.length > 0 && (
-        <section id="popular" class="py-12">
-          <h2 class="mb-6 text-3xl font-bold">Popular Games</h2>
-          <GameGrid games={popularGames.slice(0, 8)} />
+      sportsGames.length > 0 && (
+        <section id="sports" class="py-8">
+          <div class="mb-6 flex items-center justify-between">
+            <h2 class="text-2xl font-bold">Sports Games</h2>
+            <LinkButton href="/category/sports/">
+              View All
+              <IconArrowRight class="inline-block rtl:-rotate-180" />
+            </LinkButton>
+          </div>
+          <GameGrid games={sportsGames.slice(0, 6)} />
+        </section>
+      )
+    }
+
+    <!-- Puzzle Games -->
+    {
+      puzzleGames.length > 0 && (
+        <section id="puzzle" class="py-8">
+          <div class="mb-6 flex items-center justify-between">
+            <h2 class="text-2xl font-bold">Puzzle Games</h2>
+            <LinkButton href="/category/puzzle/">
+              View All
+              <IconArrowRight class="inline-block rtl:-rotate-180" />
+            </LinkButton>
+          </div>
+          <GameGrid games={puzzleGames.slice(0, 6)} />
+        </section>
+      )
+    }
+
+    <!-- Adventure Games -->
+    {
+      adventureGames.length > 0 && (
+        <section id="adventure" class="py-8">
+          <div class="mb-6 flex items-center justify-between">
+            <h2 class="text-2xl font-bold">Adventure Games</h2>
+            <LinkButton href="/category/adventure/">
+              View All
+              <IconArrowRight class="inline-block rtl:-rotate-180" />
+            </LinkButton>
+          </div>
+          <GameGrid games={adventureGames.slice(0, 6)} />
+        </section>
+      )
+    }
+
+    <!-- Strategy Games -->
+    {
+      strategyGames.length > 0 && (
+        <section id="strategy" class="py-8">
+          <div class="mb-6 flex items-center justify-between">
+            <h2 class="text-2xl font-bold">Strategy Games</h2>
+            <LinkButton href="/category/strategy/">
+              View All
+              <IconArrowRight class="inline-block rtl:-rotate-180" />
+            </LinkButton>
+          </div>
+          <GameGrid games={strategyGames.slice(0, 6)} />
         </section>
       )
     }

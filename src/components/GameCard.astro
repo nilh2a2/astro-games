@@ -15,7 +15,7 @@ const gamePath = getGamePath(Astro.props);
 
 <li class="group relative overflow-hidden rounded-lg border-2 border-skin-line bg-skin-card transition-all hover:border-skin-accent">
   <a href={gamePath} class="block">
-    <div class="relative aspect-video overflow-hidden bg-skin-accent/10">
+    <div class="relative aspect-[16/10] overflow-hidden bg-skin-accent/10">
       {thumbnail ? (
         <Image
           src={thumbnail}
@@ -46,9 +46,6 @@ const gamePath = getGamePath(Astro.props);
       <Heading class="mb-1 line-clamp-1 text-lg font-bold text-skin-base">
         {title}
       </Heading>
-      <p class="mb-2 line-clamp-2 text-sm text-skin-base/80">
-        {description}
-      </p>
       <div class="flex items-center justify-between text-xs text-skin-base/60">
         <span class="capitalize">{category}</span>
         <div class="flex items-center gap-3">
