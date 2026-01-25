@@ -7,9 +7,11 @@ import Footer from "@/components/Footer.astro";
 import GameGrid from "@/components/GameGrid.astro";
 import getGamesByCategory from "@/utils/getGamesByCategory";
 import getSortedGames from "@/utils/getSortedGames";
+import getUniqueCategories from "@/utils/getUniqueCategories";
 
 export async function getStaticPaths() {
-  const categories = ["action", "racing", "sports", "puzzle", "adventure", "strategy"];
+  const games = await getCollection("games");
+  const categories = getUniqueCategories(games);
   return categories.map(category => ({
     params: { category },
   }));
@@ -20,8 +22,8 @@ const { category } = Astro.params as { category: string };
 const games = await getCollection("games");
 const sortedGames = getSortedGames(games);
 const categoryGames = getGamesByCategory(sortedGames, category);
+const allCategories = getUniqueCategories(games);
 
-const CATEGORIES = ["action", "racing", "sports", "puzzle", "adventure", "strategy"];
 const categoryTitle = category.charAt(0).toUpperCase() + category.slice(1);
 const pageTitle = `${categoryTitle} Games | Astro Games`;
 const pageDesc = `Browse all ${categoryTitle.toLowerCase()} games. Play free ${categoryTitle.toLowerCase()} games online.`;
@@ -32,7 +34,7 @@ const pageDesc = `Browse all ${categoryTitle.toLowerCase()} games. Play free ${c
   <Main pageTitle={`${categoryTitle} Games`} pageDesc={pageDesc}>
     <!-- Category Navigation -->
     <nav class="mb-8 flex flex-wrap gap-2">
-      {CATEGORIES.map(cat => (
+      {allCategories.map(cat => (
         <a
           href={`/category/${cat}/`}
           class:list={[

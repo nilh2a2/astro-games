@@ -59,7 +59,7 @@ const layoutProps = {
   scrollSmooth: true,
 };
 
-const relatedGamesList = getRelatedGames(games, game, 6);
+const relatedGamesList = getRelatedGames(games, game, 12);
 ---
 
 <Layout {...layoutProps}>
@@ -88,33 +88,19 @@ const relatedGamesList = getRelatedGames(games, game, 6);
       <GameMetadata game={game} />
     </div>
 
-    <!-- Game Cover Image -->
-    {coverImg && (
-      <div class="mb-8 overflow-hidden rounded-lg">
-        <Image
-          src={coverImg}
-          alt={title}
-          class="w-full"
-        />
-      </div>
-    )}
-
     <!-- Game Player Section -->
-    <div class="mb-12 rounded-lg border-2 border-skin-line bg-skin-card p-6">
-      <h2 class="mb-4 text-2xl font-bold">Play Now</h2>
-      <div class="relative aspect-video overflow-hidden rounded bg-black">
-        <iframe
-          src={gameUrl}
-          title={title}
-          class="h-full w-full border-0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-        />
-      </div>
+    <div class="mb-12 relative aspect-video overflow-hidden rounded bg-black">
+      <iframe
+        src={gameUrl}
+        title={title}
+        class="h-full w-full border-0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      />
     </div>
 
     <!-- Game Content -->
-    <div class="mb-12 app-prose">
+    <div class="mb-12 app-prose max-w-none">
       <Content />
     </div>
 

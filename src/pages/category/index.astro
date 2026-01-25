@@ -1,0 +1,45 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "@/layouts/Layout.astro";
+import Main from "@/layouts/Main.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import getUniqueCategories from "@/utils/getUniqueCategories";
+import getGamesByCategory from "@/utils/getGamesByCategory";
+import getSortedGames from "@/utils/getSortedGames";
+
+const games = await getCollection("games");
+const sortedGames = getSortedGames(games);
+const categories = getUniqueCategories(games);
+
+const categoriesWithCount = categories.map(category => ({
+  name: category,
+  count: getGamesByCategory(sortedGames, category).length,
+}));
+
+const pageTitle = "Browse Games by Category | Astro Games";
+const pageDesc = "Browse all game categories. Find your favorite type of games to play online.";
+---
+
+<Layout title={pageTitle} description={pageDesc}>
+  <Header />
+  <Main pageTitle="Browse by Category" pageDesc={pageDesc}>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {categoriesWithCount.map(({ name, count }) => (
+        <a
+          href={`/category/${name}/`}
+          class="group block rounded-xl bg-skin-card p-6 shadow-sm transition-all hover:shadow-md hover:scale-105"
+        >
+          <h2 class="text-2xl font-bold capitalize text-skin-accent mb-2">
+            {name}
+          </h2>
+          <p class="text-skin-base/70">
+            {count} {count === 1 ? 'game' : 'games'}
+          </p>
+        </a>
+      ))}
+    </div>
+  </Main>
+
+  <Footer />
+</Layout>
