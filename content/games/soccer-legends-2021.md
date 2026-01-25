@@ -6,7 +6,6 @@ description: "Sports game where players use special moves and unlock characters 
 howToPlay: "Score goals and win matches. Use keyboard controls to move and shoot."
 gameUrl: "https://games.crazygames.com/en_US/soccer-legends-2021/index.html"
 thumbnail: "./soccer-legends-2021.avif"
-featured: false
 popular: false
 new: false
 rating: 4.5

@@ -6,7 +6,6 @@ description: "Action game where players use simple one-button controls to time p
 howToPlay: "Complete action-packed missions. Use keyboard controls to move and shoot."
 gameUrl: "https://play.gamepix.com/drunken-duel/embed"
 thumbnail: "./drunken-duel.avif"
-featured: false
 popular: false
 new: false
 rating: 4.5

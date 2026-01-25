@@ -6,7 +6,6 @@ description: "Racing game where players perform stunts on motorcycles while avoi
 howToPlay: "Complete stunt courses as fast as possible. Use arrow keys to control your bike."
 gameUrl: "https://gamedistribution.gamiary.com/5b0abd4c0faa4f5eb190a9a16d5a1b4c/"
 thumbnail: "./moto-x3m.avif"
-featured: false
 popular: false
 new: false
 rating: 4.5

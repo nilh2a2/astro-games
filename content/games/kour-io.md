@@ -6,7 +6,6 @@ description: "Action game where players use parkour mechanics to race against re
 howToPlay: "Complete action-packed missions. Use keyboard controls to move and shoot."
 gameUrl: "https://kour.io/"
 thumbnail: "./kour-io.avif"
-featured: false
 popular: false
 new: false
 rating: 4.5

@@ -6,7 +6,6 @@ description: "Racing game where players use turbo boosts and upgrade cars to cli
 howToPlay: "Drive through challenging courses without crashing. Use arrow keys to control your vehicle."
 gameUrl: "https://gamedistribution.gamiary.com/6b93a7631e0d41d59cd4d661b46ccf90/"
 thumbnail: "./turbo-race-3d.avif"
-featured: false
 popular: false
 new: false
 rating: 4.5

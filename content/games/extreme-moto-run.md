@@ -6,7 +6,6 @@ description: "Racing game where players conquer hazards, perform stunts, and com
 howToPlay: "Race through challenging courses on your bike. Use arrow keys to steer and perform stunts."
 gameUrl: "https://games.playzen.io/games/extreme_moto_run/index.html"
 thumbnail: "./extreme-moto-run.avif"
-featured: false
 popular: false
 new: false
 rating: 4.5

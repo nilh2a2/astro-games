@@ -6,7 +6,6 @@ description: "Action game where players follow in-game instructions to complete 
 howToPlay: "Eliminate targets and complete missions. Use mouse to aim and click to shoot."
 gameUrl: "https://gamedistribution.gamiary.com/62a72f2da7cb4b609579a47653546e6a/"
 thumbnail: "./time-shooter-2.avif"
-featured: false
 popular: false
 new: false
 rating: 4.5

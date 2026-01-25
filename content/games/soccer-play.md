@@ -6,7 +6,6 @@ description: "Sports game where players use simple controls to score goals and i
 howToPlay: "Score goals and win matches. Use keyboard controls to move and shoot."
 gameUrl: "https://play.gamepix.com/soccer-play/embed"
 thumbnail: "./soccer-play.avif"
-featured: false
 popular: false
 new: false
 rating: 4.5

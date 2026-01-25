@@ -6,7 +6,6 @@ description: "Sports game where players perform special moves and unlock upgrade
 howToPlay: "Dominate basketball courts in solo or multiplayer matches. Use keyboard or touchscreen to move, jump, steal, and shoot."
 gameUrl: "https://games.playzen.io/games/basketball_star/index.html"
 thumbnail: "./basketball-stars.webp"
-featured: false
 popular: false
 new: false
 rating: 4.5

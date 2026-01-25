@@ -6,7 +6,6 @@ description: "Action game where players follow in-game instructions to complete 
 howToPlay: "Eliminate targets and complete missions. Use mouse to aim and click to shoot."
 gameUrl: "https://play.famobi.com/wrapper/gun-spin/A1000-10"
 thumbnail: "./gun-spin.avif"
-featured: false
 popular: false
 new: false
 rating: 4.5

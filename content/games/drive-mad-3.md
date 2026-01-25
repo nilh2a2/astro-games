@@ -6,7 +6,6 @@ description: "Racing game where players master physics and perform daring stunts
 howToPlay: "Drive through challenging courses without crashing. Use arrow keys to control your vehicle."
 gameUrl: "https://play.fancade.com/6380C7C8A113965B"
 thumbnail: "./drive-mad-3.avif"
-featured: false
 popular: false
 new: false
 rating: 4.5

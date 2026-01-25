@@ -6,7 +6,6 @@ description: "Sports game where players choose characters with special abilities
 howToPlay: "Score goals and win matches. Use keyboard controls to move and shoot."
 gameUrl: "https://soccerbros.gg/"
 thumbnail: "./soccer-bros.avif"
-featured: false
 popular: false
 new: false
 rating: 4.5

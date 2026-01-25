@@ -6,7 +6,6 @@ description: "Racing game where players time perfect drifts on narrow tracks to 
 howToPlay: "Drive through challenging courses without crashing. Use arrow keys to control your vehicle."
 gameUrl: "https://play.gamepix.com/drift-boss/embed"
 thumbnail: "./drift-boss.avif"
-featured: false
 popular: false
 new: false
 rating: 4.5

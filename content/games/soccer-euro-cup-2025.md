@@ -6,7 +6,6 @@ description: "Sports game where players control teams through tournaments using 
 howToPlay: "Score goals and win matches. Use keyboard controls to move and shoot."
 gameUrl: "https://gamedistribution.gamiary.com/608b965aa08644ceabb138d27d8661af/"
 thumbnail: "./soccer-euro-cup-2025.avif"
-featured: false
 popular: false
 new: false
 rating: 4.5

@@ -17,7 +17,6 @@ const games = defineCollection({
       thumbnail: image().optional(),
       coverImage: image().optional(),
       screenshots: z.array(image()).optional(),
-      featured: z.boolean().default(false),
       popular: z.boolean().default(false),
       new: z.boolean().default(false),
       rating: z.number().min(0).max(5).optional(),

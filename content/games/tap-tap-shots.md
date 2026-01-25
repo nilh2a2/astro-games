@@ -6,7 +6,6 @@ description: "Sports game where players tap to score consecutive baskets and bea
 howToPlay: "Make as many baskets as possible before time runs out. Use tap controls to shoot."
 gameUrl: "https://games.playzen.io/games/tap_shots/index.htm"
 thumbnail: "./tap-tap-shots.webp"
-featured: false
 popular: false
 new: false
 rating: 4.5

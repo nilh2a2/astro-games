@@ -6,7 +6,6 @@ description: "Action game where players use mouse and keyboard controls to build
 howToPlay: "Eliminate targets and complete missions. Use mouse to aim and click to shoot."
 gameUrl: "https://gamedistribution.gamiary.com/a3be1fdae89b4b24845a1af774d2b2f5/"
 thumbnail: "./gun-builder-2.avif"
-featured: false
 popular: false
 new: false
 rating: 4.5

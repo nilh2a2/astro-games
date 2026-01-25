@@ -6,7 +6,6 @@ description: "Action game where players follow in-game instructions to complete 
 howToPlay: "Complete action-packed missions. Use keyboard controls to move and shoot."
 gameUrl: "https://gamedistribution.gamiary.com/31dc2de8e62941e689de26d63ac203ab/"
 thumbnail: "./hunter-3d.avif"
-featured: false
 popular: false
 new: false
 rating: 4.5

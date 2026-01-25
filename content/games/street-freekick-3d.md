@@ -6,7 +6,6 @@ description: "Sports game where players bend balls around obstacles to unlock ac
 howToPlay: "Compete in sports matches and win. Use keyboard controls to play."
 gameUrl: "https://games.playzen.io/games/street_freekick_3d/index.html"
 thumbnail: "./street-freekick-3d.webp"
-featured: false
 popular: false
 new: false
 rating: 4.5

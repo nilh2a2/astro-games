@@ -6,7 +6,6 @@ description: "Sports game where players dodge defenders and collect power-ups to
 howToPlay: "Compete in sports matches and win. Use keyboard controls to play."
 gameUrl: "https://gamedistribution.gamiary.com/2f328b4c9cbe4af4a08e2bd219ca62cf/"
 thumbnail: "./touchdown-rush.avif"
-featured: false
 popular: false
 new: false
 rating: 4.5

@@ -6,7 +6,6 @@ description: "Racing game where players perform stunts and overcome obstacles to
 howToPlay: "Drive through challenging courses without crashing. Use arrow keys to control your vehicle."
 gameUrl: "https://play.fancade.com/5DECAAB70F71EA92"
 thumbnail: "./drive-mad-2.avif"
-featured: false
 popular: false
 new: false
 rating: 4.5

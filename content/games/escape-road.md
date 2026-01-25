@@ -6,7 +6,6 @@ description: "Action game where players follow in-game instructions to navigate 
 howToPlay: "Complete action-packed missions. Use keyboard controls to move and shoot."
 gameUrl: "https://escaperoad.io/escape-road.embed"
 thumbnail: "./escape-road.avif"
-featured: false
 popular: false
 new: false
 rating: 4.5

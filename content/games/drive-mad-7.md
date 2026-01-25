@@ -6,7 +6,6 @@ description: "Racing game where players conquer obstacles and master timing to c
 howToPlay: "Drive through challenging courses without crashing. Use arrow keys to control your vehicle."
 gameUrl: "https://play.fancade.com/62635FFF69389BB6"
 thumbnail: "./drive-mad-7.avif"
-featured: false
 popular: false
 new: false
 rating: 4.5

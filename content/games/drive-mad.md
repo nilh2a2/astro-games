@@ -6,7 +6,6 @@ description: "Racing game with instant play accessibility where players drive th
 howToPlay: "Drive through challenging courses without crashing. Use arrow keys to control your vehicle."
 gameUrl: "https://www.yoosfuhl.com/game/drivemad/index.html"
 thumbnail: "./drive-mad.avif"
-featured: false
 popular: false
 new: false
 rating: 4.5

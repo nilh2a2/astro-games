@@ -6,7 +6,6 @@ description: "Action game where players collect power-ups and master movement to
 howToPlay: "Complete action-packed missions. Use keyboard controls to move and shoot."
 gameUrl: "https://azgames.io/smash-karts.embed"
 thumbnail: "./smash-karts.avif"
-featured: false
 popular: false
 new: false
 rating: 4.5

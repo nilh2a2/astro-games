@@ -6,7 +6,6 @@ description: "Action game with instant play accessibility where players enjoy hi
 howToPlay: "Complete action-packed missions. Use keyboard controls to move and shoot."
 gameUrl: "https://play.gamepix.com/agent-j-1/embed"
 thumbnail: "./agent-j.avif"
-featured: false
 popular: false
 new: false
 rating: 4.5

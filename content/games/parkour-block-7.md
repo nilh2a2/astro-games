@@ -6,7 +6,6 @@ description: "Action game with Minecraft-style graphics where players perform pa
 howToPlay: "Complete action-packed missions. Use keyboard controls to move and shoot."
 gameUrl: "https://gamedistribution.gamiary.com/13215160b460481492b582a5081b49a1/"
 thumbnail: "./parkour-block-7.avif"
-featured: false
 popular: false
 new: false
 rating: 4.5

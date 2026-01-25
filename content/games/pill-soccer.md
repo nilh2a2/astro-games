@@ -6,7 +6,6 @@ description: "Sports game where players control pill characters to score goals a
 howToPlay: "Score goals and win matches. Use keyboard controls to move and shoot."
 gameUrl: "https://gamedistribution.gamiary.com/1361f0a80f024b3d96c614f4f2dc76ad/"
 thumbnail: "./pill-soccer.avif"
-featured: false
 popular: false
 new: false
 rating: 4.5

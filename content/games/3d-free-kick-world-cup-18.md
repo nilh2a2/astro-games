@@ -6,7 +6,6 @@ description: "Sports game where players bend balls around obstacles to win tourn
 howToPlay: "Compete in sports matches and win. Use keyboard controls to play."
 gameUrl: "https://play.famobi.com/wrapper/3d-free-kick-world-cup-18/A1000-10"
 thumbnail: "./3d-free-kick-world-cup-18.avif"
-featured: false
 popular: false
 new: false
 rating: 4.5

@@ -6,7 +6,6 @@ description: "Racing game where players dodge traffic, collect coins, and upgrad
 howToPlay: "Drive through challenging courses without crashing. Use arrow keys to control your vehicle."
 gameUrl: "https://gamedistribution.gamiary.com/324dda64aa2f48af9037e2c582bbfa3e/"
 thumbnail: "./highway-racer-3d.avif"
-featured: false
 popular: false
 new: false
 rating: 4.5

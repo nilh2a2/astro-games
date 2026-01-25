@@ -6,7 +6,6 @@ description: "Action game where players follow in-game instructions to complete 
 howToPlay: "Complete action-packed missions. Use keyboard controls to move and shoot."
 gameUrl: "https://play.gamepix.com/red-impostor-vs-crew/embed"
 thumbnail: "./red-impostor-vs-crew.avif"
-featured: false
 popular: false
 new: false
 rating: 4.5

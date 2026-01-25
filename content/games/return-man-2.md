@@ -6,7 +6,6 @@ description: "Sports game where players catch balls and dodge defenders to score
 howToPlay: "Compete in sports matches and win. Use keyboard controls to play."
 gameUrl: "https://www.crazygames.com/embed/return-man-2"
 thumbnail: "./return-man-2.avif"
-featured: false
 popular: false
 new: false
 rating: 4.5

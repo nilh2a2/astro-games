@@ -6,7 +6,6 @@ description: "Sports game where players take penalty shots and defend goals to w
 howToPlay: "Compete in sports matches and win. Use keyboard controls to play."
 gameUrl: "https://play.famobi.com/wrapper/euro-penalty-cup-2021/A1000-10"
 thumbnail: "./euro-penalty-cup-2021.avif"
-featured: false
 popular: false
 new: false
 rating: 4.5

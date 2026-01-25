@@ -6,7 +6,6 @@ description: "Sports game where players use simple physics-based controls to sco
 howToPlay: "Score baskets in randomly changing physics-based arenas. Use single button controls to jump and shoot."
 gameUrl: "https://gamedistribution.gamiary.com/bf1268dccb5d43e7970bb3edaa54afc8/"
 thumbnail: "./basket-random.avif"
-featured: false
 popular: false
 new: false
 rating: 4.5

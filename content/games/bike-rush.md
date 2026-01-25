@@ -6,7 +6,6 @@ description: "Racing game where players speed through cities, perform stunts, an
 howToPlay: "Race through challenging courses on your bike. Use arrow keys to steer and perform stunts."
 gameUrl: "https://games.playzen.io/games/bike_rush/index.html"
 thumbnail: "./bike-rush.webp"
-featured: false
 popular: false
 new: false
 rating: 4.5

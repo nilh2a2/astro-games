@@ -6,7 +6,6 @@ description: "Racing game where players customize cars and compete in events to 
 howToPlay: "Drive through challenging courses without crashing. Use arrow keys to control your vehicle."
 gameUrl: "https://bitent.com/games/real_street_racing/"
 thumbnail: "./real-street-racing.avif"
-featured: false
 popular: false
 new: false
 rating: 4.5

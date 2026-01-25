@@ -6,7 +6,6 @@ description: "Action game where players use power-ups and chain jumps to survive
 howToPlay: "Complete action-packed missions. Use keyboard controls to move and shoot."
 gameUrl: "https://www.twoplayergames.org/gameframe/obby-survive-parkour"
 thumbnail: "./obby-survive-parkour.avif"
-featured: false
 popular: false
 new: false
 rating: 4.5

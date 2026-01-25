@@ -6,7 +6,6 @@ description: "Racing game where players accelerate down hills, perfect landings,
 howToPlay: "Race through challenging courses on your bike. Use arrow keys to steer and perform stunts."
 gameUrl: "https://games.playzen.io/games/bikes_hill/index.html"
 thumbnail: "./bikes-hill.webp"
-featured: false
 popular: false
 new: false
 rating: 4.5

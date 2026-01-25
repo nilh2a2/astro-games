@@ -6,7 +6,6 @@ description: "Sports game where players use power-ups and unlock new characters 
 howToPlay: "Score goals by heading the ball. Use arrow keys to move and jump."
 gameUrl: "https://play.famobi.com/wrapper/soccer-heads/A1000-10"
 thumbnail: "./soccer-heads.avif"
-featured: false
 popular: false
 new: false
 rating: 4.5

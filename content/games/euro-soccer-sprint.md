@@ -6,7 +6,6 @@ description: "Sports game where players dodge defenders and collect power-ups in
 howToPlay: "Score goals and win matches. Use keyboard controls to move and shoot."
 gameUrl: "https://play.famobi.com/euro-soccer-sprint"
 thumbnail: "./euro-soccer-sprint.avif"
-featured: false
 popular: false
 new: false
 rating: 4.5

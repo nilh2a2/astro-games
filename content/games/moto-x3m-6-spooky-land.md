@@ -6,7 +6,6 @@ description: "Racing game where players perform stunts in haunted levels to unlo
 howToPlay: "Complete stunt courses as fast as possible. Use arrow keys to control your bike."
 gameUrl: "https://play.gamepix.com/moto-x3m-spooky-land/embed"
 thumbnail: "./moto-x3m-6-spooky-land.avif"
-featured: false
 popular: false
 new: false
 rating: 4.5

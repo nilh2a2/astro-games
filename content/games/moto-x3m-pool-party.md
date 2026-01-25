@@ -6,7 +6,6 @@ description: "Racing game where players follow in-game instructions to complete 
 howToPlay: "Complete stunt courses as fast as possible. Use arrow keys to control your bike."
 gameUrl: "https://play.famobi.com/moto-x3m-pool-party"
 thumbnail: "./moto-x3m-pool-party.avif"
-featured: false
 popular: false
 new: false
 rating: 4.5

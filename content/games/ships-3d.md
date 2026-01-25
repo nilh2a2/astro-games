@@ -6,7 +6,6 @@ description: "Action game where players follow in-game instructions to complete 
 howToPlay: "Complete action-packed missions. Use keyboard controls to move and shoot."
 gameUrl: "https://gamedistribution.gamiary.com/05651e622f534bd89e4a636b3a9aa8e7/"
 thumbnail: "./ships-3d.avif"
-featured: false
 popular: false
 new: false
 rating: 4.5

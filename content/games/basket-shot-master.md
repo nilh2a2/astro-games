@@ -6,7 +6,6 @@ description: "Sports game where players aim and shoot basketballs through challe
 howToPlay: "Aim and shoot basketballs through challenging levels. Use mouse or finger to control."
 gameUrl: "https://gamedistribution.gamiary.com/d575aee0af634062971649c1d5b04f8f/"
 thumbnail: "./basket-shot-master.avif"
-featured: false
 popular: false
 new: false
 rating: 4.5

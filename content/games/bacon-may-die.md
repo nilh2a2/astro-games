@@ -6,7 +6,6 @@ description: "Action game where players control a bacon character in combat scen
 howToPlay: "Complete action-packed missions. Use keyboard controls to move and shoot."
 gameUrl: "https://www.bubbleshooter.net/games/bacon-may-die/"
 thumbnail: "./bacon-may-die.avif"
-featured: false
 popular: false
 new: false
 rating: 4.5

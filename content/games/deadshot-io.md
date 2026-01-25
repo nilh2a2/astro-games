@@ -6,7 +6,6 @@ description: "Action game with instant play accessibility where players start ga
 howToPlay: "Complete action-packed missions. Use keyboard controls to move and shoot."
 gameUrl: "https://deadshot.io/"
 thumbnail: "./deadshot-io.avif"
-featured: false
 popular: false
 new: false
 rating: 4.5

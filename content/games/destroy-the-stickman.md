@@ -6,7 +6,6 @@ description: "Action game with instant play accessibility where players start ga
 howToPlay: "Complete action-packed missions. Use keyboard controls to move and shoot."
 gameUrl: "https://gamedistribution.gamiary.com/80708ae6cba34925a2f8d18a665fcf8c/"
 thumbnail: "./destroy-the-stickman.avif"
-featured: false
 popular: false
 new: false
 rating: 4.5

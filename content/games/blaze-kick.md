@@ -6,7 +6,6 @@ description: "Sports game where players aim and shoot soccer balls to overcome o
 howToPlay: "Compete in sports matches and win. Use keyboard controls to play."
 gameUrl: "https://play.famobi.com/wrapper/blaze-kick/A1000-10"
 thumbnail: "./blaze-kick.avif"
-featured: false
 popular: false
 new: false
 rating: 4.5

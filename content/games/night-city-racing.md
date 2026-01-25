@@ -6,7 +6,6 @@ description: "Racing game where players upgrade cars and compete in various mode
 howToPlay: "Drive through challenging courses without crashing. Use arrow keys to control your vehicle."
 gameUrl: "https://play.gamepix.com/night-city-racing/embed"
 thumbnail: "./night-city-racing.avif"
-featured: false
 popular: false
 new: false
 rating: 4.5
