@@ -1,0 +1,60 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "@/layouts/Layout.astro";
+import Main from "@/layouts/Main.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import GameGrid from "@/components/GameGrid.astro";
+import getGamesByCategory from "@/utils/getGamesByCategory";
+import getSortedGames from "@/utils/getSortedGames";
+
+export async function getStaticPaths() {
+  const categories = ["action", "racing", "sports", "puzzle", "adventure", "strategy"];
+  return categories.map(category => ({
+    params: { category },
+  }));
+}
+
+const { category } = Astro.params as { category: string };
+
+const games = await getCollection("games");
+const sortedGames = getSortedGames(games);
+const categoryGames = getGamesByCategory(sortedGames, category);
+
+const CATEGORIES = ["action", "racing", "sports", "puzzle", "adventure", "strategy"];
+const categoryTitle = category.charAt(0).toUpperCase() + category.slice(1);
+const pageTitle = `${categoryTitle} Games | Astro Games`;
+const pageDesc = `Browse all ${categoryTitle.toLowerCase()} games. Play free ${categoryTitle.toLowerCase()} games online.`;
+---
+
+<Layout title={pageTitle} description={pageDesc}>
+  <Header />
+  <Main pageTitle={`${categoryTitle} Games`} pageDesc={pageDesc}>
+    <!-- Category Navigation -->
+    <nav class="mb-8 flex flex-wrap gap-2">
+      {CATEGORIES.map(cat => (
+        <a
+          href={`/category/${cat}/`}
+          class:list={[
+            "rounded-lg px-4 py-2 font-medium capitalize transition-colors",
+            cat === category
+              ? "bg-skin-accent text-white"
+              : "bg-skin-card text-skin-base hover:bg-skin-accent/10"
+          ]}
+        >
+          {cat}
+        </a>
+      ))}
+    </nav>
+
+    {categoryGames.length > 0 ? (
+      <GameGrid games={categoryGames} />
+    ) : (
+      <div class="text-center py-12">
+        <p class="text-lg text-skin-base/60">No games found in this category yet. Check back soon!</p>
+      </div>
+    )}
+  </Main>
+
+  <Footer />
+</Layout>

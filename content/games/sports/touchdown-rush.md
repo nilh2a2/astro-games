@@ -1,0 +1,21 @@
+---
+title: "Touchdown Rush"
+slug: "touchdown-rush"
+category: "sports"
+description: "Sports game where players dodge defenders and collect power-ups to score touchdowns and upgrade characters."
+howToPlay: "Compete in sports matches and win. Use keyboard controls to play."
+gameUrl: "https://gamedistribution.gamiary.com/2f328b4c9cbe4af4a08e2bd219ca62cf/"
+thumbnail: "./touchdown-rush.avif"
+featured: false
+popular: false
+new: false
+rating: 4.5
+playCount: 0
+pubDatetime: 2026-01-25T00:00:00Z
+tags: ["sports"]
+draft: false
+---
+
+# Touchdown Rush
+
+Sports game where players dodge defenders and collect power-ups to score touchdowns and upgrade characters.

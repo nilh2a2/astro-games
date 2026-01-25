@@ -6,6 +6,8 @@
     "about": "About",
     "archives": "Archives",
     "search": "Search",
+    "games": "Games",
+    "categories": "Categories",
     "openMenu": "Open Menu",
     "closeMenu": "Close Menu",
     "toggleTheme": "Toggles light & dark"
@@ -25,7 +27,8 @@
     "goBack": "Go back",
     "backToTop": "Back To Top",
     "copy": "Copy",
-    "copied": "Copied"
+    "copied": "Copied",
+    "playNow": "Play Now"
   },
   "share": {
     "shareThisPost": "Share this post on:"
@@ -34,6 +37,16 @@
     "previousPost": "Previous Post",
     "nextPost": "Next Post",
     "updated": "Updated:"
+  },
+  "game": {
+    "previousGame": "Previous Game",
+    "nextGame": "Next Game",
+    "howToPlay": "How to Play",
+    "relatedGames": "Related Games",
+    "playCount": "plays",
+    "rating": "Rating",
+    "category": "Category",
+    "developer": "Developer"
   },
   "breadcrumb": {
     "home": "Home",
@@ -49,7 +62,12 @@
       "socialLinks": "Social Links:",
       "featured": "Featured",
       "recentPosts": "Recent Posts",
-      "allPosts": "All Posts"
+      "allPosts": "All Posts",
+      "featuredGames": "Featured Games",
+      "recentlyAdded": "Recently Added",
+      "popularGames": "Popular Games",
+      "allGames": "All Games",
+      "browseGames": "Browse Games"
     },
     "posts": {
       "title": "Posts",
@@ -79,9 +97,20 @@
       "tagPrefix": "Tag:",
       "tagDescription": "All the articles with the tag"
     },
+    "categories": {
+      "title": "Categories",
+      "description": "Browse games by category",
+      "action": "Action Games",
+      "racing": "Racing Games",
+      "sports": "Sports Games",
+      "puzzle": "Puzzle Games",
+      "adventure": "Adventure Games",
+      "strategy": "Strategy Games"
+    },
     "search": {
       "title": "Search",
       "placeholder": "Search any article ...",
+      "placeholderGames": "Search games ...",
       "devWarning": "DEV mode Warning!",
       "devMessage": "You need to build the project at least once to see the search results during development.",
       "buildCommand": "pnpm run build"

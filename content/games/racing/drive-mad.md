@@ -1,0 +1,21 @@
+---
+title: "Drive Mad"
+slug: "drive-mad"
+category: "racing"
+description: "Racing game with instant play accessibility where players drive through challenging courses."
+howToPlay: "Drive through challenging courses without crashing. Use arrow keys to control your vehicle."
+gameUrl: "https://www.yoosfuhl.com/game/drivemad/index.html"
+thumbnail: "./drive-mad.avif"
+featured: false
+popular: false
+new: false
+rating: 4.5
+playCount: 0
+pubDatetime: 2026-01-25T00:00:00Z
+tags: ["racing"]
+draft: false
+---
+
+# Drive Mad
+
+Racing game with instant play accessibility where players drive through challenging courses.

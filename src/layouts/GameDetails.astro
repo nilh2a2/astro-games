@@ -1,0 +1,179 @@
+---
+import { type CollectionEntry } from "astro:content";
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import BackButton from "@/components/BackButton.astro";
+import BackToTopButton from "@/components/BackToTopButton.astro";
+import GameMetadata from "@/components/GameMetadata.astro";
+import RelatedGames from "@/components/RelatedGames.astro";
+import getGamePath, { getCategoryPath } from "@/utils/getGamePath";
+import getRelatedGames from "@/utils/getRelatedGames";
+import { slugifyStr } from "@/utils/slugify";
+import { SITE } from "@/config";
+import { Image } from "astro:assets";
+
+type Props = {
+  game: CollectionEntry<"games">;
+  games: CollectionEntry<"games">[];
+};
+
+const { game, games } = Astro.props;
+
+const {
+  title,
+  description,
+  fullDescription,
+  howToPlay,
+  gameUrl,
+  coverImage,
+  thumbnail,
+  ogImage: initOgImage,
+  canonicalURL,
+  pubDatetime,
+  modDatetime,
+  category,
+} = game.data;
+
+const coverImg = coverImage || thumbnail;
+
+let ogImageUrl: string | undefined;
+
+if (typeof initOgImage === "string") {
+  ogImageUrl = initOgImage;
+} else if (initOgImage?.src) {
+  ogImageUrl = initOgImage.src;
+}
+
+if (!ogImageUrl && SITE.dynamicOgImage) {
+  ogImageUrl = `${getGamePath(game)}/index.png`;
+}
+
+const ogImage = ogImageUrl
+  ? new URL(ogImageUrl, Astro.url.origin).href
+  : undefined;
+
+const layoutProps = {
+  title: `${title} | ${SITE.title}`,
+  description,
+  pubDatetime,
+  modDatetime,
+  canonicalURL,
+  ogImage,
+  scrollSmooth: true,
+};
+
+const relatedGamesList = getRelatedGames(games, game, 6);
+---
+
+<Layout {...layoutProps}>
+  <Header />
+  <BackButton />
+  <main
+    id="main-content"
+    class:list={["app-layout pb-12", { "mt-8": !SITE.showBackButton }]}
+  >
+    <!-- Breadcrumb -->
+    <nav class="mb-6 flex items-center gap-2 text-sm">
+      <a href="/" class="text-skin-accent hover:underline">Home</a>
+      <span class="text-skin-base/60">/</span>
+      <a href={getCategoryPath(category)} class="text-skin-accent hover:underline capitalize">
+        {category}
+      </a>
+      <span class="text-skin-base/60">/</span>
+      <span class="text-skin-base">{title}</span>
+    </nav>
+
+    <!-- Game Header -->
+    <div class="mb-8">
+      <h1
+        transition:name={slugifyStr(title.replaceAll(".", "-"))}
+        class="mb-4 text-3xl font-bold text-accent sm:text-4xl"
+      >
+        {title}
+      </h1>
+      <GameMetadata game={game} />
+    </div>
+
+    <!-- Game Cover Image -->
+    {coverImg && (
+      <div class="mb-8 overflow-hidden rounded-lg">
+        <Image
+          src={coverImg}
+          alt={title}
+          class="w-full"
+        />
+      </div>
+    )}
+
+    <!-- Game Player Section -->
+    <div class="mb-12 rounded-lg border-2 border-skin-line bg-skin-card p-6">
+      <h2 class="mb-4 text-2xl font-bold">Play Now</h2>
+      <div class="relative aspect-video overflow-hidden rounded bg-black">
+        <iframe
+          src={gameUrl}
+          title={title}
+          class="h-full w-full border-0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        />
+      </div>
+    </div>
+
+    <!-- Description -->
+    {(description || fullDescription) && (
+      <div class="mb-12">
+        <h2 class="mb-4 text-2xl font-bold">About {title}</h2>
+        <div class="app-prose">
+          {fullDescription ? (
+            <p>{fullDescription}</p>
+          ) : (
+            <p>{description}</p>
+          )}
+        </div>
+      </div>
+    )}
+
+    <!-- How to Play -->
+    {howToPlay && (
+      <div class="mb-12">
+        <details class="group rounded-lg border-2 border-skin-line bg-skin-card p-6">
+          <summary class="flex cursor-pointer items-center gap-2 text-xl font-bold hover:text-skin-accent">
+            How to Play
+            <svg
+              class="h-5 w-5 transition-transform group-open:rotate-180"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M19 14l-7 7m0 0l-7-7m7 7V3"
+              />
+            </svg>
+          </summary>
+          <div class="app-prose mt-4">
+            {howToPlay.split('\n').map((line: string) => (
+              <p>{line}</p>
+            ))}
+          </div>
+        </details>
+      </div>
+    )}
+
+    <hr class="my-8 border-dashed" />
+
+    <!-- Related Games -->
+    {relatedGamesList.length > 0 && (
+      <div class="mb-12">
+        <h2 class="mb-6 text-2xl font-bold">Related Games</h2>
+        <RelatedGames games={relatedGamesList} />
+      </div>
+    )}
+
+    <BackToTopButton />
+  </main>
+  <Footer />
+</Layout>

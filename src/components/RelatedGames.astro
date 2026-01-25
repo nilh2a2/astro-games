@@ -1,0 +1,14 @@
+---
+import type { CollectionEntry } from "astro:content";
+import GameCard from "./GameCard.astro";
+
+type Props = {
+  games: CollectionEntry<"games">[];
+};
+
+const { games } = Astro.props;
+---
+
+<ul class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+  {games.map(game => <GameCard {...game} variant="h3" />)}
+</ul>

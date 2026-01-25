@@ -3,92 +3,129 @@ import { getCollection } from "astro:content";
 import Layout from "@/layouts/Layout.astro";
 import Header from "@/components/Header.astro";
 import Footer from "@/components/Footer.astro";
-import Socials from "@/components/Socials.astro";
 import LinkButton from "@/components/LinkButton.astro";
+import FeaturedCarousel from "@/components/FeaturedCarousel.astro";
+import GameGrid from "@/components/GameGrid.astro";
+import RecentlyAdded from "@/components/RecentlyAdded.astro";
 import Card from "@/components/Card.astro";
 import getSortedPosts from "@/utils/getSortedPosts";
+import getSortedGames from "@/utils/getSortedGames";
+import getGamesByCategory from "@/utils/getGamesByCategory";
 import IconArrowRight from "@/assets/icons/IconArrowRight.svg";
 import { SITE } from "@/config";
-import { SOCIALS } from "@/constants";
-import { getUiText } from "@/utils/getUiText";
 
+const games = await getCollection("games");
 const posts = await getCollection("blog");
 
+const sortedGames = getSortedGames(games);
+const featuredGames = sortedGames.filter(({ data }) => data.featured);
+const popularGames = sortedGames.filter(({ data }) => data.popular);
+const actionGames = getGamesByCategory(sortedGames, "action").slice(0, 4);
+
 const sortedPosts = getSortedPosts(posts);
-const featuredPosts = sortedPosts.filter(({ data }) => data.featured);
-const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
+const recentPosts = sortedPosts.filter(({ data }) => !data.featured).slice(0, SITE.postPerIndex);
 ---
 
 <Layout>
   <Header />
   <main id="main-content" data-layout="index" class="app-layout">
-    <section id="hero" class:list={["pt-8 pb-6", "border-b border-border"]}>
+    <!-- Hero Section -->
+    <section id="hero" class:list={["py-12"]}>
       <h1 class="my-4 inline-block text-4xl font-bold sm:my-8 sm:text-5xl">
-        {getUiText("pages.home.greeting")}
+        Play Free Games Online
       </h1>
-
-      <p>
-        {getUiText("pages.home.description")}
+      <p class="text-lg text-skin-base/90">
+        Discover and play hundreds of fun, free games directly in your browser. No download required.
       </p>
-      <p class="mt-2">
-        {getUiText("pages.home.readMore")}
-        <LinkButton
-          class="underline decoration-dashed underline-offset-4 hover:text-accent"
-          href="https://github.com/satnaing/astro-games#readme"
-        >
-          {getUiText("pages.home.readmeLink")}
-        </LinkButton> {getUiText("pages.home.readMoreInfo")}
-      </p>
-      {
-        // only display if at least one social link is enabled
-        SOCIALS.length > 0 && (
-          <div class="mt-4 flex max-sm:flex-col sm:items-center">
-            <div class="me-2 mb-1 whitespace-nowrap sm:mb-0">{getUiText("pages.home.socialLinks")}</div>
-            <Socials />
-          </div>
-        )
-      }
+      <div class="mt-6 flex flex-wrap gap-4">
+        <LinkButton href="/category/action/">
+          Browse Games
+          <IconArrowRight class="inline-block rtl:-rotate-180" />
+        </LinkButton>
+      </div>
     </section>
 
+    <hr class="my-8 border-dashed" />
+
+    <!-- Featured Carousel -->
     {
-      featuredPosts.length > 0 && (
-        <section
-          id="featured"
-          class:list={[
-            "pt-12 pb-6",
-            { "border-b border-border": recentPosts.length > 0 },
-          ]}
-        >
-          <h2 class="text-2xl font-semibold tracking-wide">{getUiText("pages.home.featured")}</h2>
+      featuredGames.length > 0 && (
+        <section id="featured-carousel" class="py-12">
+          <h2 class="mb-6 text-3xl font-bold">Featured Games</h2>
+          <FeaturedCarousel games={featuredGames} />
+        </section>
+      )
+    }
+
+    <hr class="my-8 border-dashed" />
+
+    <!-- Category Preview: Action Games -->
+    {
+      actionGames.length > 0 && (
+        <section id="action-preview" class="py-12">
+          <div class="mb-6 flex items-center justify-between">
+            <h2 class="text-3xl font-bold">Action Games</h2>
+            <LinkButton href="/category/action/">
+              View All
+              <IconArrowRight class="inline-block rtl:-rotate-180" />
+            </LinkButton>
+          </div>
+          <GameGrid games={actionGames} />
+        </section>
+      )
+    }
+
+    <hr class="my-8 border-dashed" />
+
+    <!-- Recently Added Games -->
+    {
+      sortedGames.length > 0 && (
+        <section id="recently-added" class="py-12">
+          <div class="mb-6 flex items-center justify-between">
+            <h2 class="text-3xl font-bold">Recently Added</h2>
+            <LinkButton href="/category/action/">
+              Browse All
+              <IconArrowRight class="inline-block rtl:-rotate-180" />
+            </LinkButton>
+          </div>
+          <RecentlyAdded games={sortedGames} limit={8} />
+        </section>
+      )
+    }
+
+    <hr class="my-8 border-dashed" />
+
+    <!-- Popular Games -->
+    {
+      popularGames.length > 0 && (
+        <section id="popular" class="py-12">
+          <h2 class="mb-6 text-3xl font-bold">Popular Games</h2>
+          <GameGrid games={popularGames.slice(0, 8)} />
+        </section>
+      )
+    }
+
+    <hr class="my-8 border-dashed" />
+
+    <!-- Recent Blog Posts (if any) -->
+    {
+      recentPosts.length > 0 && (
+        <section id="recent-posts" class="py-12">
+          <div class="mb-6 flex items-center justify-between">
+            <h2 class="text-3xl font-bold">Latest Blog Posts</h2>
+            <LinkButton href="/posts/">
+              View All
+              <IconArrowRight class="inline-block rtl:-rotate-180" />
+            </LinkButton>
+          </div>
           <ul>
-            {featuredPosts.map(data => (
+            {recentPosts.map(data => (
               <Card variant="h3" {...data} />
             ))}
           </ul>
         </section>
       )
     }
-
-    {
-      recentPosts.length > 0 && (
-        <section id="recent-posts" class="pt-12 pb-6">
-          <h2 class="text-2xl font-semibold tracking-wide">{getUiText("pages.home.recentPosts")}</h2>
-          <ul>
-            {recentPosts.map(
-              (data, index) =>
-                index < SITE.postPerIndex && <Card variant="h3" {...data} />
-            )}
-          </ul>
-        </section>
-      )
-    }
-
-    <div class="my-8 text-center">
-      <LinkButton href="/posts/">
-        {getUiText("pages.home.allPosts")}
-        <IconArrowRight class="inline-block rtl:-rotate-180" />
-      </LinkButton>
-    </div>
   </main>
   <Footer />
 </Layout>
