@@ -88,15 +88,27 @@ const relatedGamesList = getRelatedGames(games, game, 12);
       <GameMetadata game={game} />
     </div>
 
-    <!-- Game Player Section -->
-    <div class="mb-12 relative aspect-video overflow-hidden rounded bg-black">
-      <iframe
-        src={gameUrl}
-        title={title}
-        class="h-full w-full border-0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen
-      />
+    <!-- Game Player Section with Ad Space -->
+    <div class="mb-12 flex flex-col lg:flex-row gap-6">
+      <!-- Left Column: Game Player (70%) -->
+      <div class="flex-1 lg:w-7/10">
+        <div class="relative aspect-video overflow-hidden rounded bg-black">
+          <iframe
+            src={gameUrl}
+            title={title}
+            class="h-full w-full border-0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          />
+        </div>
+      </div>
+
+      <!-- Right Column: Ad Space (30%) -->
+      <div class="flex-shrink-0 w-full lg:w-3/10">
+        <div class="relative aspect-video rounded bg-gray-300 dark:bg-gray-700 flex items-center justify-center text-gray-500 dark:text-gray-400 text-sm font-medium">
+          Ad Space
+        </div>
+      </div>
     </div>
 
     <!-- Game Content -->
