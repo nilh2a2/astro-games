@@ -1,0 +1,37 @@
+---
+import { type CollectionEntry, getCollection, render } from "astro:content";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import Breadcrumb from "@/components/Breadcrumb.astro";
+import Layout from "@/layouts/Layout.astro";
+import { SITE } from "@/config";
+
+type Props = {
+  page: CollectionEntry<"pages">;
+};
+
+export async function getStaticPaths() {
+  const pages = await getCollection("pages");
+
+  return pages.map(page => ({
+    params: { slug: page.id },
+    props: { page },
+  }));
+}
+
+const { page } = Astro.props;
+const { Content } = await render(page);
+const { title } = page.data;
+---
+
+<Layout title={`${title} | ${SITE.title}`}>
+  <Header />
+  <Breadcrumb />
+  <main id="main-content" class="app-layout">
+    <section class="app-prose mb-28 max-w-app prose-img:border-0">
+      <h1 class="text-2xl tracking-wider sm:text-3xl">{title}</h1>
+      <Content />
+    </section>
+  </main>
+  <Footer />
+</Layout>

@@ -2,6 +2,7 @@
 import type { CollectionEntry } from "astro:content";
 import IconEdit from "@/assets/icons/IconEdit.svg";
 import { SITE } from "@/config";
+import { getUiText } from "@/utils/getUiText";
 
 type Props = {
   hideEditPost?: CollectionEntry<"blog">["data"]["hideEditPost"];
@@ -28,7 +29,7 @@ const showEditPost =
       ]}
     >
       <IconEdit class="inline-block" />
-      <span>{SITE.editPost.text}</span>
+      <span>{getUiText("post.editPage")}</span>
     </a>
   )
 }
