@@ -1,9 +1,9 @@
 {
   "site": {
-    "title": "Astro Games",
-    "description": "Play free games online. No download required. Hundreds of fun games to play instantly.",
-    "website": "https://astro-games.pages.dev/",
-    "author": "Sat Naing",
+    "title": "Unblocked Games",
+    "description": "Unblocked Games 2026: Play online games. No downloads. Best collection of unlocked games for school in 2026. All featured games.",
+    "website": "https://unblockedgamesg.net/",
+    "author": "unblockedgamesg",
     "profile": "https://satnaing.dev/",
     "ogImage": "astrogames-og.jpg",
     "lightAndDarkMode": true,
@@ -13,13 +13,7 @@
   },
   "nav": {
     "skipToContent": "Skip to content",
-    "posts": "Posts",
-    "tags": "Tags",
-    "about": "About",
-    "archives": "Archives",
     "search": "Search",
-    "games": "Games",
-    "categories": "Categories",
     "all": "All",
     "openMenu": "Open Menu",
     "closeMenu": "Close Menu",
@@ -46,31 +40,16 @@
   "buttons": {
     "goBack": "Go back",
     "backToTop": "Back To Top",
-    "copy": "Copy",
-    "copied": "Copied",
-    "playNow": "Play Now",
     "viewAll": "View All"
   },
   "badges": {
     "new": "New",
     "popular": "Popular"
   },
-  "share": {
-    "shareThisPost": "Share this post on:"
-  },
-  "post": {
-    "previousPost": "Previous Post",
-    "nextPost": "Next Post",
-    "updated": "Updated:"
-  },
   "game": {
-    "previousGame": "Previous Game",
-    "nextGame": "Next Game",
     "howToPlay": "How to Play",
     "relatedGames": "Related Games",
-    "rating": "Rating",
-    "category": "Category",
-    "developer": "Developer"
+    "shareThisGame": "Share this game:"
   },
   "breadcrumb": {
     "home": "Home",
@@ -86,50 +65,9 @@
   },
   "pages": {
     "home": {
-      "greeting": "Mingalaba",
       "heroText": "Unblocked Games: Play online games. No downloads. Best collection of unlocked games for school in 2026. All featured games.",
-      "description": "Astro Games is a minimal, responsive, accessible and SEO-friendly Astro blog theme. This theme follows best practices and provides accessibility out of the box. Light and dark mode are supported by default. Moreover, additional color schemes can also be configured.",
-      "readMore": "Read the blog posts or check",
-      "readmeLink": "README",
-      "readMoreInfo": "for more info.",
-      "socialLinks": "Social Links:",
-      "featured": "Featured",
-      "recentPosts": "Recent Posts",
-      "allPosts": "All Posts",
-      "featuredGames": "Featured Games",
-      "recentlyAdded": "Recently Added",
       "popularGames": "Popular Games",
-      "newGames": "New Games",
-      "allGames": "All Games",
-      "browseGames": "Browse Games"
-    },
-    "posts": {
-      "title": "Posts",
-      "description": "All the articles I've posted."
-    },
-    "archives": {
-      "title": "Archives",
-      "description": "All the articles I've archived.",
-      "months": [
-        "January",
-        "February",
-        "March",
-        "April",
-        "May",
-        "June",
-        "July",
-        "August",
-        "September",
-        "October",
-        "November",
-        "December"
-      ]
-    },
-    "tags": {
-      "title": "Tags",
-      "description": "All the tags used in posts.",
-      "tagPrefix": "Tag:",
-      "tagDescription": "All the articles with the tag"
+      "newGames": "New Games"
     },
     "categories": {
       "title": "Browse by Category",
@@ -139,7 +77,6 @@
     "search": {
       "title": "Search",
       "placeholder": "Search any article ...",
-      "placeholderGames": "Search games ...",
       "devWarning": "DEV mode Warning!",
       "devMessage": "You need to build the project at least once to see the search results during development.",
       "buildCommand": "pnpm run build"
@@ -153,21 +90,6 @@
   },
   "social": {
     "links": [
-      {
-        "name": "GitHub",
-        "href": "https://github.com/satnaing/astro-games",
-        "linkTitle": "on GitHub"
-      },
-      {
-        "name": "X",
-        "href": "https://x.com/username",
-        "linkTitle": "on X"
-      },
-      {
-        "name": "LinkedIn",
-        "href": "https://www.linkedin.com/in/username/",
-        "linkTitle": "on LinkedIn"
-      },
       {
         "name": "Mail",
         "href": "mailto:yourmail@gmail.com",
