@@ -1,36 +1,23 @@
 ---
 title: "About"
+description: "Learn about our team, mission, and the story behind Unblocked Games. Discover our commitment to quality and innovation."
 ---
 
-Astro Games is a minimal, accessible and SEO-friendly blog theme built with [Astro](https://astro.build/) and [Tailwind CSS](https://tailwindcss.com/).
+# About Unblocked Games
 
-![Astro Games](/astrogames-og.jpg)
+Unblocked Games is your premier destination for playing free online games without restrictions. We provide a vast collection of entertaining games that can be accessed from anywhere, including schools and workplaces where gaming sites are typically blocked.
 
-Astro Games provides a solid foundation for blogs, or even portfolios\_ with full markdown support, built-in dark mode, and a clean layout that works out-of-the-box.
+## What We Offer
 
-The blog posts in this theme also serve as guides, docs or example articles\_ making Astro Games a flexible starting point for your next content-driven site.
+- **Free Games**: Completely free to play with no registration required
+- **Unblocked Access**: Games that work even on restricted networks
+- **Variety**: Wide selection of genres including action, puzzle, strategy, and more
+- **Mobile Friendly**: Games optimized for desktop and mobile devices
 
-## Features
+## Contact Us
 
-Astro Games comes with a set of useful features that make content publishing easy and effective:
+For any questions or concerns, please reach out to us through our [contact page](/contact).
 
-- SEO-friendly
-- Fast performance
-- Light & dark mode
-- Highly customizable
-- Organizable blog posts
-- Responsive & accessible
-- Static search with [PageFind](https://pagefind.app/)
-- Automatic social image generation
+## Monetization
 
-and so much more.
-
-## Show your support
-
-If you like [Astro Games](https://github.com/satnaing/astro-games), consider giving it a star ⭐️.
-
-Found a bug 🐛 or have an improvement ✨ in mind? Feel free to open an [issue](https://github.com/satnaing/astro-games/issues), submit a [pull request](https://github.com/satnaing/astro-games/pulls) or start a [discussion](https://github.com/satnaing/astro-games/discussions).
-
-If you find this theme helpful, you can also [sponsor me on GitHub](https://github.com/sponsors/satnaing) or [buy me a coffee](https://buymeacoffee.com/satnaing) to show your support — every penny counts.
-
-Kyay zuu! 🙏🏼
+This website is supported through Google Ads to keep our games free for everyone. We use Google Analytics to improve our service and understand our users' preferences.
