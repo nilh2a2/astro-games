@@ -7,11 +7,11 @@ import BackButton from "@/components/BackButton.astro";
 import BackToTopButton from "@/components/BackToTopButton.astro";
 import GameMetadata from "@/components/GameMetadata.astro";
 import RelatedGames from "@/components/RelatedGames.astro";
+import GameCardCompact from "@/components/GameCardCompact.astro";
 import { getCategoryPath } from "@/utils/getGamePath";
 import getRelatedGames from "@/utils/getRelatedGames";
 import { slugifyStr } from "@/utils/slugify";
 import { SITE } from "@/config";
-import { Image } from "astro:assets";
 
 type Props = {
   game: CollectionEntry<"games">;
@@ -59,7 +59,9 @@ const layoutProps = {
   scrollSmooth: true,
 };
 
-const relatedGamesList = getRelatedGames(games, game, 12);
+const relatedGamesList = getRelatedGames(games, game, 18);
+const sidebarGames = relatedGamesList.slice(0, 5);
+const bottomGames = relatedGamesList.slice(5);
 ---
 
 <Layout {...layoutProps}>
@@ -88,7 +90,7 @@ const relatedGamesList = getRelatedGames(games, game, 12);
       <GameMetadata game={game} />
     </div>
 
-    <!-- Game Player Section with Ad Space -->
+    <!-- Game Player Section with Related Games Sidebar -->
     <div class="mb-12 flex flex-col lg:flex-row gap-6">
       <!-- Left Column: Game Player (70%) -->
       <div class="flex-1 lg:w-7/10">
@@ -103,10 +105,14 @@ const relatedGamesList = getRelatedGames(games, game, 12);
         </div>
       </div>
 
-      <!-- Right Column: Ad Space (30%) -->
-      <div class="flex-shrink-0 w-full lg:w-3/10">
-        <div class="relative aspect-video rounded bg-gray-300 dark:bg-gray-700 flex items-center justify-center text-gray-500 dark:text-gray-400 text-sm font-medium">
-          Ad Space
+      <!-- Right Column: Related Games Sidebar (30%) - Desktop Only -->
+      <div class="hidden lg:flex flex-shrink-0 lg:w-3/10">
+        <div class="w-full">
+          <div class="max-h-[600px] overflow-y-auto pr-2 space-y-3 scrollbar-thin scrollbar-thumb-skin-accent/30 scrollbar-track-transparent">
+            {sidebarGames.map(relatedGame => (
+              <GameCardCompact {...relatedGame} />
+            ))}
+          </div>
         </div>
       </div>
     </div>
@@ -122,7 +128,14 @@ const relatedGamesList = getRelatedGames(games, game, 12);
     {relatedGamesList.length > 0 && (
       <div class="mb-12">
         <h2 class="mb-6 text-2xl font-bold">Related Games</h2>
-        <RelatedGames games={relatedGamesList} />
+        <!-- Mobile: Show all games (sidebar hidden on mobile) -->
+        <div class="lg:hidden">
+          <RelatedGames games={relatedGamesList} />
+        </div>
+        <!-- Desktop: Show remaining games (first 5 are in sidebar) -->
+        <div class="hidden lg:block">
+          {bottomGames.length > 0 && <RelatedGames games={bottomGames} />}
+        </div>
       </div>
     )}
 
