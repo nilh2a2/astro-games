@@ -8,6 +8,7 @@ import GameGrid from "@/components/GameGrid.astro";
 import getSortedGames from "@/utils/getSortedGames";
 import getGamesByCategory from "@/utils/getGamesByCategory";
 import { getUiText } from "@/utils/getUiText";
+import { getCategoryLabel } from "@/utils/getCategoryLabels";
 import IconArrowRight from "@/assets/icons/IconArrowRight.svg";
 
 const games = await getCollection("games");
@@ -65,7 +66,7 @@ const strategyGames = getGamesByCategory(sortedGames, "strategy");
       actionGames.length > 0 && (
         <section id="action" class="py-8">
           <div class="mb-6 flex items-center justify-between">
-            <h2 class="text-2xl font-bold">{getUiText("gameCategories.action")}</h2>
+            <h2 class="text-2xl font-bold">{getCategoryLabel("action")}</h2>
             <LinkButton href="/category/action/">
               {getUiText("buttons.viewAll")}
               <IconArrowRight class="inline-block rtl:-rotate-180" />
@@ -81,7 +82,7 @@ const strategyGames = getGamesByCategory(sortedGames, "strategy");
       racingGames.length > 0 && (
         <section id="racing" class="py-8">
           <div class="mb-6 flex items-center justify-between">
-            <h2 class="text-2xl font-bold">{getUiText("gameCategories.racing")}</h2>
+            <h2 class="text-2xl font-bold">{getCategoryLabel("racing")}</h2>
             <LinkButton href="/category/racing/">
               {getUiText("buttons.viewAll")}
               <IconArrowRight class="inline-block rtl:-rotate-180" />
@@ -97,7 +98,7 @@ const strategyGames = getGamesByCategory(sortedGames, "strategy");
       sportsGames.length > 0 && (
         <section id="sports" class="py-8">
           <div class="mb-6 flex items-center justify-between">
-            <h2 class="text-2xl font-bold">{getUiText("gameCategories.sports")}</h2>
+            <h2 class="text-2xl font-bold">{getCategoryLabel("sports")}</h2>
             <LinkButton href="/category/sports/">
               {getUiText("buttons.viewAll")}
               <IconArrowRight class="inline-block rtl:-rotate-180" />
@@ -113,7 +114,7 @@ const strategyGames = getGamesByCategory(sortedGames, "strategy");
       puzzleGames.length > 0 && (
         <section id="puzzle" class="py-8">
           <div class="mb-6 flex items-center justify-between">
-            <h2 class="text-2xl font-bold">{getUiText("gameCategories.puzzle")}</h2>
+            <h2 class="text-2xl font-bold">{getCategoryLabel("puzzle")}</h2>
             <LinkButton href="/category/puzzle/">
               {getUiText("buttons.viewAll")}
               <IconArrowRight class="inline-block rtl:-rotate-180" />
@@ -129,7 +130,7 @@ const strategyGames = getGamesByCategory(sortedGames, "strategy");
       adventureGames.length > 0 && (
         <section id="adventure" class="py-8">
           <div class="mb-6 flex items-center justify-between">
-            <h2 class="text-2xl font-bold">{getUiText("gameCategories.adventure")}</h2>
+            <h2 class="text-2xl font-bold">{getCategoryLabel("adventure")}</h2>
             <LinkButton href="/category/adventure/">
               {getUiText("buttons.viewAll")}
               <IconArrowRight class="inline-block rtl:-rotate-180" />
@@ -145,7 +146,7 @@ const strategyGames = getGamesByCategory(sortedGames, "strategy");
       strategyGames.length > 0 && (
         <section id="strategy" class="py-8">
           <div class="mb-6 flex items-center justify-between">
-            <h2 class="text-2xl font-bold">{getUiText("gameCategories.strategy")}</h2>
+            <h2 class="text-2xl font-bold">{getCategoryLabel("strategy")}</h2>
             <LinkButton href="/category/strategy/">
               {getUiText("buttons.viewAll")}
               <IconArrowRight class="inline-block rtl:-rotate-180" />

@@ -17,14 +17,7 @@
     "all": "All",
     "openMenu": "Open Menu",
     "closeMenu": "Close Menu",
-    "toggleTheme": "Toggles light & dark",
-    "navLinks": {
-      "about": "About",
-      "help": "Help",
-      "privacy": "Privacy",
-      "terms": "Terms",
-      "contact": "Contact"
-    }
+    "toggleTheme": "Toggles light & dark"
   },
   "footer": {
     "copyright": "Copyright ©",
@@ -54,14 +47,6 @@
   "breadcrumb": {
     "home": "Home",
     "separator": "/"
-  },
-  "gameCategories": {
-    "action": "Action Games",
-    "racing": "Racing Games",
-    "sports": "Sports Games",
-    "puzzle": "Puzzle Games",
-    "adventure": "Adventure Games",
-    "strategy": "Strategy Games"
   },
   "pages": {
     "home": {
