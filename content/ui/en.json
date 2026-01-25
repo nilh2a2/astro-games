@@ -2,14 +2,14 @@
   "site": {
     "title": "Unblocked Games",
     "description": "Unblocked Games 2026: Play online games. No downloads. Best collection of unlocked games for school in 2026. All featured games.",
-    "website": "https://unblockedgamesg.net/",
-    "author": "unblockedgamesg",
-    "profile": "https://satnaing.dev/",
-    "ogImage": "astrogames-og.jpg",
+    "website": "https://unblockedgamesg.net",
+    "author": "Unblocked Games",
+    "profile": "https://unblockedgamesg.net",
+    "ogImage": "",
     "lightAndDarkMode": true,
     "dir": "ltr",
     "lang": "en",
-    "timezone": "Asia/Bangkok"
+    "timezone": "America/New_York"
   },
   "nav": {
     "skipToContent": "Skip to content",
