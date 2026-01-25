@@ -25,7 +25,6 @@ const games = defineCollection({
       developer: z.string().optional(),
       pubDatetime: z.date(),
       modDatetime: z.date().optional().nullable(),
-      tags: z.array(z.string()).default([]),
       draft: z.boolean().default(false),
       ogImage: image().or(z.string()).optional(),
       canonicalURL: z.string().optional(),
