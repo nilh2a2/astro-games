@@ -35,7 +35,7 @@ const pageDesc = getUiText("pages.categories.description");
             {name}
           </h2>
           <p class="text-skin-base/70">
-            {count} {count === 1 ? 'game' : 'games'}
+            {count} {count === 1 ? getUiText("common.game") : getUiText("common.games")}
           </p>
         </a>
       ))}

@@ -26,13 +26,15 @@ const categoryGames = getGamesByCategory(sortedGames, category);
 const allCategories = getUniqueCategories(games);
 
 const categoryTitle = category.charAt(0).toUpperCase() + category.slice(1);
-const pageTitle = `${categoryTitle} Games | ${getUiText("site.title")}`;
-const pageDesc = `Browse all ${categoryTitle.toLowerCase()} games. Play free ${categoryTitle.toLowerCase()} games online.`;
+const pageTitle = getUiText("categories.pageTitle").replace("{category}", categoryTitle) + ` | ${getUiText("site.title")}`;
+const pageDesc = getUiText("categories.pageDescription")
+  .replace("{category}", categoryTitle.toLowerCase())
+  .replace("{category}", categoryTitle.toLowerCase());
 ---
 
 <Layout title={pageTitle} description={pageDesc}>
   <Header />
-  <Main pageTitle={`${categoryTitle} Games`} pageDesc={pageDesc}>
+  <Main pageTitle={getUiText("categories.pageTitle").replace("{category}", categoryTitle)} pageDesc={pageDesc}>
     <!-- Category Navigation -->
     <nav class="mb-8 flex flex-wrap gap-2">
       {allCategories.map(cat => (

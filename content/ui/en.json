@@ -48,6 +48,20 @@
     "home": "Home",
     "separator": "/"
   },
+  "common": {
+    "game": "game",
+    "games": "games"
+  },
+  "categories": {
+    "action": "Action Games",
+    "racing": "Racing Games",
+    "sports": "Sports Games",
+    "puzzle": "Puzzle Games",
+    "adventure": "Adventure Games",
+    "strategy": "Strategy Games",
+    "pageTitle": "{category} Games",
+    "pageDescription": "Browse all {category} games. Play free {category} games online."
+  },
   "pages": {
     "home": {
       "heroText": "Unblocked Games: Play online games. No downloads. Best collection of unlocked games for school in 2026. All featured games.",

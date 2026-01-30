@@ -1,4 +1,5 @@
 import type { CollectionEntry } from "astro:content";
+import { getUiText } from "./getUiText";
 
 export interface CategoryLabel {
   slug: string;
@@ -6,18 +7,11 @@ export interface CategoryLabel {
 }
 
 /**
- * Capitalizes the first letter of a string
- */
-function capitalize(str: string): string {
-  return str.charAt(0).toUpperCase() + str.slice(1);
-}
-
-/**
  * Converts a category slug to a display label
  * Example: "action" -> "Action Games"
  */
 export function formatCategoryLabel(category: string): string {
-  return `${capitalize(category)} Games`;
+  return getUiText(`categories.${category}`);
 }
 
 /**

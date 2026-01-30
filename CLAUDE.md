@@ -32,9 +32,42 @@ npm run lint
 
 ## Architecture
 
+### Content-First Architecture Principle
+
+This project follows a strict **content-code separation** pattern:
+
+- **`/content/`** - Everything user-facing (content layer)
+  - Game data, static pages, AND all UI text strings
+  - This includes button labels, navigation text, error messages, etc.
+
+- **`/src/`** - Implementation code (code layer)
+  - Components, layouts, utilities, styles
+  - The machinery that renders content, but contains NO hardcoded text
+
+**Why this matters:**
+1. **Internationalization Ready**: UI strings in JSON files (`content/ui/en.json`) make adding translations trivial
+2. **Content Management**: Non-developers can edit all text without touching code
+3. **Clear Boundaries**: "What to display" (content) is separate from "how to display it" (code)
+4. **CMS Integration**: Easy to replace JSON files with a headless CMS later
+5. **Team Collaboration**: Content writers and developers work in separate spaces
+
+**Implementation:**
+- UI strings are accessed via `getUiText('nav.search')` utility function
+- Uses dot notation to navigate the JSON structure
+- Example: `getUiText('buttons.viewAll')` returns "View All"
+- For template strings with placeholders, use `.replace('{placeholder}', value)`
+- Example: `getUiText('categories.pageTitle').replace('{category}', 'Action')` returns "Action Games"
+
+**Important Rules:**
+- NEVER hardcode user-facing text in components or pages
+- ALL text strings must be in `content/ui/en.json`
+- This includes: labels, buttons, messages, pluralization, page titles, descriptions, etc.
+- Category labels are defined in `content/ui/en.json` under `categories.*`
+- Common words (like "game"/"games") are in `common.*` for reusability
+
 ### Content Collections
 
-The project uses Astro's content collections with two main collections defined in `src/content.config.ts`:
+The project uses Astro's content collections with three main collections defined in `src/content.config.ts`:
 
 1. **games** (`content/games/`): Game entries with markdown files
    - Each game has frontmatter with metadata (title, slug, category, description, gameUrl, etc.)
@@ -43,6 +76,11 @@ The project uses Astro's content collections with two main collections defined i
    - Images stored alongside markdown files (AVIF/WebP format)
 
 2. **pages** (`content/pages/`): Static pages (about, privacy, terms, contact, help)
+
+3. **ui** (`content/ui/`): UI text strings and labels
+   - `en.json` contains all user-facing text (navigation, buttons, messages, etc.)
+   - Structured as nested JSON for organization (nav, footer, pagination, etc.)
+   - Accessed via `getUiText()` utility function
 
 ### Routing Structure
 
@@ -61,6 +99,7 @@ Located in `src/utils/`:
 - `getGamesByCategory.ts` - Filters games by category
 - `getRelatedGames.ts` - Finds related games based on category
 - `getGamePath.ts` - Generates paths for games and categories
+- `getUiText.ts` - Retrieves UI text strings from content/ui/en.json via dot notation
 
 ### Configuration
 
