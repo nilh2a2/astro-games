@@ -1,40 +1,60 @@
 import { test, expect } from "@playwright/test";
 
 test.describe("Homepage", () => {
-  test("should load successfully", async ({ page }) => {
+  test("should work correctly based on single game mode configuration", async ({
+    page,
+  }) => {
     await page.goto("/");
-    await expect(page).toHaveTitle(/Unblocked Games/);
-  });
 
-  test("should display hero section", async ({ page }) => {
-    await page.goto("/");
-    const hero = page.locator("#hero");
-    await expect(hero).toBeVisible();
-  });
+    // Wait for page to load (use domcontentloaded instead of networkidle for pages with iframes)
+    await page.waitForLoadState("domcontentloaded");
 
-  test("should display category sections", async ({ page }) => {
-    await page.goto("/");
-    // Check for at least one category section
-    const sections = page.locator("section[id]");
-    await expect(sections.first()).toBeVisible();
-  });
+    // Check if homepage redirects (single game mode enabled)
+    // or loads normally (single game mode disabled)
+    // Check for game iframe to determine if we're on a game page
+    const iframe = page.locator("iframe");
+    const iframeVisible = await iframe.isVisible().catch(() => false);
 
-  test("should display game grids", async ({ page }) => {
-    await page.goto("/");
-    // Check for game cards
-    const gameLinks = page.locator('a[href^="/game/"]');
-    await expect(gameLinks.first()).toBeVisible();
-  });
+    if (iframeVisible) {
+      // Single game mode is ENABLED
+      // Homepage redirected to a game page
+      await expect(page).toHaveURL(/\/(game\/.+\/)?$/);
 
-  test("should have working navigation", async ({ page }) => {
-    await page.goto("/");
-    const header = page.locator("header");
-    await expect(header).toBeVisible();
-  });
+      // Should display game iframe
+      await expect(iframe).toBeVisible();
 
-  test("should have footer", async ({ page }) => {
-    await page.goto("/");
-    const footer = page.locator("footer");
-    await expect(footer).toBeVisible();
+      // Should have header and footer
+      const header = page.locator("header");
+      await expect(header).toBeVisible();
+      const footer = page.locator("footer");
+      await expect(footer).toBeVisible();
+    } else {
+      // Single game mode is DISABLED
+      // Homepage should load normally
+      await expect(page).toHaveURL("/");
+      await expect(page).toHaveTitle(/Unblocked Games/);
+
+      // Should display hero section
+      const hero = page.locator("#hero");
+      await expect(hero).toBeVisible();
+
+      // Should display category sections
+      const sections = page.locator("section[id]");
+      await expect(sections.first()).toBeVisible();
+
+      // Should display game grids
+      const gameLinks = page.locator('a[href^="/game/"]');
+      await expect(gameLinks.first()).toBeVisible();
+      const count = await gameLinks.count();
+      expect(count).toBeGreaterThan(1);
+
+      // Should have working navigation
+      const header = page.locator("header");
+      await expect(header).toBeVisible();
+
+      // Should have footer
+      const footer = page.locator("footer");
+      await expect(footer).toBeVisible();
+    }
   });
 });

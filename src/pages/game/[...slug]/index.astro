@@ -2,6 +2,8 @@
 import { type CollectionEntry, getCollection } from "astro:content";
 import GameDetails from "@/layouts/GameDetails.astro";
 import getSortedGames from "@/utils/getSortedGames";
+import { getMainGame } from "@/utils/getMainGame";
+import { SITE } from "@/config";
 
 type Props = {
   game: CollectionEntry<"games">;
@@ -21,6 +23,15 @@ const { game } = Astro.props;
 
 const games = await getCollection("games");
 const sortedGames = getSortedGames(games);
+
+// If single game mode is enabled and this is the main game, redirect to homepage
+if (SITE.singleGameMode) {
+  const mainGame = getMainGame(games);
+
+  if (mainGame && game.data.slug === mainGame.data.slug) {
+    return Astro.redirect("/", 301);
+  }
+}
 ---
 
 <GameDetails game={game} games={sortedGames} />

@@ -27,6 +27,7 @@ const games = defineCollection({
       modDatetime: z.date().optional().nullable(),
       ogImage: image().or(z.string()).optional(),
       canonicalURL: z.string().optional(),
+      isMainGame: z.boolean().optional(),
     }),
 });
 

@@ -56,9 +56,9 @@ The project uses Astro's content collections defined in `src/content.config.ts`:
 **1. games** (`content/games/`)
 - Game entries as markdown files with frontmatter metadata
 - Required fields: title, slug, category, description, gameUrl, pubDatetime
-- Optional fields: fullDescription, howToPlay, thumbnail, coverImage, featured, popular, new, rating, developer, modDatetime
+- Optional fields: fullDescription, howToPlay, thumbnail, coverImage, featured, popular, new, rating, developer, modDatetime, isMainGame
 - Categories: action, racing, sports, puzzle, adventure, strategy
-- Boolean flags: featured, popular, new
+- Boolean flags: featured, popular, new, isMainGame
 - Images stored alongside markdown files (AVIF/WebP format)
 - Game URLs are typically embedded iframes from game distribution platforms
 
@@ -88,6 +88,7 @@ Located in `src/utils/`:
 - **`getRelatedGames.ts`** - Finds related games based on category
 - **`getGamePath.ts`** - Generates paths for games and categories
 - **`getUiText.ts`** - Retrieves UI text strings from content/ui/en.json via dot notation
+- **`getMainGame.ts`** - Finds and validates the main game for single game mode
 
 ## Styling
 
@@ -105,6 +106,21 @@ Site-wide settings:
 - Pagination settings (gamesPerPage: 12, gamesPerIndex: 8)
 - Feature toggles (showCategories, showFeatured)
 - Carousel and recent games limits
+- **Single Game Mode** (`singleGameMode`): When enabled, displays one game as the main homepage content
+
+#### Single Game Mode
+
+Enable single game mode to feature one game prominently:
+
+1. Set `singleGameMode: true` in `src/config.ts`
+2. Mark one game with `isMainGame: true` in its frontmatter
+3. The homepage will redirect to that game's detail page
+4. Accessing the game's URL directly will redirect back to homepage
+
+**Validation:**
+- Exactly one game must have `isMainGame: true` when single game mode is enabled
+- Multiple games with `isMainGame: true` will throw an error
+- No game with `isMainGame: true` will throw an error when mode is enabled
 
 ### Astro Configuration (`astro.config.ts`)
 

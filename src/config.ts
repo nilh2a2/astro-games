@@ -20,6 +20,7 @@ const getSiteConfig = () => {
     showFeatured: true,
     recentGamesCount: 8,
     featuredCarouselSize: 5,
+    singleGameMode: true,
   } as const;
 };
 

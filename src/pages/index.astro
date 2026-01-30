@@ -1,6 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import Layout from "@/layouts/Layout.astro";
+import GameDetails from "@/layouts/GameDetails.astro";
 import Header from "@/components/Header.astro";
 import Footer from "@/components/Footer.astro";
 import LinkButton from "@/components/LinkButton.astro";
@@ -9,10 +10,15 @@ import getSortedGames from "@/utils/getSortedGames";
 import getGamesByCategory from "@/utils/getGamesByCategory";
 import { getUiText } from "@/utils/getUiText";
 import { getCategoryLabel } from "@/utils/getCategoryLabels";
+import { getMainGame } from "@/utils/getMainGame";
+import { SITE } from "@/config";
 import IconArrowRight from "@/assets/icons/IconArrowRight.svg";
 
 const games = await getCollection("games");
 const sortedGames = getSortedGames(games);
+
+// Check if single game mode is enabled
+const mainGame = getMainGame(games);
 
 // Get games by type
 const popularGames = sortedGames.filter(({ data }) => data.popular);
@@ -38,151 +44,157 @@ const organizationSchema = {
 };
 ---
 
-<Layout schemaType="WebSite" ogType="website">
-  <!-- Organization Schema -->
-  <script
-    type="application/ld+json"
-    is:inline
-    set:html={JSON.stringify(organizationSchema)}
-  />
-  <Header />
-  <main id="main-content" data-layout="index" class="app-layout">
-    <!-- Hero Section -->
-    <section id="hero" class:list={["py-6"]}>
-      <h1 class="mb-4 text-4xl font-bold">
-        {getUiText("pages.home.title")}
-      </h1>
-      <p class="text-skin-base/90 text-lg">
-        {getUiText("pages.home.heroText")}
-      </p>
-    </section>
-
-    <!-- Popular Games -->
-    {
-      popularGames.length > 0 && (
-        <section id="popular" class="py-8">
-          <div class="mb-6 flex items-center justify-between">
-            <h2 class="text-2xl font-bold">
-              {getUiText("pages.home.popularGames")}
-            </h2>
-          </div>
-          <GameGrid games={popularGames.slice(0, 12)} variant="h3" />
+{
+  SITE.singleGameMode && mainGame ? (
+    <GameDetails game={mainGame} games={sortedGames} />
+  ) : (
+    <Layout schemaType="WebSite" ogType="website">
+      <!-- Organization Schema -->
+      <script
+        type="application/ld+json"
+        is:inline
+        set:html={JSON.stringify(organizationSchema)}
+      />
+      <Header />
+      <main id="main-content" data-layout="index" class="app-layout">
+        <!-- Hero Section -->
+        <section id="hero" class:list={["py-6"]}>
+          <h1 class="mb-4 text-4xl font-bold">
+            {getUiText("pages.home.title")}
+          </h1>
+          <p class="text-skin-base/90 text-lg">
+            {getUiText("pages.home.heroText")}
+          </p>
         </section>
-      )
-    }
 
-    <!-- New Games -->
-    {
-      newGames.length > 0 && (
-        <section id="new" class="py-8">
-          <div class="mb-6 flex items-center justify-between">
-            <h2 class="text-2xl font-bold">
-              {getUiText("pages.home.newGames")}
-            </h2>
-          </div>
-          <GameGrid games={newGames.slice(0, 12)} variant="h3" />
-        </section>
-      )
-    }
+        <!-- Popular Games -->
+        {
+          popularGames.length > 0 && (
+            <section id="popular" class="py-8">
+              <div class="mb-6 flex items-center justify-between">
+                <h2 class="text-2xl font-bold">
+                  {getUiText("pages.home.popularGames")}
+                </h2>
+              </div>
+              <GameGrid games={popularGames.slice(0, 12)} variant="h3" />
+            </section>
+          )
+        }
 
-    <!-- Action Games -->
-    {
-      actionGames.length > 0 && (
-        <section id="action" class="py-8">
-          <div class="mb-6 flex items-center justify-between">
-            <h2 class="text-2xl font-bold">{getCategoryLabel("action")}</h2>
-            <LinkButton href="/category/action/">
-              {getUiText("buttons.viewAll")}
-              <IconArrowRight class="inline-block rtl:-rotate-180" />
-            </LinkButton>
-          </div>
-          <GameGrid games={actionGames.slice(0, 6)} variant="h3" />
-        </section>
-      )
-    }
+        <!-- New Games -->
+        {
+          newGames.length > 0 && (
+            <section id="new" class="py-8">
+              <div class="mb-6 flex items-center justify-between">
+                <h2 class="text-2xl font-bold">
+                  {getUiText("pages.home.newGames")}
+                </h2>
+              </div>
+              <GameGrid games={newGames.slice(0, 12)} variant="h3" />
+            </section>
+          )
+        }
 
-    <!-- Racing Games -->
-    {
-      racingGames.length > 0 && (
-        <section id="racing" class="py-8">
-          <div class="mb-6 flex items-center justify-between">
-            <h2 class="text-2xl font-bold">{getCategoryLabel("racing")}</h2>
-            <LinkButton href="/category/racing/">
-              {getUiText("buttons.viewAll")}
-              <IconArrowRight class="inline-block rtl:-rotate-180" />
-            </LinkButton>
-          </div>
-          <GameGrid games={racingGames.slice(0, 6)} variant="h3" />
-        </section>
-      )
-    }
+        <!-- Action Games -->
+        {
+          actionGames.length > 0 && (
+            <section id="action" class="py-8">
+              <div class="mb-6 flex items-center justify-between">
+                <h2 class="text-2xl font-bold">{getCategoryLabel("action")}</h2>
+                <LinkButton href="/category/action/">
+                  {getUiText("buttons.viewAll")}
+                  <IconArrowRight class="inline-block rtl:-rotate-180" />
+                </LinkButton>
+              </div>
+              <GameGrid games={actionGames.slice(0, 6)} variant="h3" />
+            </section>
+          )
+        }
 
-    <!-- Sports Games -->
-    {
-      sportsGames.length > 0 && (
-        <section id="sports" class="py-8">
-          <div class="mb-6 flex items-center justify-between">
-            <h2 class="text-2xl font-bold">{getCategoryLabel("sports")}</h2>
-            <LinkButton href="/category/sports/">
-              {getUiText("buttons.viewAll")}
-              <IconArrowRight class="inline-block rtl:-rotate-180" />
-            </LinkButton>
-          </div>
-          <GameGrid games={sportsGames.slice(0, 6)} variant="h3" />
-        </section>
-      )
-    }
+        <!-- Racing Games -->
+        {
+          racingGames.length > 0 && (
+            <section id="racing" class="py-8">
+              <div class="mb-6 flex items-center justify-between">
+                <h2 class="text-2xl font-bold">{getCategoryLabel("racing")}</h2>
+                <LinkButton href="/category/racing/">
+                  {getUiText("buttons.viewAll")}
+                  <IconArrowRight class="inline-block rtl:-rotate-180" />
+                </LinkButton>
+              </div>
+              <GameGrid games={racingGames.slice(0, 6)} variant="h3" />
+            </section>
+          )
+        }
 
-    <!-- Puzzle Games -->
-    {
-      puzzleGames.length > 0 && (
-        <section id="puzzle" class="py-8">
-          <div class="mb-6 flex items-center justify-between">
-            <h2 class="text-2xl font-bold">{getCategoryLabel("puzzle")}</h2>
-            <LinkButton href="/category/puzzle/">
-              {getUiText("buttons.viewAll")}
-              <IconArrowRight class="inline-block rtl:-rotate-180" />
-            </LinkButton>
-          </div>
-          <GameGrid games={puzzleGames.slice(0, 6)} variant="h3" />
-        </section>
-      )
-    }
+        <!-- Sports Games -->
+        {
+          sportsGames.length > 0 && (
+            <section id="sports" class="py-8">
+              <div class="mb-6 flex items-center justify-between">
+                <h2 class="text-2xl font-bold">{getCategoryLabel("sports")}</h2>
+                <LinkButton href="/category/sports/">
+                  {getUiText("buttons.viewAll")}
+                  <IconArrowRight class="inline-block rtl:-rotate-180" />
+                </LinkButton>
+              </div>
+              <GameGrid games={sportsGames.slice(0, 6)} variant="h3" />
+            </section>
+          )
+        }
 
-    <!-- Adventure Games -->
-    {
-      adventureGames.length > 0 && (
-        <section id="adventure" class="py-8">
-          <div class="mb-6 flex items-center justify-between">
-            <h2 class="text-2xl font-bold">{getCategoryLabel("adventure")}</h2>
-            <LinkButton href="/category/adventure/">
-              {getUiText("buttons.viewAll")}
-              <IconArrowRight class="inline-block rtl:-rotate-180" />
-            </LinkButton>
-          </div>
-          <GameGrid games={adventureGames.slice(0, 6)} variant="h3" />
-        </section>
-      )
-    }
+        <!-- Puzzle Games -->
+        {
+          puzzleGames.length > 0 && (
+            <section id="puzzle" class="py-8">
+              <div class="mb-6 flex items-center justify-between">
+                <h2 class="text-2xl font-bold">{getCategoryLabel("puzzle")}</h2>
+                <LinkButton href="/category/puzzle/">
+                  {getUiText("buttons.viewAll")}
+                  <IconArrowRight class="inline-block rtl:-rotate-180" />
+                </LinkButton>
+              </div>
+              <GameGrid games={puzzleGames.slice(0, 6)} variant="h3" />
+            </section>
+          )
+        }
 
-    <!-- Strategy Games -->
-    {
-      strategyGames.length > 0 && (
-        <section id="strategy" class="py-8">
-          <div class="mb-6 flex items-center justify-between">
-            <h2 class="text-2xl font-bold">{getCategoryLabel("strategy")}</h2>
-            <LinkButton href="/category/strategy/">
-              {getUiText("buttons.viewAll")}
-              <IconArrowRight class="inline-block rtl:-rotate-180" />
-            </LinkButton>
-          </div>
-          <GameGrid games={strategyGames.slice(0, 6)} variant="h3" />
-        </section>
-      )
-    }
-  </main>
-  <Footer />
-</Layout>
+        <!-- Adventure Games -->
+        {
+          adventureGames.length > 0 && (
+            <section id="adventure" class="py-8">
+              <div class="mb-6 flex items-center justify-between">
+                <h2 class="text-2xl font-bold">{getCategoryLabel("adventure")}</h2>
+                <LinkButton href="/category/adventure/">
+                  {getUiText("buttons.viewAll")}
+                  <IconArrowRight class="inline-block rtl:-rotate-180" />
+                </LinkButton>
+              </div>
+              <GameGrid games={adventureGames.slice(0, 6)} variant="h3" />
+            </section>
+          )
+        }
+
+        <!-- Strategy Games -->
+        {
+          strategyGames.length > 0 && (
+            <section id="strategy" class="py-8">
+              <div class="mb-6 flex items-center justify-between">
+                <h2 class="text-2xl font-bold">{getCategoryLabel("strategy")}</h2>
+                <LinkButton href="/category/strategy/">
+                  {getUiText("buttons.viewAll")}
+                  <IconArrowRight class="inline-block rtl:-rotate-180" />
+                </LinkButton>
+              </div>
+              <GameGrid games={strategyGames.slice(0, 6)} variant="h3" />
+            </section>
+          )
+        }
+      </main>
+      <Footer />
+    </Layout>
+  )
+}
 
 <script>
   document.addEventListener("astro:page-load", () => {
