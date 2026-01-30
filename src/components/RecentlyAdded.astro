@@ -13,6 +13,4 @@ const { games, limit = 8 } = Astro.props;
 const sortedGames = getSortedGames(games).slice(0, limit);
 ---
 
-{sortedGames.length > 0 && (
-  <GameGrid games={sortedGames} />
-)}
+{sortedGames.length > 0 && <GameGrid games={sortedGames} />}

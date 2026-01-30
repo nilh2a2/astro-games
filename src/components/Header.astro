@@ -56,46 +56,50 @@ const isActive = (path: string) => {
     </a>
     <nav
       id="nav-menu"
-      class="flex w-full items-center sm:ms-2 sm:flex-row sm:justify-between justify-end sm:space-x-4 sm:py-0"
+      class="flex w-full items-center justify-end sm:ms-2 sm:flex-row sm:justify-between sm:space-x-4 sm:py-0"
     >
-      <div class="hidden sm:flex items-center sm:flex-1 sm:justify-center">
+      <div class="hidden items-center sm:flex sm:flex-1 sm:justify-center">
         <ul
           class:list={[
             "[&>li>a]:block [&>li>a]:px-4 [&>li>a]:py-3 [&>li>a]:text-center [&>li>a]:font-medium [&>li>a]:hover:text-accent sm:[&>li>a]:px-2 sm:[&>li>a]:py-1",
             "sm:flex sm:w-auto sm:gap-x-5 sm:gap-y-0",
           ]}
         >
-          {headerCategories.map((category) => (
-            <li class="flex items-center justify-center">
-              <a
-                href={`/category/${category}`}
-                class:list={[
-                  "focus-outline capitalize",
-                  { "text-accent": isActive(`/category/${category}`) },
-                ]}
-              >
-                {getCategoryLabel(category)}
-              </a>
-            </li>
-          ))}
-          {headerCategories.length < allCategories.length && (
-            <li class="flex items-center justify-center">
-              <a
-                href="/category/"
-                class:list={[
-                  "focus-outline",
-                  { "text-accent": isActive("/category") },
-                ]}
-              >
-                {getUiText("nav.all")}
-              </a>
-            </li>
-          )}
+          {
+            headerCategories.map(category => (
+              <li class="flex items-center justify-center">
+                <a
+                  href={`/category/${category}`}
+                  class:list={[
+                    "focus-outline capitalize",
+                    { "text-accent": isActive(`/category/${category}`) },
+                  ]}
+                >
+                  {getCategoryLabel(category)}
+                </a>
+              </li>
+            ))
+          }
+          {
+            headerCategories.length < allCategories.length && (
+              <li class="flex items-center justify-center">
+                <a
+                  href="/category/"
+                  class:list={[
+                    "focus-outline",
+                    { "text-accent": isActive("/category") },
+                  ]}
+                >
+                  {getUiText("nav.all")}
+                </a>
+              </li>
+            )
+          }
         </ul>
       </div>
       <ul
         class:list={[
-          "hidden sm:flex gap-x-5 gap-y-0",
+          "hidden gap-x-5 gap-y-0 sm:flex",
           "[&>li>a]:block [&>li>a]:px-2 [&>li>a]:py-1 [&>li>a]:text-center [&>li>a]:font-medium [&>li>a]:hover:text-accent",
         ]}
       >
@@ -149,32 +153,36 @@ const isActive = (path: string) => {
           "w-full",
         ]}
       >
-        {headerCategories.map((category) => (
-          <li class="col-span-1 flex items-center justify-center">
-            <a
-              href={`/category/${category}`}
-              class:list={[
-                "focus-outline capitalize",
-                { "text-accent": isActive(`/category/${category}`) },
-              ]}
-            >
-              {category}
-            </a>
-          </li>
-        ))}
-        {headerCategories.length < allCategories.length && (
-          <li class="col-span-1 flex items-center justify-center">
-            <a
-              href="/category/"
-              class:list={[
-                "focus-outline",
-                { "text-accent": isActive("/category") },
-              ]}
-            >
-              {getUiText("nav.all")}
-            </a>
-          </li>
-        )}
+        {
+          headerCategories.map(category => (
+            <li class="col-span-1 flex items-center justify-center">
+              <a
+                href={`/category/${category}`}
+                class:list={[
+                  "focus-outline capitalize",
+                  { "text-accent": isActive(`/category/${category}`) },
+                ]}
+              >
+                {category}
+              </a>
+            </li>
+          ))
+        }
+        {
+          headerCategories.length < allCategories.length && (
+            <li class="col-span-1 flex items-center justify-center">
+              <a
+                href="/category/"
+                class:list={[
+                  "focus-outline",
+                  { "text-accent": isActive("/category") },
+                ]}
+              >
+                {getUiText("nav.all")}
+              </a>
+            </li>
+          )
+        }
         <li class="col-span-1 flex items-center justify-center">
           <LinkButton
             href="/search"
@@ -210,7 +218,13 @@ const isActive = (path: string) => {
   </div>
 </header>
 
-<script is:inline define:vars={{ openMenu: getUiText("nav.openMenu"), closeMenu: getUiText("nav.closeMenu") }}>
+<script
+  is:inline
+  define:vars={{
+    openMenu: getUiText("nav.openMenu"),
+    closeMenu: getUiText("nav.closeMenu"),
+  }}
+>
   function toggleNav() {
     const menuBtn = document.querySelector("#menu-btn");
     const menuItems = document.querySelector("#menu-items");

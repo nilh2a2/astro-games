@@ -1,4 +1,4 @@
-import uiStrings from '../content/ui/en.json';
+import uiStrings from "../content/ui/en.json";
 
 const getSiteConfig = () => {
   return {

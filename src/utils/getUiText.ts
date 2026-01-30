@@ -1,4 +1,4 @@
-import uiStrings from '../../content/ui/en.json';
+import uiStrings from "../../content/ui/en.json";
 
 /**
  * Retrieves UI text by dot-notation path (e.g., "nav.posts")
@@ -6,15 +6,14 @@ import uiStrings from '../../content/ui/en.json';
  * @returns The UI text string
  */
 export function getUiText(path: string): string {
-  const keys = path.split('.');
-  let value: any = uiStrings;
+  const keys = path.split(".");
+  let value: unknown = uiStrings;
 
   for (const key of keys) {
-    value = value?.[key];
+    value = (value as Record<string, unknown>)?.[key];
   }
 
-  if (typeof value !== 'string') {
-    console.warn(`UI text not found for path: ${path}`);
+  if (typeof value !== "string") {
     return path;
   }
 
@@ -27,15 +26,14 @@ export function getUiText(path: string): string {
  * @returns The UI text array
  */
 export function getUiArray(path: string): string[] {
-  const keys = path.split('.');
-  let value: any = uiStrings;
+  const keys = path.split(".");
+  let value: unknown = uiStrings;
 
   for (const key of keys) {
-    value = value?.[key];
+    value = (value as Record<string, unknown>)?.[key];
   }
 
   if (!Array.isArray(value)) {
-    console.warn(`UI array not found for path: ${path}`);
     return [];
   }
 

@@ -8,9 +8,11 @@ type Props = {
 const { content } = Astro.props;
 ---
 
-<div class="rounded-lg border-2 border-skin-line bg-skin-card p-6">
+<div class="border-skin-line bg-skin-card rounded-lg border-2 p-6">
   <details class="group">
-    <summary class="flex cursor-pointer items-center gap-2 text-xl font-bold hover:text-skin-accent">
+    <summary
+      class="hover:text-skin-accent flex cursor-pointer items-center gap-2 text-xl font-bold"
+    >
       {getUiText("game.howToPlay")}
       <svg
         class="h-5 w-5 transition-transform group-open:rotate-180"
@@ -22,8 +24,7 @@ const { content } = Astro.props;
           stroke-linecap="round"
           stroke-linejoin="round"
           stroke-width="2"
-          d="M19 14l-7 7m0 0l-7-7m7 7V3"
-        />
+          d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
       </svg>
     </summary>
     <div class="app-prose mt-4">

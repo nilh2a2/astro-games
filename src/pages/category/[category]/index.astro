@@ -27,7 +27,9 @@ const categoryGames = getGamesByCategory(sortedGames, category);
 const allCategories = getUniqueCategories(games);
 
 const categoryLabel = getCategoryLabel(category);
-const pageTitle = getUiText("categories.pageTitle").replace("{category}", categoryLabel) + ` | ${getUiText("site.title")}`;
+const pageTitle =
+  getUiText("categories.pageTitle").replace("{category}", categoryLabel) +
+  ` | ${getUiText("site.title")}`;
 const pageDesc = getUiText("categories.pageDescription")
   .replace("{category}", categoryLabel.toLowerCase())
   .replace("{category}", categoryLabel.toLowerCase());
@@ -35,31 +37,43 @@ const pageDesc = getUiText("categories.pageDescription")
 
 <Layout title={pageTitle} description={pageDesc}>
   <Header />
-  <Main pageTitle={getUiText("categories.pageTitle").replace("{category}", categoryLabel)} pageDesc={pageDesc}>
+  <Main
+    pageTitle={getUiText("categories.pageTitle").replace(
+      "{category}",
+      categoryLabel
+    )}
+    pageDesc={pageDesc}
+  >
     <!-- Category Navigation -->
     <nav class="mb-8 flex flex-wrap gap-2">
-      {allCategories.map(cat => (
-        <a
-          href={`/category/${cat}/`}
-          class:list={[
-            "rounded-lg px-4 py-2 font-medium transition-colors",
-            cat === category
-              ? "bg-skin-accent text-white"
-              : "bg-skin-card text-skin-base hover:bg-skin-accent/10"
-          ]}
-        >
-          {getCategoryLabel(cat)}
-        </a>
-      ))}
+      {
+        allCategories.map(cat => (
+          <a
+            href={`/category/${cat}/`}
+            class:list={[
+              "rounded-lg px-4 py-2 font-medium transition-colors",
+              cat === category
+                ? "bg-skin-accent text-white"
+                : "bg-skin-card text-skin-base hover:bg-skin-accent/10",
+            ]}
+          >
+            {getCategoryLabel(cat)}
+          </a>
+        ))
+      }
     </nav>
 
-    {categoryGames.length > 0 ? (
-      <GameGrid games={categoryGames} />
-    ) : (
-      <div class="text-center py-12">
-        <p class="text-lg text-skin-base/60">{getUiText("pages.categories.noGames")}</p>
-      </div>
-    )}
+    {
+      categoryGames.length > 0 ? (
+        <GameGrid games={categoryGames} />
+      ) : (
+        <div class="py-12 text-center">
+          <p class="text-skin-base/60 text-lg">
+            {getUiText("pages.categories.noGames")}
+          </p>
+        </div>
+      )
+    }
   </Main>
 
   <Footer />

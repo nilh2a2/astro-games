@@ -32,7 +32,7 @@ const strategyGames = getGamesByCategory(sortedGames, "strategy");
   <main id="main-content" data-layout="index" class="app-layout">
     <!-- Hero Section -->
     <section id="hero" class:list={["py-6"]}>
-      <p class="text-lg text-skin-base/90">
+      <p class="text-skin-base/90 text-lg">
         {getUiText("pages.home.heroText")}
       </p>
     </section>
@@ -42,7 +42,9 @@ const strategyGames = getGamesByCategory(sortedGames, "strategy");
       popularGames.length > 0 && (
         <section id="popular" class="py-8">
           <div class="mb-6 flex items-center justify-between">
-            <h2 class="text-2xl font-bold">{getUiText("pages.home.popularGames")}</h2>
+            <h2 class="text-2xl font-bold">
+              {getUiText("pages.home.popularGames")}
+            </h2>
           </div>
           <GameGrid games={popularGames.slice(0, 12)} />
         </section>
@@ -54,7 +56,9 @@ const strategyGames = getGamesByCategory(sortedGames, "strategy");
       newGames.length > 0 && (
         <section id="new" class="py-8">
           <div class="mb-6 flex items-center justify-between">
-            <h2 class="text-2xl font-bold">{getUiText("pages.home.newGames")}</h2>
+            <h2 class="text-2xl font-bold">
+              {getUiText("pages.home.newGames")}
+            </h2>
           </div>
           <GameGrid games={newGames.slice(0, 12)} />
         </section>

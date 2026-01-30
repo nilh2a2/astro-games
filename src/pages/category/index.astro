@@ -26,20 +26,25 @@ const pageDesc = getUiText("pages.categories.description");
 <Layout title={pageTitle} description={pageDesc}>
   <Header />
   <Main pageTitle={getUiText("pages.categories.title")} pageDesc={pageDesc}>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      {categoriesWithCount.map(({ name, count }) => (
-        <a
-          href={`/category/${name}/`}
-          class="group block rounded-xl bg-skin-card p-6 shadow-sm transition-all hover:shadow-md hover:scale-105"
-        >
-          <h2 class="text-2xl font-bold text-skin-accent mb-2">
-            {getCategoryLabel(name)}
-          </h2>
-          <p class="text-skin-base/70">
-            {count} {count === 1 ? getUiText("common.game") : getUiText("common.games")}
-          </p>
-        </a>
-      ))}
+    <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        categoriesWithCount.map(({ name, count }) => (
+          <a
+            href={`/category/${name}/`}
+            class="group bg-skin-card block rounded-xl p-6 shadow-sm transition-all hover:scale-105 hover:shadow-md"
+          >
+            <h2 class="text-skin-accent mb-2 text-2xl font-bold">
+              {getCategoryLabel(name)}
+            </h2>
+            <p class="text-skin-base/70">
+              {count}{" "}
+              {count === 1
+                ? getUiText("common.game")
+                : getUiText("common.games")}
+            </p>
+          </a>
+        ))
+      }
     </div>
   </Main>
 

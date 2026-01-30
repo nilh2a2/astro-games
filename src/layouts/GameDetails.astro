@@ -27,8 +27,6 @@ const {
   title,
   description,
   gameUrl,
-  coverImage,
-  thumbnail,
   ogImage: initOgImage,
   canonicalURL,
   pubDatetime,
@@ -37,8 +35,6 @@ const {
 } = game.data;
 
 const { Content } = await render(game);
-
-const coverImg = coverImage || thumbnail;
 
 let ogImageUrl: string | undefined;
 

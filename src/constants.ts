@@ -8,13 +8,19 @@ import IconFacebook from "@/assets/icons/IconFacebook.svg";
 import IconTelegram from "@/assets/icons/IconTelegram.svg";
 import IconPinterest from "@/assets/icons/IconPinterest.svg";
 import { SITE } from "@/config";
-import uiStrings from '../content/ui/en.json';
+import uiStrings from "../content/ui/en.json";
 
 interface Social {
   name: string;
   href: string;
   linkTitle: string;
   icon: (_props: Props) => Element;
+}
+
+interface SocialLink {
+  name: string;
+  href: string;
+  linkTitle: string;
 }
 
 const iconMap: Record<string, (_props: Props) => Element> = {
@@ -28,14 +34,18 @@ const iconMap: Record<string, (_props: Props) => Element> = {
   Pinterest: IconPinterest,
 };
 
-export const SOCIALS: Social[] = (uiStrings.social.links as any[]).map(link => ({
-  name: link.name,
-  href: link.href,
-  linkTitle: `${SITE.title} ${link.linkTitle}`,
-  icon: iconMap[link.name] || IconMail,
-}));
+export const SOCIALS: Social[] = (uiStrings.social.links as SocialLink[]).map(
+  link => ({
+    name: link.name,
+    href: link.href,
+    linkTitle: `${SITE.title} ${link.linkTitle}`,
+    icon: iconMap[link.name] || IconMail,
+  })
+);
 
-export const SHARE_LINKS: Social[] = (uiStrings.social.share as any[]).map(link => ({
+export const SHARE_LINKS: Social[] = (
+  uiStrings.social.share as SocialLink[]
+).map(link => ({
   name: link.name,
   href: link.href,
   linkTitle: link.linkTitle,

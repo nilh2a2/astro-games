@@ -9,7 +9,11 @@ const games = defineCollection({
     z.object({
       title: z.string(),
       slug: z.string(),
-      category: z.string().min(2).max(50).transform(val => val.toLowerCase()),
+      category: z
+        .string()
+        .min(2)
+        .max(50)
+        .transform(val => val.toLowerCase()),
       description: z.string(),
       gameUrl: z.string().url(),
       thumbnail: image().optional(),

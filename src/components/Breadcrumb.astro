@@ -9,13 +9,18 @@ const currentUrlPath = Astro.url.pathname.replace(/\/+$/, "");
 const breadcrumbList = currentUrlPath.split("/").slice(1);
 ---
 
-<nav class="app-layout mt-8 mb-1" aria-label={getUiText("breadcrumb.ariaLabel")}>
+<nav
+  class="app-layout mt-8 mb-1"
+  aria-label={getUiText("breadcrumb.ariaLabel")}
+>
   <ul
     class="font-light [&>li]:inline [&>li:not(:last-child)>a]:hover:opacity-100"
   >
     <li>
       <a href="/" class="opacity-80">{getUiText("breadcrumb.home")}</a>
-      <span aria-hidden="true" class="opacity-80">{getUiText("breadcrumb.separator")}</span>
+      <span aria-hidden="true" class="opacity-80"
+        >{getUiText("breadcrumb.separator")}</span
+      >
     </li>
     {
       breadcrumbList.map((breadcrumb, index) =>

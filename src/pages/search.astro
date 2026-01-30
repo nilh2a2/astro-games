@@ -7,23 +7,21 @@ import { SITE } from "@/config";
 import { getUiText } from "@/utils/getUiText";
 
 const backUrl = Astro.url.pathname;
-
-// Compute UI text values for script
-const devWarning = getUiText("pages.search.devWarning");
-const devMessage = getUiText("pages.search.devMessage");
-const buildCommand = getUiText("pages.search.buildCommand");
 ---
 
 <Layout title={`${getUiText("pages.search.pageTitle")} | ${SITE.title}`}>
   <link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
   <Header />
-  <Main pageTitle={getUiText("pages.search.title")} pageDesc={getUiText("pages.search.placeholder")}>
+  <Main
+    pageTitle={getUiText("pages.search.title")}
+    pageDesc={getUiText("pages.search.placeholder")}
+  >
     <div id="pagefind-search" transition:persist data-backurl={backUrl}></div>
   </Main>
   <Footer />
 </Layout>
 
-<script is:inline define:vars={{ devWarning, devMessage, buildCommand }}>
+<script is:inline>
   function initSearch() {
     const pageFindSearch = document.querySelector("#pagefind-search");
 
@@ -35,8 +33,8 @@ const buildCommand = getUiText("pages.search.buildCommand");
 
     onIdle(async () => {
       // Load Pagefind UI from the built files
-      const pagefindScript = document.createElement('script');
-      pagefindScript.src = '/pagefind/pagefind-ui.js';
+      const pagefindScript = document.createElement("script");
+      pagefindScript.src = "/pagefind/pagefind-ui.js";
       await new Promise((resolve, reject) => {
         pagefindScript.onload = resolve;
         pagefindScript.onerror = reject;

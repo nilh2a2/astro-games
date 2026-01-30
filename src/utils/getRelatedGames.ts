@@ -17,7 +17,9 @@ const getRelatedGames = (
   // If not enough games in the same category, fill with games from other categories
   if (relatedGames.length < limit) {
     const otherGames = getSortedGames(games)
-      .filter(game => game.id !== currentGame.id && !relatedGames.includes(game))
+      .filter(
+        game => game.id !== currentGame.id && !relatedGames.includes(game)
+      )
       .slice(0, limit - relatedGames.length);
     relatedGames.push(...otherGames);
   }
