@@ -106,7 +106,7 @@ const isActive = (path: string) => {
               { "[&>svg]:stroke-accent": isActive("/search") },
             ]}
             title={getUiText("nav.search")}
-            aria-label="search"
+            aria-label={getUiText("nav.ariaSearch")}
           >
             <IconSearch />
             <span class="sr-only">{getUiText("nav.search")}</span>
@@ -119,7 +119,7 @@ const isActive = (path: string) => {
                 id="theme-btn"
                 class="focus-outline relative size-8 p-1 hover:[&>svg]:stroke-accent"
                 title={getUiText("nav.toggleTheme")}
-                aria-label="auto"
+                aria-label={getUiText("nav.ariaThemeToggle")}
                 aria-live="polite"
               >
                 <IconMoon class="absolute top-[50%] left-[50%] -translate-[50%] scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90" />
@@ -182,7 +182,7 @@ const isActive = (path: string) => {
               { "[&>svg]:stroke-accent": isActive("/search") },
             ]}
             title={getUiText("nav.search")}
-            aria-label="search"
+            aria-label={getUiText("nav.ariaSearch")}
           >
             <IconSearch />
             <span class="sr-only">{getUiText("nav.search")}</span>
@@ -195,7 +195,7 @@ const isActive = (path: string) => {
                 id="theme-btn"
                 class="focus-outline relative size-12 p-4 hover:[&>svg]:stroke-accent"
                 title={getUiText("nav.toggleTheme")}
-                aria-label="auto"
+                aria-label={getUiText("nav.ariaThemeToggle")}
                 aria-live="polite"
               >
                 <IconMoon class="absolute top-[50%] left-[50%] -translate-[50%] scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90" />

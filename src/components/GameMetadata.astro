@@ -1,6 +1,7 @@
 ---
 import type { CollectionEntry } from "astro:content";
 import { getCategoryPath } from "@/utils/getGamePath";
+import getUiText from "@/utils/getUiText";
 
 type Props = {
   game: CollectionEntry<"games">;
@@ -28,7 +29,7 @@ const categoryPath = getCategoryPath(category);
         <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
       </svg>
       <span class="font-semibold">{rating.toFixed(1)}</span>
-      <span class="text-skin-base/60">/5</span>
+      <span class="text-skin-base/60">{getUiText("game.ratingOutOf")}</span>
     </div>
   )}
 

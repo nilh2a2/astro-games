@@ -17,7 +17,9 @@
     "all": "All",
     "openMenu": "Open Menu",
     "closeMenu": "Close Menu",
-    "toggleTheme": "Toggles light & dark"
+    "toggleTheme": "Toggles light & dark",
+    "ariaSearch": "search",
+    "ariaThemeToggle": "auto"
   },
   "footer": {
     "copyright": "Copyright ©",
@@ -33,20 +35,28 @@
   "buttons": {
     "goBack": "Go back",
     "backToTop": "Back To Top",
-    "viewAll": "View All"
+    "viewAll": "View All",
+    "playNow": "Play Now"
   },
   "badges": {
     "new": "New",
     "popular": "Popular"
   },
+  "carousel": {
+    "previousGame": "Previous game",
+    "nextGame": "Next game",
+    "goToSlide": "Go to slide {number}"
+  },
   "game": {
     "howToPlay": "How to Play",
     "relatedGames": "Related Games",
-    "shareThisGame": "Share this game:"
+    "shareThisGame": "Share this game:",
+    "ratingOutOf": "/5"
   },
   "breadcrumb": {
     "home": "Home",
-    "separator": "/"
+    "separator": "/",
+    "ariaLabel": "breadcrumb"
   },
   "common": {
     "game": "game",
@@ -75,6 +85,7 @@
     },
     "search": {
       "title": "Search",
+      "pageTitle": "Search",
       "placeholder": "Search any article ...",
       "devWarning": "DEV mode Warning!",
       "devMessage": "You need to build the project at least once to see the search results during development.",
@@ -82,6 +93,7 @@
     },
     "404": {
       "title": "404",
+      "pageTitle": "404 Not Found",
       "message": "Page Not Found",
       "goHome": "Go back home",
       "shrug": "¯\\_(ツ)_/¯"

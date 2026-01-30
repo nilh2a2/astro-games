@@ -14,7 +14,7 @@ const devMessage = getUiText("pages.search.devMessage");
 const buildCommand = getUiText("pages.search.buildCommand");
 ---
 
-<Layout title={`Search | ${SITE.title}`}>
+<Layout title={`${getUiText("pages.search.pageTitle")} | ${SITE.title}`}>
   <link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
   <Header />
   <Main pageTitle={getUiText("pages.search.title")} pageDesc={getUiText("pages.search.placeholder")}>
