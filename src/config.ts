@@ -20,6 +20,11 @@ const getSiteConfig = () => {
     showFeatured: true,
     recentGamesCount: 8,
     featuredCarouselSize: 5,
+
+    // Logo settings
+    showLogo: true,
+    logoPath: "/favicon.svg", // Path to logo file (relative to public directory)
+    logoSize: 32, // Logo height in pixels
   } as const;
 };
 
