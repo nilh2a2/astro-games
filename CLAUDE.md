@@ -6,27 +6,33 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 This is an Astro-based games website that displays and embeds browser games. The site uses Astro's content collections to manage game data stored as markdown files with frontmatter, and renders them with a clean, responsive UI.
 
-## Development Workflow
+## Development
 
-**Development:**
-```bash
-npm run dev      # Start dev server
-npm run build    # Production build
-npm run preview  # Preview build
-```
+### Quality Checks
 
-**Quality Checks (run before every commit):**
+**MANDATORY REQUIREMENT:**
+
+After making ANY code changes and before committing, you MUST run these quality checks and fix all errors:
+
 ```bash
 npm run check    # TypeScript + ESLint + Prettier
 npm test         # Build + E2E tests
 npm run format   # Auto-fix formatting
 ```
 
-**Fix errors:** Read error output, fix reported issues, re-run checks.
+**This is STRICTLY REQUIRED:**
+- Run ALL three commands after code changes, before every commit
+- Read error output carefully
+- Fix ALL reported issues
+- Re-run checks until they pass
+
+**No exceptions.** These checks ensure code quality, prevent bugs, and maintain consistency across the codebase.
 
 ## Architecture
 
-### Content-First Architecture Principle
+This is an Astro-based static site using content collections for data management, with strict content-code separation and responsive design.
+
+### Content-First Principle
 
 This project follows strict **content-code separation**:
 
@@ -45,22 +51,26 @@ This project follows strict **content-code separation**:
 
 ### Content Collections
 
-The project uses Astro's content collections with three main collections defined in `src/content.config.ts`:
+The project uses Astro's content collections defined in `src/content.config.ts`:
 
-1. **games** (`content/games/`): Game entries with markdown files
-   - Each game has frontmatter with metadata (title, slug, category, description, gameUrl, etc.)
-   - Categories: action, racing, sports, puzzle, adventure, strategy
-   - Boolean flags: featured, popular, new
-   - Images stored alongside markdown files (AVIF/WebP format)
+**1. games** (`content/games/`)
+- Game entries as markdown files with frontmatter metadata
+- Required fields: title, slug, category, description, gameUrl, pubDatetime
+- Optional fields: fullDescription, howToPlay, thumbnail, coverImage, featured, popular, new, rating, developer, modDatetime
+- Categories: action, racing, sports, puzzle, adventure, strategy
+- Boolean flags: featured, popular, new
+- Images stored alongside markdown files (AVIF/WebP format)
+- Game URLs are typically embedded iframes from game distribution platforms
 
-2. **pages** (`content/pages/`): Static pages (about, privacy, terms, contact, help)
+**2. pages** (`content/pages/`)
+- Static pages: about, privacy, terms, contact, help
 
-3. **ui** (`content/ui/`): UI text strings and labels
-   - `en.json` contains all user-facing text (navigation, buttons, messages, etc.)
-   - Structured as nested JSON for organization (nav, footer, pagination, etc.)
-   - Accessed via `getUiText()` utility function
+**3. ui** (`content/ui/`)
+- `en.json` contains all user-facing text (navigation, buttons, messages, etc.)
+- Structured as nested JSON for organization (nav, footer, pagination, etc.)
+- Accessed via `getUiText()` utility function
 
-### Routing Structure
+### Routing
 
 - `/` - Homepage with featured carousel, category previews, and recently added games
 - `/game/[slug]/` - Individual game detail pages with embedded iframe player
@@ -72,51 +82,40 @@ The project uses Astro's content collections with three main collections defined
 
 Located in `src/utils/`:
 
-- `getSortedGames.ts` - Sorts games by modDatetime or pubDatetime (most recent first)
-- `gameFilter.ts` - Filters out draft games and unpublished games (based on pubDatetime)
-- `getGamesByCategory.ts` - Filters games by category
-- `getRelatedGames.ts` - Finds related games based on category
-- `getGamePath.ts` - Generates paths for games and categories
-- `getUiText.ts` - Retrieves UI text strings from content/ui/en.json via dot notation
+- **`getSortedGames.ts`** - Sorts games by modDatetime or pubDatetime (most recent first)
+- **`gameFilter.ts`** - Filters out draft games and unpublished games (based on pubDatetime)
+- **`getGamesByCategory.ts`** - Filters games by category
+- **`getRelatedGames.ts`** - Finds related games based on category
+- **`getGamePath.ts`** - Generates paths for games and categories
+- **`getUiText.ts`** - Retrieves UI text strings from content/ui/en.json via dot notation
 
-### Configuration
-
-- `src/config.ts` - Site-wide settings including:
-  - Site metadata (title, description, URL)
-  - Pagination settings (gamesPerPage: 12, gamesPerIndex: 8)
-  - Feature toggles (showCategories, showFeatured)
-  - Carousel and recent games limits
-
-- `astro.config.ts` - Astro configuration with:
-  - Tailwind CSS v4 via Vite plugin
-  - Sitemap integration
-  - Markdown plugins (remark-toc, remark-collapse)
-  - Shiki syntax highlighting with custom transformers
-  - Experimental font loading from Google Fonts
-
-### Path Aliases
-
-TypeScript path alias `@/*` maps to `./src/*` (configured in tsconfig.json)
-
-### Build Process
-
-The build command chains multiple steps:
-1. `astro check` - Type checking
-2. `astro build` - Build static site
-3. `pagefind --site dist` - Generate search index
-4. `cp -r dist/pagefind public/` - Copy search index to public
-
-### Game Content Structure
-
-Each game markdown file should include:
-- Required: title, slug, category, description, gameUrl, pubDatetime
-- Optional: fullDescription, howToPlay, thumbnail, coverImage, featured, popular, new, rating, developer, modDatetime
-
-Game URLs are typically embedded iframes from game distribution platforms.
-
-### Styling
+## Styling
 
 - Uses Tailwind CSS v4 with custom theme
 - Custom CSS classes: `app-layout`, `app-prose` for consistent styling
 - Theme switching support (light/dark mode)
 - Responsive design with mobile-first approach
+
+## Configuration
+
+### Site Configuration (`src/config.ts`)
+
+Site-wide settings:
+- Site metadata (title, description, URL)
+- Pagination settings (gamesPerPage: 12, gamesPerIndex: 8)
+- Feature toggles (showCategories, showFeatured)
+- Carousel and recent games limits
+
+### Astro Configuration (`astro.config.ts`)
+
+Build and integration settings:
+- Tailwind CSS v4 via Vite plugin
+- Sitemap integration
+- Markdown plugins (remark-toc, remark-collapse)
+- Shiki syntax highlighting with custom transformers
+- Experimental font loading from Google Fonts
+
+### Path Aliases
+
+TypeScript path alias `@/*` maps to `./src/*` (configured in tsconfig.json)
+
