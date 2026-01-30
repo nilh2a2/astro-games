@@ -35,7 +35,12 @@ const pageDesc = getUiText("categories.pageDescription")
   .replace("{category}", categoryLabel.toLowerCase());
 ---
 
-<Layout title={pageTitle} description={pageDesc}>
+<Layout
+  title={pageTitle}
+  description={pageDesc}
+  schemaType="CollectionPage"
+  ogType="website"
+>
   <Header />
   <Main
     pageTitle={getUiText("categories.pageTitle").replace(

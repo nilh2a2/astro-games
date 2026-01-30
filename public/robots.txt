@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Disallow search results and pagefind resources
+Disallow: /search
+Disallow: /pagefind/
+
+# Sitemap location
+Sitemap: https://unblockedgamesg.net/sitemap-index.xml

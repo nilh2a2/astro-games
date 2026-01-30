@@ -15,6 +15,13 @@ type Props = {
   pubDatetime?: Date;
   modDatetime?: Date | null;
   scrollSmooth?: boolean;
+  schemaType?:
+    | "WebSite"
+    | "WebPage"
+    | "Article"
+    | "VideoGame"
+    | "CollectionPage";
+  ogType?: string;
 };
 
 const {
@@ -27,25 +34,67 @@ const {
   pubDatetime,
   modDatetime,
   scrollSmooth = false,
+  schemaType = "WebPage",
+  ogType = "website",
 } = Astro.props;
 
 const socialImageURL = new URL(ogImage, Astro.url);
 
-const structuredData = {
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  headline: `${title}`,
-  image: `${socialImageURL}`,
-  datePublished: `${pubDatetime?.toISOString()}`,
-  ...(modDatetime && { dateModified: modDatetime.toISOString() }),
-  author: [
-    {
+// Dynamic structured data based on page type
+let structuredData: Record<string, unknown>;
+
+if (schemaType === "WebSite") {
+  // Homepage schema
+  structuredData = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: SITE.title,
+    url: Astro.url.origin,
+    description: SITE.desc,
+    potentialAction: {
+      "@type": "SearchAction",
+      target: {
+        "@type": "EntryPoint",
+        urlTemplate: `${Astro.url.origin}/search?q={search_term_string}`,
+      },
+      "query-input": "required name=search_term_string",
+    },
+  };
+} else if (schemaType === "CollectionPage") {
+  // Category pages schema
+  structuredData = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: title,
+    description: description,
+    url: canonicalURL,
+  };
+} else if (schemaType === "Article") {
+  // Article/Blog schema (for static pages)
+  structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: title,
+    description: description,
+    image: socialImageURL.href,
+    datePublished: pubDatetime?.toISOString(),
+    ...(modDatetime && { dateModified: modDatetime.toISOString() }),
+    author: {
       "@type": "Person",
-      name: `${author}`,
+      name: author,
       ...(profile && { url: profile }),
     },
-  ],
-};
+  };
+} else {
+  // Default WebPage schema
+  structuredData = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: title,
+    description: description,
+    url: canonicalURL,
+  };
+}
 ---
 
 <!doctype html>
@@ -75,6 +124,7 @@ const structuredData = {
     <link rel="sitemap" href="/sitemap-index.xml" />
 
     <!-- Open Graph / Facebook -->
+    <meta property="og:type" content={ogType} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalURL} />
