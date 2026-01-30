@@ -25,9 +25,26 @@ const sportsGames = getGamesByCategory(sortedGames, "sports");
 const puzzleGames = getGamesByCategory(sortedGames, "puzzle");
 const adventureGames = getGamesByCategory(sortedGames, "adventure");
 const strategyGames = getGamesByCategory(sortedGames, "strategy");
+
+// Organization structured data
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: getUiText("site.title"),
+  url: getUiText("site.website"),
+  logo: `${getUiText("site.website")}/favicon.svg`,
+  description: getUiText("site.description"),
+  sameAs: [],
+};
 ---
 
 <Layout schemaType="WebSite" ogType="website">
+  <!-- Organization Schema -->
+  <script
+    type="application/ld+json"
+    is:inline
+    set:html={JSON.stringify(organizationSchema)}
+  />
   <Header />
   <main id="main-content" data-layout="index" class="app-layout">
     <!-- Hero Section -->
@@ -49,7 +66,7 @@ const strategyGames = getGamesByCategory(sortedGames, "strategy");
               {getUiText("pages.home.popularGames")}
             </h2>
           </div>
-          <GameGrid games={popularGames.slice(0, 12)} />
+          <GameGrid games={popularGames.slice(0, 12)} variant="h3" />
         </section>
       )
     }
@@ -63,7 +80,7 @@ const strategyGames = getGamesByCategory(sortedGames, "strategy");
               {getUiText("pages.home.newGames")}
             </h2>
           </div>
-          <GameGrid games={newGames.slice(0, 12)} />
+          <GameGrid games={newGames.slice(0, 12)} variant="h3" />
         </section>
       )
     }
@@ -79,7 +96,7 @@ const strategyGames = getGamesByCategory(sortedGames, "strategy");
               <IconArrowRight class="inline-block rtl:-rotate-180" />
             </LinkButton>
           </div>
-          <GameGrid games={actionGames.slice(0, 6)} />
+          <GameGrid games={actionGames.slice(0, 6)} variant="h3" />
         </section>
       )
     }
@@ -95,7 +112,7 @@ const strategyGames = getGamesByCategory(sortedGames, "strategy");
               <IconArrowRight class="inline-block rtl:-rotate-180" />
             </LinkButton>
           </div>
-          <GameGrid games={racingGames.slice(0, 6)} />
+          <GameGrid games={racingGames.slice(0, 6)} variant="h3" />
         </section>
       )
     }
@@ -111,7 +128,7 @@ const strategyGames = getGamesByCategory(sortedGames, "strategy");
               <IconArrowRight class="inline-block rtl:-rotate-180" />
             </LinkButton>
           </div>
-          <GameGrid games={sportsGames.slice(0, 6)} />
+          <GameGrid games={sportsGames.slice(0, 6)} variant="h3" />
         </section>
       )
     }
@@ -127,7 +144,7 @@ const strategyGames = getGamesByCategory(sortedGames, "strategy");
               <IconArrowRight class="inline-block rtl:-rotate-180" />
             </LinkButton>
           </div>
-          <GameGrid games={puzzleGames.slice(0, 6)} />
+          <GameGrid games={puzzleGames.slice(0, 6)} variant="h3" />
         </section>
       )
     }
@@ -143,7 +160,7 @@ const strategyGames = getGamesByCategory(sortedGames, "strategy");
               <IconArrowRight class="inline-block rtl:-rotate-180" />
             </LinkButton>
           </div>
-          <GameGrid games={adventureGames.slice(0, 6)} />
+          <GameGrid games={adventureGames.slice(0, 6)} variant="h3" />
         </section>
       )
     }
@@ -159,7 +176,7 @@ const strategyGames = getGamesByCategory(sortedGames, "strategy");
               <IconArrowRight class="inline-block rtl:-rotate-180" />
             </LinkButton>
           </div>
-          <GameGrid games={strategyGames.slice(0, 6)} />
+          <GameGrid games={strategyGames.slice(0, 6)} variant="h3" />
         </section>
       )
     }

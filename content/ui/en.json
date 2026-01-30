@@ -51,7 +51,8 @@
     "howToPlay": "How to Play",
     "relatedGames": "Related Games",
     "shareThisGame": "Share this game:",
-    "ratingOutOf": "/5"
+    "ratingOutOf": "/5",
+    "metaDescriptionSuffix": "No downloads required. Start playing now!"
   },
   "breadcrumb": {
     "home": "Home",

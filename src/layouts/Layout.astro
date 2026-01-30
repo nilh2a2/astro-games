@@ -85,6 +85,10 @@ if (schemaType === "WebSite") {
       ...(profile && { url: profile }),
     },
   };
+} else if (schemaType === "VideoGame") {
+  // VideoGame schema is handled separately in GameDetails.astro
+  // Skip creating duplicate schema here
+  structuredData = {};
 } else {
   // Default WebPage schema
   structuredData = {
@@ -159,7 +163,9 @@ if (schemaType === "WebSite") {
     <script
       type="application/ld+json"
       is:inline
-      set:html={JSON.stringify(structuredData)}
+      set:html={Object.keys(structuredData).length > 0
+        ? JSON.stringify(structuredData)
+        : "{}"}
     />
 
     <meta name="theme-color" content="" />

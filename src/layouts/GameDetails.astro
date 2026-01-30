@@ -51,14 +51,19 @@ const ogImage = ogImageUrl
   ? new URL(ogImageUrl, Astro.url.origin).href
   : undefined;
 
+// Enhanced meta description for better SEO
+const enhancedDescription = `Play ${title} online for free! ${description} ${getUiText("game.metaDescriptionSuffix")}`;
+
 const layoutProps = {
   title: `${title} | ${SITE.title}`,
-  description,
+  description: enhancedDescription,
   pubDatetime,
   modDatetime,
   canonicalURL,
   ogImage,
   scrollSmooth: true,
+  schemaType: "VideoGame" as const,
+  ogType: "video.other",
 };
 
 const relatedGamesList = getRelatedGames(games, game, 18);
@@ -122,6 +127,38 @@ const breadcrumbSchema = {
     },
   ],
 };
+
+// FAQ structured data for common game questions
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: `How do I play ${title}?`,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: `${title} is a free online ${getCategoryLabel(category).toLowerCase()} game. Simply click the play button above to start playing instantly in your browser. No downloads or installations required.`,
+      },
+    },
+    {
+      "@type": "Question",
+      name: `Is ${title} free to play?`,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: `Yes, ${title} is completely free to play online. You can enjoy the full game without any cost, downloads, or registration.`,
+      },
+    },
+    {
+      "@type": "Question",
+      name: `Can I play ${title} on mobile?`,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: `${title} can be played on most modern devices including desktop computers, laptops, tablets, and mobile phones with a web browser.`,
+      },
+    },
+  ],
+};
 ---
 
 <Layout {...layoutProps}>
@@ -136,6 +173,12 @@ const breadcrumbSchema = {
     type="application/ld+json"
     is:inline
     set:html={JSON.stringify(breadcrumbSchema)}
+  />
+  <!-- FAQ Schema -->
+  <script
+    type="application/ld+json"
+    is:inline
+    set:html={JSON.stringify(faqSchema)}
   />
   <Header />
   <BackButton />
