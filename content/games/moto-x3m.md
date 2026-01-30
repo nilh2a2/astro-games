@@ -9,7 +9,6 @@ popular: false
 new: false
 rating: 4.5
 pubDatetime: 2026-01-25T00:00:00Z
-isMainGame: true
 ---
 
 # Moto X3M
