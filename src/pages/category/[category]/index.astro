@@ -8,6 +8,7 @@ import GameGrid from "@/components/GameGrid.astro";
 import getGamesByCategory from "@/utils/getGamesByCategory";
 import getSortedGames from "@/utils/getSortedGames";
 import getUniqueCategories from "@/utils/getUniqueCategories";
+import { getCategoryLabel } from "@/utils/getCategoryLabels";
 import { getUiText } from "@/utils/getUiText";
 
 export async function getStaticPaths() {
@@ -25,29 +26,29 @@ const sortedGames = getSortedGames(games);
 const categoryGames = getGamesByCategory(sortedGames, category);
 const allCategories = getUniqueCategories(games);
 
-const categoryTitle = category.charAt(0).toUpperCase() + category.slice(1);
-const pageTitle = getUiText("categories.pageTitle").replace("{category}", categoryTitle) + ` | ${getUiText("site.title")}`;
+const categoryLabel = getCategoryLabel(category);
+const pageTitle = getUiText("categories.pageTitle").replace("{category}", categoryLabel) + ` | ${getUiText("site.title")}`;
 const pageDesc = getUiText("categories.pageDescription")
-  .replace("{category}", categoryTitle.toLowerCase())
-  .replace("{category}", categoryTitle.toLowerCase());
+  .replace("{category}", categoryLabel.toLowerCase())
+  .replace("{category}", categoryLabel.toLowerCase());
 ---
 
 <Layout title={pageTitle} description={pageDesc}>
   <Header />
-  <Main pageTitle={getUiText("categories.pageTitle").replace("{category}", categoryTitle)} pageDesc={pageDesc}>
+  <Main pageTitle={getUiText("categories.pageTitle").replace("{category}", categoryLabel)} pageDesc={pageDesc}>
     <!-- Category Navigation -->
     <nav class="mb-8 flex flex-wrap gap-2">
       {allCategories.map(cat => (
         <a
           href={`/category/${cat}/`}
           class:list={[
-            "rounded-lg px-4 py-2 font-medium capitalize transition-colors",
+            "rounded-lg px-4 py-2 font-medium transition-colors",
             cat === category
               ? "bg-skin-accent text-white"
               : "bg-skin-card text-skin-base hover:bg-skin-accent/10"
           ]}
         >
-          {cat}
+          {getCategoryLabel(cat)}
         </a>
       ))}
     </nav>

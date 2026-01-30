@@ -3,6 +3,7 @@ import type { CollectionEntry } from "astro:content";
 import { Image } from "astro:assets";
 import getGamePath from "@/utils/getGamePath";
 import { getUiText } from "@/utils/getUiText";
+import { getCategoryLabel } from "@/utils/getCategoryLabels";
 
 type Props = {
   variant?: "h2" | "h3";
@@ -48,7 +49,7 @@ const gamePath = getGamePath(Astro.props);
         {title}
       </Heading>
       <div class="flex items-center justify-between text-xs text-skin-base/60">
-        <span class="capitalize">{category}</span>
+        <span>{getCategoryLabel(category)}</span>
         <div class="flex items-center gap-3">
           {rating && (
             <span class="flex items-center gap-1">

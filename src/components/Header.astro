@@ -7,6 +7,7 @@ import IconMenuDeep from "@/assets/icons/IconMenuDeep.svg";
 import LinkButton from "./LinkButton.astro";
 import { SITE } from "@/config";
 import { getUiText } from "@/utils/getUiText";
+import { getCategoryLabel } from "@/utils/getCategoryLabels";
 import { getCollection } from "astro:content";
 import getUniqueCategories from "@/utils/getUniqueCategories";
 
@@ -73,7 +74,7 @@ const isActive = (path: string) => {
                   { "text-accent": isActive(`/category/${category}`) },
                 ]}
               >
-                {category}
+                {getCategoryLabel(category)}
               </a>
             </li>
           ))}

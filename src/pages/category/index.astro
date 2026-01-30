@@ -5,6 +5,7 @@ import Main from "@/layouts/Main.astro";
 import Header from "@/components/Header.astro";
 import Footer from "@/components/Footer.astro";
 import getUniqueCategories from "@/utils/getUniqueCategories";
+import { getCategoryLabel } from "@/utils/getCategoryLabels";
 import getGamesByCategory from "@/utils/getGamesByCategory";
 import getSortedGames from "@/utils/getSortedGames";
 import { getUiText } from "@/utils/getUiText";
@@ -31,8 +32,8 @@ const pageDesc = getUiText("pages.categories.description");
           href={`/category/${name}/`}
           class="group block rounded-xl bg-skin-card p-6 shadow-sm transition-all hover:shadow-md hover:scale-105"
         >
-          <h2 class="text-2xl font-bold capitalize text-skin-accent mb-2">
-            {name}
+          <h2 class="text-2xl font-bold text-skin-accent mb-2">
+            {getCategoryLabel(name)}
           </h2>
           <p class="text-skin-base/70">
             {count} {count === 1 ? getUiText("common.game") : getUiText("common.games")}

@@ -10,6 +10,7 @@ import RelatedGames from "@/components/RelatedGames.astro";
 import GameCardCompact from "@/components/GameCardCompact.astro";
 import ShareLinks from "@/components/ShareLinks.astro";
 import { getCategoryPath } from "@/utils/getGamePath";
+import { getCategoryLabel } from "@/utils/getCategoryLabels";
 import getRelatedGames from "@/utils/getRelatedGames";
 import { slugifyStr } from "@/utils/slugify";
 import { getUiText } from "@/utils/getUiText";
@@ -74,8 +75,8 @@ const bottomGames = relatedGamesList.slice(5);
     <nav class="mb-6 flex items-center gap-2 text-sm">
       <a href="/" class="text-skin-accent hover:underline">{getUiText("breadcrumb.home")}</a>
       <span class="text-skin-base/60">{getUiText("breadcrumb.separator")}</span>
-      <a href={getCategoryPath(category)} class="text-skin-accent hover:underline capitalize">
-        {category}
+      <a href={getCategoryPath(category)} class="text-skin-accent hover:underline">
+        {getCategoryLabel(category)}
       </a>
       <span class="text-skin-base/60">{getUiText("breadcrumb.separator")}</span>
       <span class="text-skin-base">{title}</span>
