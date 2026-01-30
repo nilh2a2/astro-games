@@ -6,29 +6,23 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 This is an Astro-based games website that displays and embeds browser games. The site uses Astro's content collections to manage game data stored as markdown files with frontmatter, and renders them with a clean, responsive UI.
 
-## Development Commands
+## Development Workflow
 
+**Development:**
 ```bash
-# Start development server
-npm run dev
-
-# Build for production (includes type checking, build, and pagefind indexing)
-npm run build
-
-# Preview production build
-npm run preview
-
-# Type checking only
-npm run sync
-astro check
-
-# Code formatting
-npm run format        # Format all files
-npm run format:check  # Check formatting without changes
-
-# Linting
-npm run lint
+npm run dev      # Start dev server
+npm run build    # Production build
+npm run preview  # Preview build
 ```
+
+**Quality Checks (run before every commit):**
+```bash
+npm run check    # TypeScript + ESLint + Prettier
+npm test         # Build + E2E tests
+npm run format   # Auto-fix formatting
+```
+
+**Fix errors:** Read error output, fix reported issues, re-run checks.
 
 ## Architecture
 
