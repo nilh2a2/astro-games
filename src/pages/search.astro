@@ -9,7 +9,31 @@ import { getUiText } from "@/utils/getUiText";
 const backUrl = Astro.url.pathname;
 ---
 
-<Layout title={`${getUiText("pages.search.pageTitle")} | ${SITE.title}`}>
+<Layout
+  title={`${getUiText("pages.search.pageTitle")} | ${SITE.title}`}
+  description={getUiText("pages.search.description")}
+  schemaType="WebSite"
+>
+  <!-- Search Page WebPage Schema -->
+  <script
+    type="application/ld+json"
+    is:inline
+    set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      name: getUiText("pages.search.pageTitle"),
+      description: getUiText("pages.search.description"),
+      url: new URL(Astro.url.pathname, Astro.url).href,
+      potentialAction: {
+        "@type": "SearchAction",
+        target: {
+          "@type": "EntryPoint",
+          urlTemplate: `${Astro.url.origin}/search?q={search_term_string}`,
+        },
+        "query-input": "required name=search_term_string",
+      },
+    })}
+  />
   <link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
   <Header />
   <Main

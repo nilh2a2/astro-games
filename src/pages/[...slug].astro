@@ -21,10 +21,17 @@ export async function getStaticPaths() {
 
 const { page } = Astro.props;
 const { Content } = await render(page);
-const { title } = page.data;
+const { title, description, pubDatetime, modDatetime } = page.data;
 ---
 
-<Layout title={`${title} | ${SITE.title}`}>
+<Layout
+  title={`${title} | ${SITE.title}`}
+  description={description || SITE.desc}
+  pubDatetime={pubDatetime}
+  modDatetime={modDatetime}
+  schemaType="Article"
+  ogType="article"
+>
   <Header />
   <Breadcrumb />
   <main id="main-content" class="app-layout">

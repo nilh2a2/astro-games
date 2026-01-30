@@ -1,18 +1,21 @@
 {
   "site": {
     "title": "Unblocked Games",
+    "shortName": "Games",
     "description": "Unblocked Games 2026: Play online games. No downloads. Best collection of unlocked games for school in 2026. All featured games.",
     "website": "https://unblockedgamesg.net",
     "author": "Unblocked Games",
     "profile": "https://unblockedgamesg.net",
-    "ogImage": "",
+    "ogImage": "og.png",
+    "themeColor": "#3b82f6",
+    "twitter": "",
     "lightAndDarkMode": true,
     "dir": "ltr",
     "lang": "en",
     "timezone": "America/New_York"
   },
   "nav": {
-    "skipToContent": "Skip to content",
+    "skipToContent": "Skip to main content",
     "search": "Search",
     "all": "All",
     "openMenu": "Open Menu",
@@ -50,11 +53,20 @@
   "game": {
     "howToPlay": "How to Play",
     "relatedGames": "Related Games",
+    "frequentlyAskedQuestions": "Frequently Asked Questions",
     "shareThisGame": "Share this game:",
     "ratingOutOf": "/5",
     "metaDescriptionSuffix": "No downloads required. Start playing now!",
     "enterFullscreen": "Enter fullscreen",
-    "exitFullscreen": "Exit fullscreen"
+    "exitFullscreen": "Exit fullscreen",
+    "faq": {
+      "howToPlayQuestion": "How do I play {title}?",
+      "howToPlayAnswer": "{title} is a free online {category} game. Simply click the play button above to start playing instantly in your browser. No downloads or installations required.",
+      "isFreeQuestion": "Is {title} free to play?",
+      "isFreeAnswer": "Yes, {title} is completely free to play online. You can enjoy the full game without any cost, downloads, or registration.",
+      "mobileQuestion": "Can I play {title} on mobile?",
+      "mobileAnswer": "{title} can be played on most modern devices including desktop computers, laptops, tablets, and mobile phones with a web browser."
+    }
   },
   "breadcrumb": {
     "home": "Home",
@@ -90,6 +102,7 @@
     "search": {
       "title": "Search",
       "pageTitle": "Search",
+      "description": "Search and discover free online games. Browse our collection of unblocked games by title, category, or keywords. No downloads required.",
       "placeholder": "Search any article ...",
       "devWarning": "DEV mode Warning!",
       "devMessage": "You need to build the project at least once to see the search results during development.",

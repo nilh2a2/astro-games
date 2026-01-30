@@ -40,7 +40,9 @@ const organizationSchema = {
   url: getUiText("site.website"),
   logo: `${getUiText("site.website")}/favicon.svg`,
   description: getUiText("site.description"),
-  sameAs: [],
+  sameAs: [
+    SITE.twitter && `https://twitter.com/${SITE.twitter.replace("@", "")}`,
+  ].filter(Boolean),
 };
 ---
 
@@ -69,9 +71,9 @@ const organizationSchema = {
 
         {/* Popular Games */}
         {popularGames.length > 0 && (
-          <section id="popular" class="py-8">
+          <section id="popular" class="py-8" aria-labelledby="popular-heading">
             <div class="mb-6 flex items-center justify-between">
-              <h2 class="text-2xl font-bold">
+              <h2 id="popular-heading" class="text-2xl font-bold">
                 {getUiText("pages.home.popularGames")}
               </h2>
             </div>
@@ -81,9 +83,9 @@ const organizationSchema = {
 
         {/* New Games */}
         {newGames.length > 0 && (
-          <section id="new" class="py-8">
+          <section id="new" class="py-8" aria-labelledby="new-heading">
             <div class="mb-6 flex items-center justify-between">
-              <h2 class="text-2xl font-bold">
+              <h2 id="new-heading" class="text-2xl font-bold">
                 {getUiText("pages.home.newGames")}
               </h2>
             </div>
@@ -93,9 +95,11 @@ const organizationSchema = {
 
         {/* Action Games */}
         {actionGames.length > 0 && (
-          <section id="action" class="py-8">
+          <section id="action" class="py-8" aria-labelledby="action-heading">
             <div class="mb-6 flex items-center justify-between">
-              <h2 class="text-2xl font-bold">{getCategoryLabel("action")}</h2>
+              <h2 id="action-heading" class="text-2xl font-bold">
+                {getCategoryLabel("action")}
+              </h2>
               <LinkButton href="/category/action/">
                 {getUiText("buttons.viewAll")}
                 <IconArrowRight class="inline-block rtl:-rotate-180" />
@@ -107,9 +111,11 @@ const organizationSchema = {
 
         {/* Racing Games */}
         {racingGames.length > 0 && (
-          <section id="racing" class="py-8">
+          <section id="racing" class="py-8" aria-labelledby="racing-heading">
             <div class="mb-6 flex items-center justify-between">
-              <h2 class="text-2xl font-bold">{getCategoryLabel("racing")}</h2>
+              <h2 id="racing-heading" class="text-2xl font-bold">
+                {getCategoryLabel("racing")}
+              </h2>
               <LinkButton href="/category/racing/">
                 {getUiText("buttons.viewAll")}
                 <IconArrowRight class="inline-block rtl:-rotate-180" />
@@ -121,9 +127,11 @@ const organizationSchema = {
 
         {/* Sports Games */}
         {sportsGames.length > 0 && (
-          <section id="sports" class="py-8">
+          <section id="sports" class="py-8" aria-labelledby="sports-heading">
             <div class="mb-6 flex items-center justify-between">
-              <h2 class="text-2xl font-bold">{getCategoryLabel("sports")}</h2>
+              <h2 id="sports-heading" class="text-2xl font-bold">
+                {getCategoryLabel("sports")}
+              </h2>
               <LinkButton href="/category/sports/">
                 {getUiText("buttons.viewAll")}
                 <IconArrowRight class="inline-block rtl:-rotate-180" />
@@ -135,9 +143,11 @@ const organizationSchema = {
 
         {/* Puzzle Games */}
         {puzzleGames.length > 0 && (
-          <section id="puzzle" class="py-8">
+          <section id="puzzle" class="py-8" aria-labelledby="puzzle-heading">
             <div class="mb-6 flex items-center justify-between">
-              <h2 class="text-2xl font-bold">{getCategoryLabel("puzzle")}</h2>
+              <h2 id="puzzle-heading" class="text-2xl font-bold">
+                {getCategoryLabel("puzzle")}
+              </h2>
               <LinkButton href="/category/puzzle/">
                 {getUiText("buttons.viewAll")}
                 <IconArrowRight class="inline-block rtl:-rotate-180" />
@@ -149,9 +159,13 @@ const organizationSchema = {
 
         {/* Adventure Games */}
         {adventureGames.length > 0 && (
-          <section id="adventure" class="py-8">
+          <section
+            id="adventure"
+            class="py-8"
+            aria-labelledby="adventure-heading"
+          >
             <div class="mb-6 flex items-center justify-between">
-              <h2 class="text-2xl font-bold">
+              <h2 id="adventure-heading" class="text-2xl font-bold">
                 {getCategoryLabel("adventure")}
               </h2>
               <LinkButton href="/category/adventure/">
@@ -165,9 +179,15 @@ const organizationSchema = {
 
         {/* Strategy Games */}
         {strategyGames.length > 0 && (
-          <section id="strategy" class="py-8">
+          <section
+            id="strategy"
+            class="py-8"
+            aria-labelledby="strategy-heading"
+          >
             <div class="mb-6 flex items-center justify-between">
-              <h2 class="text-2xl font-bold">{getCategoryLabel("strategy")}</h2>
+              <h2 id="strategy-heading" class="text-2xl font-bold">
+                {getCategoryLabel("strategy")}
+              </h2>
               <LinkButton href="/category/strategy/">
                 {getUiText("buttons.viewAll")}
                 <IconArrowRight class="inline-block rtl:-rotate-180" />

@@ -3,6 +3,7 @@ import { Font } from "astro:assets";
 import { ClientRouter } from "astro:transitions";
 import { PUBLIC_GOOGLE_SITE_VERIFICATION } from "astro:env/client";
 import { SITE } from "@/config";
+import { getUiText } from "@/utils/getUiText";
 import "@/styles/global.css";
 
 type Props = {
@@ -22,6 +23,7 @@ type Props = {
     | "VideoGame"
     | "CollectionPage";
   ogType?: string;
+  noindex?: boolean;
 };
 
 const {
@@ -36,7 +38,10 @@ const {
   scrollSmooth = false,
   schemaType = "WebPage",
   ogType = "website",
+  noindex = false,
 } = Astro.props;
+
+const robotsContent = noindex ? "noindex, follow" : "index, follow";
 
 const socialImageURL = new URL(ogImage, Astro.url);
 
@@ -51,6 +56,7 @@ if (schemaType === "WebSite") {
     name: SITE.title,
     url: Astro.url.origin,
     description: SITE.desc,
+    inLanguage: SITE.lang,
     potentialAction: {
       "@type": "SearchAction",
       target: {
@@ -84,6 +90,14 @@ if (schemaType === "WebSite") {
       name: author,
       ...(profile && { url: profile }),
     },
+    publisher: {
+      "@type": "Organization",
+      name: SITE.title,
+      logo: {
+        "@type": "ImageObject",
+        url: `${Astro.url.origin}/favicon.svg`,
+      },
+    },
   };
 } else if (schemaType === "VideoGame") {
   // VideoGame schema is handled separately in GameDetails.astro
@@ -111,7 +125,10 @@ if (schemaType === "WebSite") {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="manifest" href="/site.webmanifest" />
     <link rel="canonical" href={canonicalURL} />
+    <link rel="alternate" hreflang="en" href={canonicalURL} />
+    <meta name="robots" content={robotsContent} />
     <meta name="generator" content={Astro.generator} />
 
     <!-- Load Font -->
@@ -129,10 +146,14 @@ if (schemaType === "WebSite") {
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content={ogType} />
+    <meta property="og:site_name" content={SITE.title} />
+    <meta property="og:locale" content="en_US" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:image" content={socialImageURL} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
 
     <!-- Article Published/Modified time -->
     {
@@ -153,11 +174,12 @@ if (schemaType === "WebSite") {
     }
 
     <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content={canonicalURL} />
-    <meta property="twitter:title" content={title} />
-    <meta property="twitter:description" content={description} />
-    <meta property="twitter:image" content={socialImageURL} />
+    <meta name="twitter:card" content="summary_large_image" />
+    {SITE.twitter && <meta name="twitter:site" content={SITE.twitter} />}
+    <meta name="twitter:url" content={canonicalURL} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={socialImageURL} />
 
     <!-- Google JSON-LD Structured data -->
     <script
@@ -168,7 +190,7 @@ if (schemaType === "WebSite") {
         : "{}"}
     />
 
-    <meta name="theme-color" content="" />
+    <meta name="theme-color" content={SITE.themeColor || "#3b82f6"} />
 
     {
       // If PUBLIC_GOOGLE_SITE_VERIFICATION is set in the environment variable,
@@ -215,6 +237,12 @@ if (schemaType === "WebSite") {
     </script>
   </head>
   <body>
+    <a
+      href="#main-content"
+      class="focus:bg-skin-fill focus:text-skin-base focus:ring-skin-accent sr-only focus:not-sr-only focus:absolute focus:z-50 focus:p-4 focus:ring-2 focus:outline-none"
+    >
+      {getUiText("nav.skipToContent")}
+    </a>
     <slot />
 
     <!-- Load full theme logic -->

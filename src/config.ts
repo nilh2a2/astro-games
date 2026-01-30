@@ -8,6 +8,8 @@ const getSiteConfig = () => {
     desc: uiStrings.site.description,
     title: uiStrings.site.title,
     ogImage: uiStrings.site.ogImage,
+    themeColor: uiStrings.site.themeColor,
+    twitter: uiStrings.site.twitter,
     lightAndDarkMode: uiStrings.site.lightAndDarkMode,
     dir: uiStrings.site.dir as "ltr" | "rtl" | "auto",
     lang: uiStrings.site.lang,

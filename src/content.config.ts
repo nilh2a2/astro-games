@@ -27,7 +27,15 @@ const games = defineCollection({
       modDatetime: z.date().optional().nullable(),
       ogImage: image().or(z.string()).optional(),
       canonicalURL: z.string().optional(),
-      isMainGame: z.boolean().optional(),
+      isMainGame: z.boolean().default(false),
+      faqs: z
+        .array(
+          z.object({
+            question: z.string(),
+            answer: z.string(),
+          })
+        )
+        .optional(),
     }),
 });
 
@@ -36,6 +44,8 @@ const pages = defineCollection({
   schema: z.object({
     title: z.string(),
     description: z.string().optional(),
+    pubDatetime: z.date().optional(),
+    modDatetime: z.date().optional().nullable(),
   }),
 });
 

@@ -7,7 +7,20 @@ import { SITE } from "@/config";
 import { getUiText } from "@/utils/getUiText";
 ---
 
-<Layout title={`${getUiText("pages.404.pageTitle")} | ${SITE.title}`}>
+<Layout title={`${getUiText("pages.404.pageTitle")} | ${SITE.title}`} noindex>
+  <!-- 404 NotFound Schema -->
+  <script
+    type="application/ld+json"
+    is:inline
+    set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      name: getUiText("pages.404.pageTitle"),
+      description: getUiText("pages.404.message"),
+      url: Astro.url.href,
+      notFound: true,
+    })}
+  />
   <Header />
 
   <main
