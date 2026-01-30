@@ -16,81 +16,123 @@ const gamesWithImages = games.map(game => ({
 }));
 ---
 
-{games.length > 0 && (
-  <div class="relative overflow-hidden rounded-lg bg-black">
-    <div class="relative aspect-video">
-      <div id="carousel-container" class="relative h-full w-full">
-        {gamesWithImages.map(({ game, coverImage }, index) => (
-          <a
-            href={getGamePath(game)}
-            class:list={[
-              "group absolute inset-0 transition-opacity duration-500",
-              index === 0 ? "opacity-100" : "carousel-slide opacity-0"
-            ]}
-            data-slide={index}
+{
+  games.length > 0 && (
+    <div class="relative overflow-hidden rounded-lg bg-black">
+      <div class="relative aspect-video">
+        <div id="carousel-container" class="relative h-full w-full">
+          {gamesWithImages.map(({ game, coverImage }, index) => (
+            <a
+              href={getGamePath(game)}
+              class:list={[
+                "group absolute inset-0 transition-opacity duration-500",
+                index === 0 ? "opacity-100" : "carousel-slide opacity-0",
+              ]}
+              data-slide={index}
+            >
+              {coverImage ? (
+                <Image
+                  src={coverImage}
+                  alt={game.data.title}
+                  class="h-full w-full object-cover"
+                />
+              ) : (
+                <div class="from-skin-accent/20 to-skin-accent/5 flex h-full w-full items-center justify-center bg-gradient-to-br">
+                  <svg
+                    class="text-skin-accent/50 h-20 w-20"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"
+                    />
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                    />
+                  </svg>
+                </div>
+              )}
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+              <div class="absolute right-0 bottom-0 left-0 p-6 text-white">
+                <h3 class="text-2xl font-bold">{game.data.title}</h3>
+                <p class="mt-2 line-clamp-2 text-white/80">
+                  {game.data.description}
+                </p>
+                <div class="bg-skin-accent hover:bg-skin-accent/80 mt-4 inline-block rounded px-4 py-2 font-bold text-black transition-colors">
+                  {getUiText("buttons.playNow")}
+                </div>
+              </div>
+            </a>
+          ))}
+        </div>
+
+        {/* Navigation Arrows */}
+        <button
+          id="carousel-prev"
+          class="absolute top-1/2 left-4 z-20 -translate-y-1/2 rounded-full bg-white/20 p-2 text-white transition-colors hover:bg-white/40"
+          aria-label={getUiText("carousel.previousGame")}
+        >
+          <svg
+            class="h-6 w-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
           >
-            {coverImage ? (
-              <Image
-                src={coverImage}
-                alt={game.data.title}
-                class="h-full w-full object-cover"
-              />
-            ) : (
-              <div class="flex h-full w-full items-center justify-center bg-gradient-to-br from-skin-accent/20 to-skin-accent/5">
-                <svg class="h-20 w-20 text-skin-accent/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-              </div>
-            )}
-            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
-            <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
-              <h3 class="text-2xl font-bold">{game.data.title}</h3>
-              <p class="mt-2 line-clamp-2 text-white/80">{game.data.description}</p>
-              <div class="mt-4 inline-block rounded bg-skin-accent px-4 py-2 font-bold text-black hover:bg-skin-accent/80 transition-colors">
-                {getUiText("buttons.playNow")}
-              </div>
-            </div>
-          </a>
-        ))}
-      </div>
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M15 19l-7-7 7-7"
+            />
+          </svg>
+        </button>
+        <button
+          id="carousel-next"
+          class="absolute top-1/2 right-4 z-20 -translate-y-1/2 rounded-full bg-white/20 p-2 text-white transition-colors hover:bg-white/40"
+          aria-label={getUiText("carousel.nextGame")}
+        >
+          <svg
+            class="h-6 w-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M9 5l7 7-7 7"
+            />
+          </svg>
+        </button>
 
-      <!-- Navigation Arrows -->
-      <button
-        id="carousel-prev"
-        class="absolute left-4 top-1/2 z-20 -translate-y-1/2 rounded-full bg-white/20 p-2 text-white hover:bg-white/40 transition-colors"
-        aria-label={getUiText("carousel.previousGame")}
-      >
-        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-        </svg>
-      </button>
-      <button
-        id="carousel-next"
-        class="absolute right-4 top-1/2 z-20 -translate-y-1/2 rounded-full bg-white/20 p-2 text-white hover:bg-white/40 transition-colors"
-        aria-label={getUiText("carousel.nextGame")}
-      >
-        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-        </svg>
-      </button>
-
-      <!-- Dot Indicators -->
-      <div class="absolute bottom-4 left-1/2 z-20 flex -translate-x-1/2 gap-2">
-        {games.map((_, index) => (
-          <button
-            class:list={[
-              "carousel-dot h-2 w-2 rounded-full transition-all",
-              index === 0 ? "bg-white w-6" : "bg-white/50 hover:bg-white/75"
-            ]}
-            data-slide={index}
-            aria-label={getUiText("carousel.goToSlide").replace("{number}", String(index + 1))}
-          />
-        ))}
+        {/* Dot Indicators */}
+        <div class="absolute bottom-4 left-1/2 z-20 flex -translate-x-1/2 gap-2">
+          {games.map((_, index) => (
+            <button
+              class:list={[
+                "carousel-dot h-2 w-2 rounded-full transition-all",
+                index === 0 ? "w-6 bg-white" : "bg-white/50 hover:bg-white/75",
+              ]}
+              data-slide={index}
+              aria-label={getUiText("carousel.goToSlide").replace(
+                "{number}",
+                String(index + 1)
+              )}
+            />
+          ))}
+        </div>
       </div>
     </div>
-  </div>
-)}
+  )
+}
 
 <script>
   const container = document.getElementById("carousel-container");

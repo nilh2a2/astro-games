@@ -66,12 +66,17 @@ const bottomGames = relatedGamesList.slice(5);
 <Layout {...layoutProps}>
   <Header />
   <BackButton />
-  <main id="main-content" class="app-layout pb-12 mt-8">
+  <main id="main-content" class="app-layout mt-8 pb-12">
     <!-- Breadcrumb -->
     <nav class="mb-6 flex items-center gap-2 text-sm">
-      <a href="/" class="text-skin-accent hover:underline">{getUiText("breadcrumb.home")}</a>
+      <a href="/" class="text-skin-accent hover:underline"
+        >{getUiText("breadcrumb.home")}</a
+      >
       <span class="text-skin-base/60">{getUiText("breadcrumb.separator")}</span>
-      <a href={getCategoryPath(category)} class="text-skin-accent hover:underline">
+      <a
+        href={getCategoryPath(category)}
+        class="text-skin-accent hover:underline"
+      >
         {getCategoryLabel(category)}
       </a>
       <span class="text-skin-base/60">{getUiText("breadcrumb.separator")}</span>
@@ -90,7 +95,7 @@ const bottomGames = relatedGamesList.slice(5);
     </div>
 
     <!-- Game Player Section with Related Games Sidebar -->
-    <div class="mb-12 flex flex-col lg:flex-row gap-6">
+    <div class="mb-12 flex flex-col gap-6 lg:flex-row">
       <!-- Left Column: Game Player (70%) -->
       <div class="flex-1 lg:w-7/10">
         <div class="relative aspect-video overflow-hidden rounded bg-black">
@@ -99,18 +104,21 @@ const bottomGames = relatedGamesList.slice(5);
             title={title}
             class="h-full w-full border-0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-          />
+            allowfullscreen></iframe>
         </div>
       </div>
 
       <!-- Right Column: Related Games Sidebar (30%) - Desktop Only -->
-      <div class="hidden lg:flex flex-shrink-0 lg:w-3/10">
+      <div class="hidden flex-shrink-0 lg:flex lg:w-3/10">
         <div class="w-full">
-          <div class="max-h-[600px] overflow-y-auto pr-2 space-y-3 scrollbar-thin scrollbar-thumb-skin-accent/30 scrollbar-track-transparent">
-            {sidebarGames.map(relatedGame => (
-              <GameCardCompact {...relatedGame} />
-            ))}
+          <div
+            class="scrollbar-thin scrollbar-thumb-skin-accent/30 scrollbar-track-transparent max-h-[600px] space-y-3 overflow-y-auto pr-2"
+          >
+            {
+              sidebarGames.map(relatedGame => (
+                <GameCardCompact {...relatedGame} />
+              ))
+            }
           </div>
         </div>
       </div>
@@ -122,26 +130,30 @@ const bottomGames = relatedGamesList.slice(5);
     </div>
 
     <!-- Game Content -->
-    <div class="mb-12 app-prose max-w-none">
+    <div class="app-prose mb-12 max-w-none">
       <Content />
     </div>
 
     <hr class="my-8 border-dashed" />
 
     <!-- Related Games -->
-    {relatedGamesList.length > 0 && (
-      <div class="mb-12">
-        <h2 class="mb-6 text-2xl font-bold">{getUiText("game.relatedGames")}</h2>
-        <!-- Mobile: Show all games (sidebar hidden on mobile) -->
-        <div class="lg:hidden">
-          <RelatedGames games={relatedGamesList} />
+    {
+      relatedGamesList.length > 0 && (
+        <div class="mb-12">
+          <h2 class="mb-6 text-2xl font-bold">
+            {getUiText("game.relatedGames")}
+          </h2>
+          {/* Mobile: Show all games (sidebar hidden on mobile) */}
+          <div class="lg:hidden">
+            <RelatedGames games={relatedGamesList} />
+          </div>
+          {/* Desktop: Show remaining games (first 5 are in sidebar) */}
+          <div class="hidden lg:block">
+            {bottomGames.length > 0 && <RelatedGames games={bottomGames} />}
+          </div>
         </div>
-        <!-- Desktop: Show remaining games (first 5 are in sidebar) -->
-        <div class="hidden lg:block">
-          {bottomGames.length > 0 && <RelatedGames games={bottomGames} />}
-        </div>
-      </div>
-    )}
+      )
+    }
 
     <BackToTopButton />
   </main>
