@@ -52,7 +52,9 @@
     "relatedGames": "Related Games",
     "shareThisGame": "Share this game:",
     "ratingOutOf": "/5",
-    "metaDescriptionSuffix": "No downloads required. Start playing now!"
+    "metaDescriptionSuffix": "No downloads required. Start playing now!",
+    "enterFullscreen": "Enter fullscreen",
+    "exitFullscreen": "Exit fullscreen"
   },
   "breadcrumb": {
     "home": "Home",
