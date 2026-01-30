@@ -34,36 +34,20 @@ npm run lint
 
 ### Content-First Architecture Principle
 
-This project follows a strict **content-code separation** pattern:
+This project follows strict **content-code separation**:
 
-- **`/content/`** - Everything user-facing (content layer)
-  - Game data, static pages, AND all UI text strings
-  - This includes button labels, navigation text, error messages, etc.
+- **`/content/`** - All user-facing content including game data, static pages, and UI text strings
+- **`/src/`** - Implementation code with NO hardcoded text
 
-- **`/src/`** - Implementation code (code layer)
-  - Components, layouts, utilities, styles
-  - The machinery that renders content, but contains NO hardcoded text
-
-**Why this matters:**
-1. **Internationalization Ready**: UI strings in JSON files (`content/ui/en.json`) make adding translations trivial
-2. **Content Management**: Non-developers can edit all text without touching code
-3. **Clear Boundaries**: "What to display" (content) is separate from "how to display it" (code)
-4. **CMS Integration**: Easy to replace JSON files with a headless CMS later
-5. **Team Collaboration**: Content writers and developers work in separate spaces
-
-**Implementation:**
-- UI strings are accessed via `getUiText('nav.search')` utility function
-- Uses dot notation to navigate the JSON structure
+**Usage:**
+- Access UI strings via `getUiText('nav.search')` using dot notation
 - Example: `getUiText('buttons.viewAll')` returns "View All"
-- For template strings with placeholders, use `.replace('{placeholder}', value)`
-- Example: `getUiText('categories.pageTitle').replace('{category}', 'Action')` returns "Action Games"
+- For placeholders: `getUiText('categories.pageTitle').replace('{category}', 'Action')`
 
-**Important Rules:**
+**Rules:**
 - NEVER hardcode user-facing text in components or pages
 - ALL text strings must be in `content/ui/en.json`
-- This includes: labels, buttons, messages, pluralization, page titles, descriptions, etc.
-- Category labels are defined in `content/ui/en.json` under `categories.*`
-- Common words (like "game"/"games") are in `common.*` for reusability
+- This includes labels, buttons, messages, page titles, etc.
 
 ### Content Collections
 
