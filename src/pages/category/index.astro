@@ -4,10 +4,10 @@ import Layout from "@/layouts/Layout.astro";
 import Main from "@/layouts/Main.astro";
 import Header from "@/components/Header.astro";
 import Footer from "@/components/Footer.astro";
-import getUniqueCategories from "@/utils/getUniqueCategories";
+import { getUniqueCategories } from "@/utils/getUniqueCategories";
 import { getCategoryLabel } from "@/utils/getCategoryLabels";
-import getGamesByCategory from "@/utils/getGamesByCategory";
-import getSortedGames from "@/utils/getSortedGames";
+import { getGamesByCategory } from "@/utils/getGamesByCategory";
+import { getSortedGames } from "@/utils/getSortedGames";
 import { getUiText } from "@/utils/getUiText";
 
 const games = await getCollection("games");

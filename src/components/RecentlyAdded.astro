@@ -1,7 +1,7 @@
 ---
 import type { CollectionEntry } from "astro:content";
 import GameGrid from "./GameGrid.astro";
-import getSortedGames from "@/utils/getSortedGames";
+import { getSortedGames } from "@/utils/getSortedGames";
 
 type Props = {
   games: CollectionEntry<"games">[];

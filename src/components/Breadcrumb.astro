@@ -1,48 +1,36 @@
 ---
 import { getUiText } from "@/utils/getUiText";
 
-// Remove current url path and remove trailing slash if exists
-const currentUrlPath = Astro.url.pathname.replace(/\/+$/, "");
+interface Props {
+  items?: Array<{ label: string; href?: string }>;
+}
 
-// Get url array from path
-// eg: /category/action => ['category', 'action']
-const breadcrumbList = currentUrlPath.split("/").slice(1);
+const { items } = Astro.props;
+
+const breadcrumbItems = items || [];
 ---
 
 <nav
-  class="app-layout mt-8 mb-1"
+  class="mb-6 flex items-center gap-2 text-sm"
   aria-label={getUiText("breadcrumb.ariaLabel")}
 >
-  <ul
-    class="font-light [&>li]:inline [&>li:not(:last-child)>a]:hover:opacity-100"
+  <a href="/" class="text-skin-accent hover:underline"
+    >{getUiText("breadcrumb.home")}</a
   >
-    <li>
-      <a href="/" class="opacity-80">{getUiText("breadcrumb.home")}</a>
-      <span aria-hidden="true" class="opacity-80"
-        >{getUiText("breadcrumb.separator")}</span
-      >
-    </li>
-    {
-      breadcrumbList.map((breadcrumb, index) =>
-        index + 1 === breadcrumbList.length ? (
-          <li>
-            <span
-              class:list={["capitalize opacity-75", { lowercase: index > 0 }]}
-              aria-current="page"
-            >
-              {/* make the last part lowercase in Home > Tags > some-tag */}
-              {decodeURIComponent(breadcrumb)}
-            </span>
-          </li>
+  {
+    breadcrumbItems.map(item => (
+      <>
+        <span class="text-skin-base/60">
+          {getUiText("breadcrumb.separator")}
+        </span>
+        {item.href ? (
+          <a href={item.href} class="text-skin-accent hover:underline">
+            {item.label}
+          </a>
         ) : (
-          <li>
-            <a href={`/${breadcrumb}/`} class="capitalize opacity-70">
-              {breadcrumb}
-            </a>
-            <span aria-hidden="true">&raquo;</span>
-          </li>
-        )
-      )
-    }
-  </ul>
+          <span class="text-skin-base">{item.label}</span>
+        )}
+      </>
+    ))
+  }
 </nav>

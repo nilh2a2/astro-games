@@ -1,11 +1,9 @@
 import type { CollectionEntry } from "astro:content";
 
-const getGamePath = (game: CollectionEntry<"games">) => {
+export function getGamePath(game: CollectionEntry<"games">) {
   return `/game/${game.data.slug}/`;
-};
+}
 
-export const getCategoryPath = (category: string) => {
+export function getCategoryPath(category: string) {
   return `/category/${category.toLowerCase()}/`;
-};
-
-export default getGamePath;
+}

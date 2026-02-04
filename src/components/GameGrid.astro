@@ -5,13 +5,19 @@ import GameCard from "./GameCard.astro";
 type Props = {
   games: CollectionEntry<"games">[];
   variant?: "h2" | "h3";
+  columns?: "compact" | "default" | "detailed";
 };
 
-const { games, variant = "h2" } = Astro.props;
+const { games, variant = "h2", columns = "default" } = Astro.props;
+
+const columnClasses: Record<string, string> = {
+  compact: "grid-cols-2 sm:grid-cols-3 md:grid-cols-4",
+  default:
+    "grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6",
+  detailed: "grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4",
+};
 ---
 
-<ul
-  class="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6"
->
-  {games.map(game => <GameCard {...game} variant={variant} />)}
+<ul class:list={["grid gap-4", columnClasses[columns]]}>
+  {games.map(game => <GameCard {...game} {variant} />)}
 </ul>

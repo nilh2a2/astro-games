@@ -5,13 +5,14 @@ import Header from "@/components/Header.astro";
 import Footer from "@/components/Footer.astro";
 import BackButton from "@/components/BackButton.astro";
 import BackToTopButton from "@/components/BackToTopButton.astro";
+import Breadcrumb from "@/components/Breadcrumb.astro";
 import GameMetadata from "@/components/GameMetadata.astro";
 import RelatedGames from "@/components/RelatedGames.astro";
 import GameCardCompact from "@/components/GameCardCompact.astro";
 import ShareLinks from "@/components/ShareLinks.astro";
 import { getCategoryPath } from "@/utils/getGamePath";
 import { getCategoryLabel } from "@/utils/getCategoryLabels";
-import getRelatedGames from "@/utils/getRelatedGames";
+import { getRelatedGames } from "@/utils/getRelatedGames";
 import { slugifyStr } from "@/utils/slugify";
 import { getUiText } from "@/utils/getUiText";
 import { SITE } from "@/config";
@@ -51,7 +52,7 @@ const ogImage = ogImageUrl
   ? new URL(ogImageUrl, Astro.url.origin).href
   : undefined;
 
-// Enhanced meta description for better SEO
+// SEO meta description
 const enhancedDescription = `Play ${title} online for free! ${description} ${getUiText("game.metaDescriptionSuffix")}`;
 
 const layoutProps = {
@@ -70,7 +71,7 @@ const relatedGamesList = getRelatedGames(games, game, 18);
 const sidebarGames = relatedGamesList.slice(0, 5);
 const bottomGames = relatedGamesList.slice(5);
 
-// VideoGame structured data
+// VideoGame schema
 const gameStructuredData = {
   "@context": "https://schema.org",
   "@type": "VideoGame",
@@ -104,7 +105,7 @@ const gameStructuredData = {
   inLanguage: SITE.lang,
 };
 
-// Breadcrumb structured data
+// Breadcrumb schema
 const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
@@ -130,7 +131,7 @@ const breadcrumbSchema = {
   ],
 };
 
-// FAQ structured data - use game-specific FAQs if available, otherwise use generic ones
+// FAQ schema
 const gameFaqs = game.data.faqs;
 const faqEntities = gameFaqs
   ? gameFaqs.map(faq => ({
@@ -178,7 +179,7 @@ const faqSchema = {
 ---
 
 <Layout {...layoutProps}>
-  <!-- Combined Schema.org Structured Data -->
+  <!-- Schema.org data -->
   <script
     type="application/ld+json"
     is:inline
@@ -190,23 +191,13 @@ const faqSchema = {
   <Header />
   <BackButton />
   <main id="main-content" class="app-layout mt-8 pb-12">
-    <!-- Breadcrumb -->
-    <nav class="mb-6 flex items-center gap-2 text-sm">
-      <a href="/" class="text-skin-accent hover:underline"
-        >{getUiText("breadcrumb.home")}</a
-      >
-      <span class="text-skin-base/60">{getUiText("breadcrumb.separator")}</span>
-      <a
-        href={getCategoryPath(category)}
-        class="text-skin-accent hover:underline"
-      >
-        {getCategoryLabel(category)}
-      </a>
-      <span class="text-skin-base/60">{getUiText("breadcrumb.separator")}</span>
-      <span class="text-skin-base">{title}</span>
-    </nav>
+    <Breadcrumb
+      items={[
+        { label: getCategoryLabel(category), href: getCategoryPath(category) },
+        { label: title },
+      ]}
+    />
 
-    <!-- Game Header -->
     <div class="mb-8">
       <h1
         transition:name={slugifyStr(title.replaceAll(".", "-"))}
@@ -217,13 +208,9 @@ const faqSchema = {
       <GameMetadata game={game} />
     </div>
 
-    <!-- Game Player Section with Related Games Sidebar -->
     <div class="mb-12 flex flex-col gap-6 lg:flex-row">
-      <!-- Left Column: Game Player (70%) -->
       <div class="flex-1 lg:w-7/10">
-        <!-- Game Player Wrapper -->
         <div class="space-y-4">
-          <!-- Iframe Player -->
           <div
             id="game-player-container"
             class="relative aspect-video overflow-hidden rounded bg-black"
@@ -237,7 +224,6 @@ const faqSchema = {
               allowfullscreen></iframe>
           </div>
 
-          <!-- Share Links and Fullscreen Button -->
           <div class="flex items-center justify-between gap-4">
             <ShareLinks />
             <button
@@ -283,7 +269,6 @@ const faqSchema = {
         </div>
       </div>
 
-      <!-- Right Column: Related Games Sidebar (30%) - Desktop Only -->
       <div class="hidden flex-shrink-0 lg:flex lg:w-3/10">
         <div class="w-full">
           <div
@@ -299,12 +284,10 @@ const faqSchema = {
       </div>
     </div>
 
-    <!-- Game Content -->
     <div class="app-prose mb-12 max-w-none">
       <Content />
     </div>
 
-    <!-- FAQ Section -->
     {
       faqEntities.length > 0 && (
         <div class="mb-12">
@@ -343,18 +326,15 @@ const faqSchema = {
 
     <hr class="my-8 border-dashed" />
 
-    <!-- Related Games -->
     {
       relatedGamesList.length > 0 && (
         <div class="mb-12">
           <h2 class="mb-6 text-2xl font-bold">
             {getUiText("game.relatedGames")}
           </h2>
-          {/* Mobile: Show all games (sidebar hidden on mobile) */}
           <div class="lg:hidden">
             <RelatedGames games={relatedGamesList} />
           </div>
-          {/* Desktop: Show remaining games (first 5 are in sidebar) */}
           <div class="hidden lg:block">
             {bottomGames.length > 0 && <RelatedGames games={bottomGames} />}
           </div>
@@ -376,7 +356,6 @@ const faqSchema = {
       const enterLabel = fullscreenBtn.dataset.enterLabel!;
       const exitLabel = fullscreenBtn.dataset.exitLabel!;
 
-      // Toggle fullscreen
       fullscreenBtn.addEventListener("click", async () => {
         try {
           if (!document.fullscreenElement) {
@@ -389,7 +368,6 @@ const faqSchema = {
         }
       });
 
-      // Update button state on fullscreen change
       document.addEventListener("fullscreenchange", () => {
         if (document.fullscreenElement) {
           maximizeIcon.classList.add("hidden");

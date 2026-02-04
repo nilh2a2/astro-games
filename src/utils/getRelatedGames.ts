@@ -1,11 +1,11 @@
 import type { CollectionEntry } from "astro:content";
-import getSortedGames from "./getSortedGames";
+import { getSortedGames } from "./getSortedGames";
 
-const getRelatedGames = (
+export function getRelatedGames(
   games: CollectionEntry<"games">[],
   currentGame: CollectionEntry<"games">,
   limit: number = 4
-) => {
+) {
   const relatedGames = getSortedGames(games)
     .filter(
       game =>
@@ -25,6 +25,4 @@ const getRelatedGames = (
   }
 
   return relatedGames;
-};
-
-export default getRelatedGames;
+}

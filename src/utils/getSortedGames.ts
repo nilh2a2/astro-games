@@ -1,7 +1,7 @@
 import type { CollectionEntry } from "astro:content";
-import gameFilter from "./gameFilter";
+import { gameFilter } from "./gameFilter";
 
-const getSortedGames = (games: CollectionEntry<"games">[]) => {
+export function getSortedGames(games: CollectionEntry<"games">[]) {
   return games
     .filter(gameFilter)
     .sort(
@@ -13,6 +13,4 @@ const getSortedGames = (games: CollectionEntry<"games">[]) => {
           new Date(a.data.modDatetime ?? a.data.pubDatetime).getTime() / 1000
         )
     );
-};
-
-export default getSortedGames;
+}
