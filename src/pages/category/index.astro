@@ -25,7 +25,11 @@ const pageDesc = getUiText("pages.categories.description");
 
 <Layout title={pageTitle} description={pageDesc}>
   <Header />
-  <Main pageTitle={getUiText("pages.categories.title")} pageDesc={pageDesc}>
+  <Main
+    pageTitle={getUiText("pages.categories.title")}
+    pageDesc={pageDesc}
+    breadcrumbItems={[{ label: getUiText("pages.categories.title") }]}
+  >
     <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
       {
         categoriesWithCount.map(({ name, count }) => (

@@ -4,15 +4,18 @@ import Breadcrumb from "@/components/Breadcrumb.astro";
 type StringTitle = { pageTitle: string };
 type ArrayTitle = { pageTitle: [string, string]; titleTransition: string };
 
-type Props = (StringTitle | ArrayTitle) & { pageDesc?: string };
+type Props = (StringTitle | ArrayTitle) & {
+  pageDesc?: string;
+  breadcrumbItems?: Array<{ label: string; href?: string }>;
+};
 
 const { props } = Astro;
 
 const backUrl = Astro.url.pathname;
 ---
 
-<Breadcrumb />
-<main data-backUrl={backUrl} id="main-content" class="app-layout pb-4">
+<main data-backUrl={backUrl} id="main-content" class="app-layout mt-8 pb-4">
+  <Breadcrumb items={props.breadcrumbItems} />
   {
     "titleTransition" in props ? (
       <h1 class="text-2xl font-semibold sm:text-3xl">
