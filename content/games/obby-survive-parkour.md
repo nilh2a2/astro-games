@@ -11,7 +11,7 @@ rating: 4.5
 pubDatetime: 2026-01-25T00:00:00Z
 ---
 
-# Obby Survive Parkour
+## Obby Survive Parkour
 
 Action game where players use power-ups and chain jumps to survive deadly stages in solo or multiplayer modes.
 

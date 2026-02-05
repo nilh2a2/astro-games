@@ -11,7 +11,7 @@ rating: 4.5
 pubDatetime: 2026-01-25T00:00:00Z
 ---
 
-# Street Freekick 3D
+## Street Freekick 3D
 
 Sports game where players bend balls around obstacles to unlock achievements and climb leaderboards.
 

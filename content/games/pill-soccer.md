@@ -11,7 +11,7 @@ rating: 4.5
 pubDatetime: 2026-01-25T00:00:00Z
 ---
 
-# Pill Soccer
+## Pill Soccer
 
 Sports game where players control pill characters to score goals and unlock new characters in multiplayer matches.
 

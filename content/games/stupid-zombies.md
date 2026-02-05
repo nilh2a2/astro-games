@@ -11,7 +11,7 @@ rating: 4.5
 pubDatetime: 2026-01-25T00:00:00Z
 ---
 
-# Stupid Zombies
+## Stupid Zombies
 
 Action game where players follow in-game instructions to complete zombie challenges.
 

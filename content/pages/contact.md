@@ -3,7 +3,7 @@ title: "Contact"
 description: "Get in touch with our team for support, inquiries, game requests, and technical assistance."
 ---
 
-# Contact Unblocked Games
+## Contact Unblocked Games
 
 ## General Inquiries
 

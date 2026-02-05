@@ -11,7 +11,7 @@ rating: 4.5
 pubDatetime: 2026-01-25T00:00:00Z
 ---
 
-# Basket Shot Master
+## Basket Shot Master
 
 Sports game where players aim and shoot basketballs through challenging levels to unlock rewards and achieve high scores.
 

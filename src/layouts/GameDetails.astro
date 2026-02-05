@@ -381,4 +381,9 @@ const faqSchema = {
       });
     }
   </script>
+
+  <script define:vars={{ categoryPath: getCategoryPath(category) }}>
+    // Set the back URL to the category page
+    sessionStorage.setItem("backUrl", categoryPath);
+  </script>
 </Layout>

@@ -11,7 +11,7 @@ rating: 4.5
 pubDatetime: 2026-01-25T00:00:00Z
 ---
 
-# Euro Penalty Cup 2021
+## Euro Penalty Cup 2021
 
 Sports game where players take penalty shots and defend goals to win tournaments and unlock achievements.
 

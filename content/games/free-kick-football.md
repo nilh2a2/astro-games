@@ -11,7 +11,7 @@ rating: 4.5
 pubDatetime: 2026-01-25T00:00:00Z
 ---
 
-# Free Kick Football
+## Free Kick Football
 
 Sports game where players bend balls around obstacles to score goals and unlock achievements.
 

@@ -11,7 +11,7 @@ rating: 4.5
 pubDatetime: 2026-01-25T00:00:00Z
 ---
 
-# Kour IO
+## Kour IO
 
 Action game where players use parkour mechanics to race against real players and climb leaderboards.
 

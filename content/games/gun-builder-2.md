@@ -11,7 +11,7 @@ rating: 4.5
 pubDatetime: 2026-01-25T00:00:00Z
 ---
 
-# Gun Builder 2
+## Gun Builder 2
 
 Action game where players use mouse and keyboard controls to build and test custom firearms.
 

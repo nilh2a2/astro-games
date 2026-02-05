@@ -11,7 +11,7 @@ rating: 4.5
 pubDatetime: 2026-01-25T00:00:00Z
 ---
 
-# Parkour Block 7
+## Parkour Block 7
 
 Action game with Minecraft-style graphics where players perform parkour maneuvers to complete challenges.
 

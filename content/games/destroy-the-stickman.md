@@ -11,7 +11,7 @@ rating: 4.5
 pubDatetime: 2026-01-25T00:00:00Z
 ---
 
-# Destroy The Stickman
+## Destroy The Stickman
 
 Action game with instant play accessibility where players start gaming immediately without downloads.
 

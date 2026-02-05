@@ -11,7 +11,7 @@ rating: 4.5
 pubDatetime: 2026-01-25T00:00:00Z
 ---
 
-# Basket Random
+## Basket Random
 
 Sports game where players use simple physics-based controls to score goals in dynamically changing arenas with endless variety.
 

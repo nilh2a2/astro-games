@@ -11,7 +11,7 @@ rating: 4.5
 pubDatetime: 2026-01-25T00:00:00Z
 ---
 
-# Return Man 2
+## Return Man 2
 
 Sports game where players catch balls and dodge defenders to score touchdowns and unlock special moves.
 

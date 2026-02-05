@@ -11,7 +11,7 @@ rating: 4.5
 pubDatetime: 2026-01-25T00:00:00Z
 ---
 
-# Night City Racing
+## Night City Racing
 
 Racing game where players upgrade cars and compete in various modes to dominate urban tracks.
 

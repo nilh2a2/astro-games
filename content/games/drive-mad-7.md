@@ -11,7 +11,7 @@ rating: 4.5
 pubDatetime: 2026-01-25T00:00:00Z
 ---
 
-# Drive Mad 7
+## Drive Mad 7
 
 Racing game where players conquer obstacles and master timing to complete challenging courses and unlock new vehicles.
 

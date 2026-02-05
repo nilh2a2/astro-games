@@ -11,7 +11,7 @@ rating: 4.5
 pubDatetime: 2026-01-25T00:00:00Z
 ---
 
-# Drive Mad 3
+## Drive Mad 3
 
 Racing game where players master physics and perform daring stunts to complete levels and unlock new content.
 

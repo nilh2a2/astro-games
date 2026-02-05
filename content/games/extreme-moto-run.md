@@ -11,7 +11,7 @@ rating: 4.5
 pubDatetime: 2026-01-25T00:00:00Z
 ---
 
-# Extreme Moto Run
+## Extreme Moto Run
 
 Racing game where players conquer hazards, perform stunts, and compete for best times across challenging levels.
 

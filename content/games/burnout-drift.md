@@ -11,7 +11,7 @@ rating: 4.5
 pubDatetime: 2026-01-25T00:00:00Z
 ---
 
-# Burnout Drift
+## Burnout Drift
 
 Racing game where players drift through tracks, chain combos, and customize cars to climb leaderboards.
 

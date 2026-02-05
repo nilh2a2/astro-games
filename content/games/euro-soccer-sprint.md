@@ -11,7 +11,7 @@ rating: 4.5
 pubDatetime: 2026-01-25T00:00:00Z
 ---
 
-# Euro Soccer Sprint
+## Euro Soccer Sprint
 
 Sports game where players dodge defenders and collect power-ups in endless runs to achieve high scores.
 

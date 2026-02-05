@@ -20,7 +20,7 @@ faqs:
     answer: "Yes, Basketball Stars is completely free to play online. No downloads or registration required."
 ---
 
-# Basketball Stars
+## Basketball Stars
 
 Sports game where players perform special moves and unlock upgrades to dominate courts in solo or multiplayer matches.
 

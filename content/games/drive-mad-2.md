@@ -11,7 +11,7 @@ rating: 4.5
 pubDatetime: 2026-01-25T00:00:00Z
 ---
 
-# Drive Mad 2
+## Drive Mad 2
 
 Racing game where players perform stunts and overcome obstacles to complete levels and unlock new vehicles.
 

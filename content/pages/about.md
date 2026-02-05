@@ -3,7 +3,7 @@ title: "About"
 description: "Learn about our team, mission, and the story behind Unblocked Games. Discover our commitment to quality and innovation."
 ---
 
-# About Unblocked Games
+## About Unblocked Games
 
 Unblocked Games is your premier destination for playing free online games without restrictions. We provide a vast collection of entertaining games that can be accessed from anywhere, including schools and workplaces where gaming sites are typically blocked.
 

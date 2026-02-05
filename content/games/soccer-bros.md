@@ -11,7 +11,7 @@ rating: 4.5
 pubDatetime: 2026-01-25T00:00:00Z
 ---
 
-# Soccer Bros
+## Soccer Bros
 
 Sports game where players choose characters with special abilities to score goals in solo or multiplayer matches.
 

@@ -11,7 +11,7 @@ rating: 4.5
 pubDatetime: 2026-01-25T00:00:00Z
 ---
 
-# Soccer Heads
+## Soccer Heads
 
 Sports game where players use power-ups and unlock new characters to win multiplayer matches.
 

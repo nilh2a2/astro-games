@@ -11,7 +11,7 @@ rating: 4.5
 pubDatetime: 2026-01-25T00:00:00Z
 ---
 
-# Swimming Pro
+## Swimming Pro
 
 Sports game where players master strokes and time turns to unlock new swimmers and climb leaderboards.
 

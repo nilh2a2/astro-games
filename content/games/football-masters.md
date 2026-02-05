@@ -11,7 +11,7 @@ rating: 4.5
 pubDatetime: 2026-01-25T00:00:00Z
 ---
 
-# Football Masters
+## Football Masters
 
 Sports game where players use special moves and unlock new characters to win solo or multiplayer matches.
 

@@ -3,7 +3,7 @@ title: "Help"
 description: "Find answers to common questions, troubleshooting guides, and comprehensive documentation to help you make the most of our platform."
 ---
 
-# Help & FAQ
+## Help & FAQ
 
 ## Getting Started
 

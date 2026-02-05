@@ -11,7 +11,7 @@ rating: 4.5
 pubDatetime: 2026-01-25T00:00:00Z
 ---
 
-# Tap Tap Shots
+## Tap Tap Shots
 
 Sports game where players tap to score consecutive baskets and beat high scores.
 

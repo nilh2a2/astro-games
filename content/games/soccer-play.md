@@ -11,7 +11,7 @@ rating: 4.5
 pubDatetime: 2026-01-25T00:00:00Z
 ---
 
-# Soccer Play
+## Soccer Play
 
 Sports game where players use simple controls to score goals and improve skills in quick matches.
 

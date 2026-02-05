@@ -11,7 +11,7 @@ rating: 4.5
 pubDatetime: 2026-01-25T00:00:00Z
 ---
 
-# Moto X3M 2
+## Moto X3M 2
 
 Racing game where players perform stunts and avoid hazards to unlock new bikes and earn three stars.
 

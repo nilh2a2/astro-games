@@ -11,7 +11,7 @@ rating: 4.5
 pubDatetime: 2026-01-25T00:00:00Z
 ---
 
-# Blaze Kick
+## Blaze Kick
 
 Sports game where players aim and shoot soccer balls to overcome obstacles and unlock achievements on different stadiums.
 

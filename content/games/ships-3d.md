@@ -11,7 +11,7 @@ rating: 4.5
 pubDatetime: 2026-01-25T00:00:00Z
 ---
 
-# Ships 3D
+## Ships 3D
 
 Action game where players follow in-game instructions to complete naval combat challenges.
 

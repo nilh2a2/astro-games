@@ -11,7 +11,7 @@ rating: 4.5
 pubDatetime: 2026-01-25T00:00:00Z
 ---
 
-# Bacon May Die
+## Bacon May Die
 
 Action game where players control a bacon character in combat scenarios following in-game instructions.
 

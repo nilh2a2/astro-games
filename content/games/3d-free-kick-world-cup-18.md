@@ -11,7 +11,7 @@ rating: 4.5
 pubDatetime: 2026-01-25T00:00:00Z
 ---
 
-# 3D Free Kick World Cup 18
+## 3D Free Kick World Cup 18
 
 Sports game where players bend balls around obstacles to win tournaments and unlock new content.
 

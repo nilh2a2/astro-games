@@ -11,7 +11,7 @@ rating: 4.5
 pubDatetime: 2026-01-25T00:00:00Z
 ---
 
-# Highway Racer 3D
+## Highway Racer 3D
 
 Racing game where players dodge traffic, collect coins, and upgrade cars to climb leaderboards.
 

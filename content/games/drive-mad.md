@@ -11,7 +11,7 @@ rating: 4.5
 pubDatetime: 2026-01-25T00:00:00Z
 ---
 
-# Drive Mad
+## Drive Mad
 
 Racing game with instant play accessibility where players drive through challenging courses.
 

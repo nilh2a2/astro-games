@@ -11,7 +11,7 @@ rating: 4.5
 pubDatetime: 2026-01-25T00:00:00Z
 ---
 
-# Bikes Hill
+## Bikes Hill
 
 Racing game where players accelerate down hills, perfect landings, and unlock new bikes across various environments.
 

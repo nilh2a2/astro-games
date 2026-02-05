@@ -11,7 +11,7 @@ rating: 4.5
 pubDatetime: 2026-01-25T00:00:00Z
 ---
 
-# Moto X3M 6 Spooky Land
+## Moto X3M 6 Spooky Land
 
 Racing game where players perform stunts in haunted levels to unlock new tracks and earn stars.
 

@@ -3,7 +3,7 @@ title: "Privacy Policy"
 description: "Understand how we collect, use, and protect your personal information. Learn about your privacy rights and our data handling practices."
 ---
 
-# Privacy Policy
+## Privacy Policy
 
 *Last updated: September 23, 2025*
 

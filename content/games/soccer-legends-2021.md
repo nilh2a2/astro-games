@@ -11,7 +11,7 @@ rating: 4.5
 pubDatetime: 2026-01-25T00:00:00Z
 ---
 
-# Soccer Legends 2021
+## Soccer Legends 2021
 
 Sports game where players use special moves and unlock characters to win tournaments.
 

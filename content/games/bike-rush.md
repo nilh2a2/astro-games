@@ -11,7 +11,7 @@ rating: 4.5
 pubDatetime: 2026-01-25T00:00:00Z
 ---
 
-# Bike Rush
+## Bike Rush
 
 Racing game where players speed through cities, perform stunts, and collect coins while avoiding hazards to beat high scores.
 

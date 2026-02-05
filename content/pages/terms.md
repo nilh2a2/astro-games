@@ -3,7 +3,7 @@ title: "Terms of Service"
 description: "Review our terms and conditions for using Unblocked Games. Understand your rights, responsibilities, and service agreements."
 ---
 
-# Terms of Service
+## Terms of Service
 
 *Last updated: September 23, 2025*
 

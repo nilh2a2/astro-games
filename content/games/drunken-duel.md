@@ -11,7 +11,7 @@ rating: 4.5
 pubDatetime: 2026-01-25T00:00:00Z
 ---
 
-# Drunken Duel
+## Drunken Duel
 
 Action game where players use simple one-button controls to time perfect shots against unpredictable movements.
 

@@ -11,7 +11,7 @@ rating: 4.5
 pubDatetime: 2026-01-25T00:00:00Z
 ---
 
-# Touchdown Rush
+## Touchdown Rush
 
 Sports game where players dodge defenders and collect power-ups to score touchdowns and upgrade characters.
 

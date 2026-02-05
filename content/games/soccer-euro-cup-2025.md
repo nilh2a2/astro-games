@@ -11,7 +11,7 @@ rating: 4.5
 pubDatetime: 2026-01-25T00:00:00Z
 ---
 
-# Soccer Euro Cup 2025
+## Soccer Euro Cup 2025
 
 Sports game where players control teams through tournaments using tactical strategies to win championships.
 
