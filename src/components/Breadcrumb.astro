@@ -20,7 +20,7 @@ const breadcrumbItems = items || [];
   {
     breadcrumbItems.map(item => (
       <>
-        <span class="text-skin-base/60">
+        <span class="text-skin-base/60" aria-hidden="true">
           {getUiText("breadcrumb.separator")}
         </span>
         {item.href ? (

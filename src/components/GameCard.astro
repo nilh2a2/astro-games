@@ -24,7 +24,7 @@ const gamePath = getGamePath(Astro.props);
         thumbnail ? (
           <Image
             src={thumbnail}
-            alt={`${title} - Free ${getCategoryLabel(category)} game to play online`}
+            alt={`${title} - ${getCategoryLabel(category)}`}
             width={800}
             height={500}
             class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-110"
@@ -37,6 +37,7 @@ const gamePath = getGamePath(Astro.props);
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
+              aria-hidden="true"
             >
               <path
                 stroke-linecap="round"

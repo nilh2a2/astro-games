@@ -14,7 +14,14 @@ import { SITE } from "./src/config";
 // https://astro.build/config
 export default defineConfig({
   site: SITE.website,
-  integrations: [sitemap()],
+  integrations: [
+    sitemap({
+      filter: page => !page.startsWith("/search"),
+    }),
+  ],
+  security: {
+    checkOrigin: true,
+  },
   markdown: {
     remarkPlugins: [remarkToc, [remarkCollapse, { test: "Table of contents" }]],
     shikiConfig: {

@@ -5,7 +5,7 @@ description: "Understand how we collect, use, and protect your personal informat
 
 ## Privacy Policy
 
-*Last updated: September 23, 2025*
+*Last updated: February 5, 2026*
 
 Unblocked Games (unblockedgamesg.net) takes your privacy seriously. This privacy policy explains how we collect, use, and protect your information when you use our gaming website.
 

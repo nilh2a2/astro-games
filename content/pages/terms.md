@@ -5,7 +5,7 @@ description: "Review our terms and conditions for using Unblocked Games. Underst
 
 ## Terms of Service
 
-*Last updated: September 23, 2025*
+*Last updated: February 5, 2026*
 
 Welcome to Unblocked Games (unblockedgamesg.net). By using this website, you agree to the following terms of service.
 

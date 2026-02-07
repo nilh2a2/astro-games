@@ -11,7 +11,7 @@ Unblocked Games is your premier destination for playing free online games withou
 
 - **Free Games**: Completely free to play with no registration required
 - **Unblocked Access**: Games that work even on restricted networks
-- **Variety**: Wide selection of genres including action, puzzle, strategy, and more
+- **Variety**: Wide selection of genres including action, adventure, racing, sports, and more
 - **Mobile Friendly**: Games optimized for desktop and mobile devices
 
 ## Contact Us

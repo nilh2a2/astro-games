@@ -22,6 +22,25 @@ export async function getStaticPaths() {
 const { page } = Astro.props;
 const { Content } = await render(page);
 const { title, description, pubDatetime, modDatetime } = page.data;
+
+// Breadcrumb schema for static pages
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Home",
+      item: `${Astro.url.origin}/`,
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: title,
+    },
+  ],
+};
 ---
 
 <Layout
@@ -32,6 +51,12 @@ const { title, description, pubDatetime, modDatetime } = page.data;
   schemaType="Article"
   ogType="article"
 >
+  <!-- BreadcrumbList schema for static pages -->
+  <script
+    type="application/ld+json"
+    is:inline
+    set:html={JSON.stringify(breadcrumbSchema)}
+  />
   <Header />
   <Breadcrumb />
   <main id="main-content" class="app-layout">

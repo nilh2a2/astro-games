@@ -1,0 +1,16 @@
+{
+  "name": "Unblocked Games",
+  "short_name": "Unblocked Games",
+  "description": "Play free online games without downloads. Best collection of unblocked games for school.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#3b82f6",
+  "theme_color": "#3b82f6",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

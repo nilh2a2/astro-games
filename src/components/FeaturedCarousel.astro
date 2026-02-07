@@ -18,7 +18,13 @@ const gamesWithImages = games.map(game => ({
 
 {
   games.length > 0 && (
-    <div class="relative overflow-hidden rounded-lg bg-black">
+    <section
+      aria-labelledby="featured-heading"
+      class="relative overflow-hidden rounded-lg bg-black"
+    >
+      <h2 id="featured-heading" class="sr-only">
+        {getUiText("carousel.featured")}
+      </h2>
       <div class="relative aspect-video">
         <div id="carousel-container" class="relative h-full w-full">
           {gamesWithImages.map(({ game, coverImage }, index) => (
@@ -130,7 +136,7 @@ const gamesWithImages = games.map(game => ({
           ))}
         </div>
       </div>
-    </div>
+    </section>
   )
 }
 
@@ -178,36 +184,49 @@ const gamesWithImages = games.map(game => ({
     });
   }
 
-  // Auto-rotate carousel every 5 seconds
-  let autoSlideInterval = setInterval(() => {
-    showSlide(currentSlide + 1);
-  }, 5000);
+  // Auto-rotate carousel every 5 seconds (only if user hasn't set reduced motion preference)
+  const prefersReducedMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+  ).matches;
+  let autoSlideInterval: ReturnType<typeof setInterval> | undefined;
+
+  if (!prefersReducedMotion) {
+    autoSlideInterval = setInterval(() => {
+      showSlide(currentSlide + 1);
+    }, 5000);
+  }
 
   // Navigation buttons
   prevBtn?.addEventListener("click", () => {
-    clearInterval(autoSlideInterval);
+    if (autoSlideInterval) clearInterval(autoSlideInterval);
     showSlide(currentSlide - 1);
-    autoSlideInterval = setInterval(() => {
-      showSlide(currentSlide + 1);
-    }, 5000);
+    if (!prefersReducedMotion) {
+      autoSlideInterval = setInterval(() => {
+        showSlide(currentSlide + 1);
+      }, 5000);
+    }
   });
 
   nextBtn?.addEventListener("click", () => {
-    clearInterval(autoSlideInterval);
+    if (autoSlideInterval) clearInterval(autoSlideInterval);
     showSlide(currentSlide + 1);
-    autoSlideInterval = setInterval(() => {
-      showSlide(currentSlide + 1);
-    }, 5000);
+    if (!prefersReducedMotion) {
+      autoSlideInterval = setInterval(() => {
+        showSlide(currentSlide + 1);
+      }, 5000);
+    }
   });
 
   // Dot navigation
   dots.forEach((dot, index) => {
     dot.addEventListener("click", () => {
-      clearInterval(autoSlideInterval);
+      if (autoSlideInterval) clearInterval(autoSlideInterval);
       showSlide(index);
-      autoSlideInterval = setInterval(() => {
-        showSlide(currentSlide + 1);
-      }, 5000);
+      if (!prefersReducedMotion) {
+        autoSlideInterval = setInterval(() => {
+          showSlide(currentSlide + 1);
+        }, 5000);
+      }
     });
   });
 </script>

@@ -22,11 +22,12 @@
     "closeMenu": "Close Menu",
     "toggleTheme": "Toggles light & dark",
     "ariaSearch": "search",
-    "ariaThemeToggle": "auto"
+    "ariaThemeToggle": "Toggle dark mode"
   },
   "footer": {
     "copyright": "Copyright ©",
-    "allRightsReserved": "All rights reserved."
+    "allRightsReserved": "All rights reserved.",
+    "ariaNav": "Footer navigation"
   },
   "pagination": {
     "prev": "Prev",
@@ -103,7 +104,7 @@
       "title": "Search",
       "pageTitle": "Search",
       "description": "Search and discover free online games. Browse our collection of unblocked games by title, category, or keywords. No downloads required.",
-      "placeholder": "Search any article ...",
+      "placeholder": "Search games...",
       "devWarning": "DEV mode Warning!",
       "devMessage": "You need to build the project at least once to see the search results during development.",
       "buildCommand": "pnpm run build"
@@ -120,7 +121,7 @@
     "links": [
       {
         "name": "Mail",
-        "href": "mailto:yourmail@gmail.com",
+        "href": "mailto:contact@unblockedgamesg.net",
         "linkTitle": "Send an email to"
       }
     ],

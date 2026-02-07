@@ -103,6 +103,14 @@ const gameStructuredData = {
   },
   applicationCategory: "Game",
   inLanguage: SITE.lang,
+  publisher: {
+    "@type": "Organization",
+    name: SITE.title,
+    logo: {
+      "@type": "ImageObject",
+      url: `${Astro.url.origin}/favicon.svg`,
+    },
+  },
 };
 
 // Breadcrumb schema
@@ -220,8 +228,10 @@ const faqSchema = {
               title={title}
               name={`${title} - Game Player`}
               class="h-full w-full border-0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen></iframe>
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+              allowfullscreen
+              sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-modals allow-downloads allow-pointer-lock allow-presentation allow-storage-access-by-user-activation"
+            ></iframe>
           </div>
 
           <div class="flex items-center justify-between gap-4">
@@ -242,6 +252,7 @@ const faqSchema = {
                 viewBox="0 0 24 24"
                 stroke="currentColor"
                 stroke-width="2"
+                aria-hidden="true"
               >
                 <path
                   stroke-linecap="round"
@@ -257,6 +268,7 @@ const faqSchema = {
                 viewBox="0 0 24 24"
                 stroke="currentColor"
                 stroke-width="2"
+                aria-hidden="true"
               >
                 <path
                   stroke-linecap="round"
@@ -306,6 +318,7 @@ const faqSchema = {
                     viewBox="0 0 24 24"
                     stroke="currentColor"
                     stroke-width="2"
+                    aria-hidden="true"
                   >
                     <path
                       stroke-linecap="round"
@@ -382,7 +395,7 @@ const faqSchema = {
     }
   </script>
 
-  <script define:vars={{ categoryPath: getCategoryPath(category) }}>
+  <script is:inline define:vars={{ categoryPath: getCategoryPath(category) }}>
     // Set the back URL to the category page
     sessionStorage.setItem("backUrl", categoryPath);
   </script>
