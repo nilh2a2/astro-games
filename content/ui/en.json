@@ -12,7 +12,8 @@
     "lightAndDarkMode": true,
     "dir": "ltr",
     "lang": "en",
-    "timezone": "America/New_York"
+    "timezone": "America/New_York",
+    "logoAlt": "Unblocked Games Logo"
   },
   "nav": {
     "skipToContent": "Skip to main content",
