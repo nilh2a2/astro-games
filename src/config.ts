@@ -28,6 +28,7 @@ const getSiteConfig = () => {
     showLogo: true,
     logoPath: "/favicon.svg", // Path to logo file (relative to public directory)
     logoSize: 32, // Logo height in pixels
+    logoAlt: uiStrings.site.logoAlt || "Logo", // Logo alt text for SEO
   } as const;
 };
 
